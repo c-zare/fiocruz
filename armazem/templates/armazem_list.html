@@ -1,0 +1,106 @@
+{% extends 'armazem_base.html' %}
+
+{% block header %}
+
+	<div class="row"> <!-- Cabecalho da página de Listas -->
+	    <div class="col-sm-4">
+	        <h4>Lista de Armazens</h4>
+	    </div>
+	 
+	    <div class="col-sm-4">
+	        <div class="input-group">
+	            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Armazém">
+	            <span class="input-group-btn">
+	                <button title='Pesquisar' class="btn btn-primary" type="submit">
+	                    <span class="glyphicon glyphicon-search"></span>
+	                </button>
+	            </span>
+	        </div>
+	    </div> <!-- Pesquisa -->
+	    <div class="col-sm-2">
+	    </div>
+	    <form>
+	    	<div class="col-sm-1 text-right">
+	        	<button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:list' %}">
+	        	<span class="glyphicon glyphicon-refresh"></span></button>
+	    	</div>
+	    	<div class="col-sm-1 text-right">
+	        	<button title='Novo Armazém' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:cria' %}">
+	        	<span class="glyphicon glyphicon-plus"></span></button>
+	    	</div>
+    	</form>
+    </div>
+
+{% endblock %}
+
+{% block main %}
+	<br><br>
+	<div class='row'>	<!-- Cabeçalho-->
+		<div class='col-sm-12'>
+		    <ul class="list-inline">
+		    	<div class='col-sm-1 text-center'>
+		        	<li><strong>SEQUÊNCIA</strong></li>
+		        </div>
+		        <div class='col-sm-4'>
+		        	<li><strong>NOME</strong></li>       
+		        </div>
+		        <div class='col-sm-5'>
+		        	<li><strong>ENDEREÇO</strong></li>
+		        </div>
+		        <div class='col-sm-2 text-center'>
+		        	<li><strong>OPÇÕES</strong></li>
+		    	</div>
+		    </ul>
+	    </div>
+    </div><hr>
+	{% for obj in armazens %} <!-- Itens-->
+	    <div class='row'><br> 
+	    	<div class='col-sm-12 text-muted'>
+			    <ul class="list-inline">
+			    <div class='col-sm-1'>
+			        <li class='text-center'>{{forloop.counter}}</li>
+			    </div>
+			    <div class='col-sm-4'>
+			        <li>{{obj.nome}}</li>
+			    </div>       
+			    <div class='col-sm-5'>
+			        <li>{{obj.endereco}}</li>
+			    </div>
+			    <div class='col-sm-2 text-center'>
+	                <a href='{{ obj.get_detalhe_url }}'>
+	                   	<span title='Visualizar' class="glyphicon glyphicon-check"></span>
+	                </a>&nbsp;&nbsp;&nbsp;
+	                <a href='{{ obj.get_edit_url }}'>
+	                   	<span title='Editar' class="glyphicon glyphicon-edit"></span>
+	                </a>&nbsp;&nbsp;&nbsp;
+	                <a href='{{ obj.get_delete_url }}'>
+	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-remove"></span>
+	                </a>
+			    </div>
+			    </ul>
+		    </div>
+	  	</div>
+	{% endfor %}
+	<hr>
+	<div class='text-center'>
+	<div class="pagination"> <!-- Paginação-->
+	    <span class="step-links">
+	        {% if armazens.has_previous %}
+	            <a href="?{{ page_request_var }}={{ armazens.previous_page_number }}"><strong><< </strong></a>
+	        {% endif %}
+
+	        <span class="current">
+	            {{ armazens.number }} / {{ armazens.paginator.num_pages }}
+	        </span>
+
+	        {% if armazens.has_next %}
+	            <a href="?{{ page_request_var }}={{ armazens.next_page_number }}"><strong> >></strong></a>
+	        {% endif %}
+	    </span>
+	</div>
+	</div>
+{% endblock %}
+
+
+{% block footer %}
+{% endblock %}
