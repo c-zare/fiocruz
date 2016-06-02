@@ -43,30 +43,30 @@
 	<div> <!-- Bloco Cabeçalho -->
 		<div class='row col-sm-12'>
 		{% if messages %} <!-- Tratamento de mensagens -->
-		    <ul class="messages text-center"> 
+		    <ul class="messages text-left"> 
 		        {% for message in messages %}
 		          {% if message.tags == 'success' %}
 					<div class="alert alert-success alert-dismissible" role="alert">
   					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		              <strong>Sucesso:</strong> {{ message }}.              
+  					<span class="glyphicon glyphicon-ok-sign"></span>{{ message }}             
 		            </div>
 		          {% endif %}
 		          {% if message.tags == 'info' %}
 		          	<div class="alert alert-info alert-dismissible" role="alert">
   					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		              <strong>Informação:</strong> {{ message }}.
+  					<span class="glyphicon glyphicon-info-sign"></span>{{ message }}
 		            </div>
 		          {% endif %}
 		          {% if message.tags == 'warning' %}
 		            <div class="alert alert-warning alert-dismissible" role="alert">
   					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		              <strong>Atenção:</strong> {{ message }}.
+  					<span class="glyphicon glyphicon-exclamation-sign"></span>{{ message }}
 		            </div>
 		          {% endif %}
 		          {% if message.tags == 'error' %}
 		            <div class="alert alert-danger alert-dismissible" role="alert">
   					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		              <strong>Error:</strong> {{ message }}.
+  					<span class="glyphicon glyphicon-remove-sign"></span>{{ message }}
 		            </div>
 		          {% endif %}
 		        {% endfor %}

@@ -3,7 +3,6 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 
-# Create your views here.
 from .forms import ArmazemForm
 from .models import Armazem
 
@@ -13,7 +12,7 @@ def armazem_cria(request):
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
-		messages.success(request,'Armazém foi criado.')
+		messages.success(request,' Armazém foi criado.')
 		return HttpResponseRedirect(instance.get_absolute_url())
 #	else:
 #		messages.error(request,'Armazem is NOT Create')
@@ -23,7 +22,7 @@ def armazem_cria(request):
 def armazem_delete(request,id=None):
 	instance = get_object_or_404(Armazem,id=id)
 	instance.delete()
-	messages.warning(request,'Armazém foi excluído.')
+	messages.success(request,' Armazem foi excluido.')
 	return redirect('armazem:list')
 
 def armazem_detalhe(request,id):
@@ -55,7 +54,7 @@ def armazem_edit(request,id=None):
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.save()
-		messages.info(request,'Armazém foi alterado.')
+		messages.success(request,' Armazém foi modificado.')
 		return HttpResponseRedirect(instance.get_absolute_url())
 #	else:
 #		messages.error(request,'Armazem is NOT Update')		
