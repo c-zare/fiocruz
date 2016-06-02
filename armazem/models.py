@@ -1,12 +1,12 @@
-from django.db import models
-
-# Create your models here.
 from django.core.urlresolvers import reverse
-
+from django.db import models
+from django.db.models.signals import pre_save
+from django.utils.text import slugify
 
 class Armazem(models.Model):
 
 	nome 		= models.CharField(max_length=40,null=False)
+	slug 		= models.SlugField(unique=True)
 	endereco 	= models.CharField(max_length=80,null=False)
 	numero		= models.IntegerField()
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
@@ -21,14 +21,22 @@ class Armazem(models.Model):
 	def __str__(self):
 		return self.nome
 
-	def get_detalhe_url(self):
+	def get_absolute_url(self):
 		return reverse('armazem:detalhe', kwargs={'id':self.id})
 
-	def get_edit_url(self):
-		return reverse('armazem:edit', kwargs={'id':self.id})
+def create_slug(instance,new_slug=None):
+	slug = slugify(instance.nome)
+	if new_slug is not None:
+		slug = new_slug
+	qs = Armazem.objects.filter(slug=slug).order_by('-id')
+	exists = qs.exists()
+	if exists:
+		new_slug = '%s-%s' %(slug, qs.first().id)
+		return create_slug(instance, new_slug=new_slug)
+	return slug
 
-	def get_delete_url(self):
-		return reverse('armazem:delete', kwargs={'id':self.id})
+def pre_save_armazem_receiver(sender,instance, *args, **kwargs):
+	if not instance.slug:
+		instance.slug = create_slug(instance)
 
-	def get_list_url(self):
-		return reverse('armazem:list')
+pre_save.connect(pre_save_armazem_receiver, sender=Armazem)

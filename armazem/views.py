@@ -14,7 +14,7 @@ def armazem_cria(request):
 		instance = form.save(commit=False)
 		instance.save()
 		messages.success(request,'Armazém foi criado.')
-		return HttpResponseRedirect(instance.get_detalhe_url())
+		return HttpResponseRedirect(instance.get_absolute_url())
 #	else:
 #		messages.error(request,'Armazem is NOT Create')
 	context = {'form':form,}
@@ -56,7 +56,7 @@ def armazem_edit(request,id=None):
 		instance = form.save(commit=False)
 		instance.save()
 		messages.info(request,'Armazém foi alterado.')
-		return HttpResponseRedirect(instance.get_detalhe_url())
+		return HttpResponseRedirect(instance.get_absolute_url())
 #	else:
 #		messages.error(request,'Armazem is NOT Update')		
 	context = { 'instance':instance, 'form':form,}
