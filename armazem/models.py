@@ -5,6 +5,7 @@ from django.utils.text import slugify
 
 class Armazem(models.Model):
 
+	localizador	= models.CharField(max_length=10)
 	nome 		= models.CharField(max_length=40,null=False)
 	slug 		= models.SlugField(unique=True)
 	endereco 	= models.CharField(max_length=80,null=False)

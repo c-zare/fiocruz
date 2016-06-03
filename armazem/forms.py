@@ -8,5 +8,6 @@ class ArmazemForm(forms.ModelForm):
 		fields = {
 			'nome',
 			'endereco',
-			'numero'
+			'numero',
+			'localizador'
 		}
