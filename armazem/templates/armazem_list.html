@@ -1,38 +1,33 @@
-{% extends 'armazem_base.html' %}
-
+{% extends 'base.html' %}
 {% block header %}
-
-	<div class="row"> <!-- Cabecalho da página de Listas -->
-	    <div class="col-sm-4">
-	        <h4>Lista de Armazens</h4>
-	    </div>
-	 
-	    <div class="col-sm-4">
-	        <div class="input-group">
-	            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Armazém">
-	            <span class="input-group-btn">
-	                <button title='Pesquisar' class="btn btn-primary" type="submit">
-	                    <span class="glyphicon glyphicon-search"></span>
-	                </button>
-	            </span>
-	        </div>
-	    </div> <!-- Pesquisa -->
-	    <div class="col-sm-2">
-	    </div>
-	    <form>
-	    	<div class="col-sm-1 text-right">
-	        	<button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:list' %}">
-	        	<span class="glyphicon glyphicon-refresh"></span></button>
-	    	</div>
-	    	<div class="col-sm-1 text-right">
-	        	<button title='Novo Armazém' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:cria' %}">
-	        	<span class="glyphicon glyphicon-plus"></span></button>
-	    	</div>
-    	</form>
+<div class="row">
+    <div class="col-sm-4">
+        <h4>Lista de Armazens</h4>
     </div>
-
+    <div class="col-sm-4">
+        <div class="input-group">
+            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Armazém">
+	            <span class="input-group-btn">
+                <button title='Pesquisar' class="btn btn-primary" type="submit">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+	    </div> <!-- Pesquisa -->
+    <div class="col-sm-2">
+    </div>
+    <form>
+    	<div class="col-sm-1 text-center">
+        	<button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:list' %}">
+	        	<span class="glyphicon glyphicon-refresh"></span></button>
+    	</div>
+    	<div class="col-sm-1 text-center">
+        	<button title='Novo Armazém' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:cria' %}">
+	        	<span class="glyphicon glyphicon-plus"></span></button>
+    	</div>
+   	</form>
+</div>
 {% endblock %}
-
 {% block main %}
 	<br><br>
 	<div class='row'>	<!-- Cabeçalho-->
@@ -99,8 +94,4 @@
 	    </span>
 	</div>
 	</div>
-{% endblock %}
-
-
-{% block footer %}
 {% endblock %}

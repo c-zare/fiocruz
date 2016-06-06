@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'armazem',
+    'core',
 ]
 
 MIDDLEWARE_CLASSES = [
