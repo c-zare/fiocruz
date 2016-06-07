@@ -2,11 +2,11 @@
 {% block header %}
 <div class="row">
     <div class="col-sm-4">
-        <h4>Lista de Armazens</h4>
+        <h4>Lista de Fornecedores</h4>
     </div>
     <div class="col-sm-4">
         <div class="input-group">
-            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Armazém">
+            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Fornecedor">
 	            <span class="input-group-btn">
                 <button title='Pesquisar' class="btn btn-primary" type="submit">
                     <span class="glyphicon glyphicon-search"></span>
@@ -18,11 +18,11 @@
     </div>
     <form>
     	<div class="col-sm-1 text-center">
-        	<button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:list' %}">
+        	<button title='Atualizar fornecedor' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'fornecedor:lista' %}">
 	        	<span class="glyphicon glyphicon-refresh"></span></button>
     	</div>
     	<div class="col-sm-1 text-center">
-        	<button title='Novo Armazém' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:cria' %}">
+        	<button title='Novo fornecedor' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'fornecedor:cria' %}">
 	        	<span class="glyphicon glyphicon-plus"></span></button>
     	</div>
    	</form>
@@ -34,13 +34,13 @@
 		<div class='col-sm-12'>
 		    <ul class="list-inline">
 		    	<div class='col-sm-1 text-center'>
-		        	<li><strong>SEQUÊNCIA</strong></li>
+		        	<li><strong>ID</strong></li>
 		        </div>
 		        <div class='col-sm-4'>
-		        	<li><strong>NOME</strong></li>       
+		        	<li><strong>RAZÃO SOCIAL</strong></li>       
 		        </div>
 		        <div class='col-sm-5'>
-		        	<li><strong>ENDEREÇO</strong></li>
+		        	<li><strong>CONTATO</strong></li>
 		        </div>
 		        <div class='col-sm-2 text-center'>
 		        	<li><strong>OPÇÕES</strong></li>
@@ -56,19 +56,19 @@
 			        <li class='text-center'>{{forloop.counter}}</li>
 			    </div>
 			    <div class='col-sm-4'>
-			        <li>{{obj.nome}}</li>
+			        <li>{{obj.razaosocial}}</li>
 			    </div>       
 			    <div class='col-sm-5'>
-			        <li>{{obj.endereco}}</li>
+			        <li>{{obj.contato}}</li>
 			    </div>
 			    <div class='col-sm-2 text-center'>
 	                <a href='{{ obj.get_absolute_url }}'>
 	                   	<span title='Visualizar' class="glyphicon glyphicon-check"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
-	                <a href='{% url "armazem:edit" obj.id %}'>
+	                <a href='{% url "fornecedor:edita" obj.id %}'>
 	                   	<span title='Editar' class="glyphicon glyphicon-edit"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
-	                <a href='{% url "armazem:delete" obj.id %}'>
+	                <a href='{% url "fornecedor:apaga" obj.id %}'>
 	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-remove"></span>
 	                </a>
 			    </div>
@@ -80,16 +80,16 @@
 	<div class='text-center'>
 	<div class="pagination"> <!-- Paginação-->
 	    <span class="step-links">
-	        {% if armazens.has_previous %}
-	            <a href="?{{ page_request_var }}={{ armazens.previous_page_number }}"><strong><< </strong></a>
+	        {% if fornecedores.has_previous %}
+	            <a href="?{{ page_request_var }}={{ fornecedores.previous_page_number }}"><strong><< </strong></a>
 	        {% endif %}
 
 	        <span class="current">
-	            {{ armazens.number }} / {{ armazens.paginator.num_pages }}
+	            {{ fornecedores.number }} / {{ fornecedores.paginator.num_pages }}
 	        </span>
 
-	        {% if armazens.has_next %}
-	            <a href="?{{ page_request_var }}={{ armazens.next_page_number }}"><strong> >></strong></a>
+	        {% if fornecedores.has_next %}
+	            <a href="?{{ page_request_var }}={{ fornecedores.next_page_number }}"><strong> >></strong></a>
 	        {% endif %}
 	    </span>
 	</div>

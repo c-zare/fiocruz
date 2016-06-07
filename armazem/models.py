@@ -5,17 +5,18 @@ from django.utils.text import slugify
 
 class Armazem(models.Model):
 
-	localizador	= models.CharField(max_length=10)
 	nome 		= models.CharField(max_length=40,null=False)
-	slug 		= models.SlugField(unique=True)
-	endereco 	= models.CharField(max_length=80,null=False)
+	endereco 	= models.CharField(max_length=40,null=False)
 	numero		= models.IntegerField()
+	complemento	= models.CharField(max_length=40,null=True)
+	localizador	= models.CharField(max_length=10)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
+	slug 		= models.SlugField(unique=True)
 
 	class Meta:
-		ordering = ['-atualizado']
-
+		ordering = ['-atualizado','-criado']
+		
 	def __unicode__(self):
 		return self.nome
 

@@ -13,7 +13,7 @@
             <span class="glyphicon glyphicon-refresh"></span></button>
         </div>
         <div class="col-sm-1 text-right">
-            <button title='Listar Armazéns' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:list' %}">
+            <button title='Listar Armazéns' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:lista' %}">
             <span class="glyphicon glyphicon-list"></span></button>
         </div>
         <div class="col-sm-1 text-right">
@@ -44,17 +44,29 @@
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->
 	<div class="row">
       <div class="col-sm-4">
+        <p><strong>Complemento</strong></p>
+        <p>{{armazem.complemento}}</p>
+      </div>
+      <div class="col-sm-4">
         <p><strong>Localizador</strong></p>
         <p>{{armazem.localizador}}</p>
       </div>
   		<div class="col-sm-4">
-    		<p><strong>Criado</strong></p>
-    		<p>{{armazem.criado}}</p>
-  		</div>
-  		<div class="col-sm-4">
-    		<p><strong>Modificado</strong></p>
-    		<p>{{armazem.atualizado}}</p>
   		</div>
 	</div>
+  <div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 3-->
+  <hr>
+  <div class="row">
+      <div class="col-sm-4">
+        <p><strong>Criado</strong></p>
+        <p class='text-muted'>{{armazem.criado}}</p>
+      </div>
+      <div class="col-sm-4">
+        <p><strong>Modificado</strong></p>
+        <p class='text-muted'>{{armazem.atualizado}}</p>
+      </div>
+      <div class="col-sm-4">
+      </div>
+  </div>
 </div>
 {% endblock %}

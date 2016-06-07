@@ -9,5 +9,6 @@ class ArmazemForm(forms.ModelForm):
 			'nome',
 			'endereco',
 			'numero',
+			'complemento',
 			'localizador'
 		}

@@ -19,18 +19,18 @@ def armazem_cria(request):
 	context = {'form':form,}
 	return render(request,'armazem_form.html', context)
 
-def armazem_delete(request,id=None):
+def armazem_apaga(request,id=None):
 	instance = get_object_or_404(Armazem,id=id)
 	instance.delete()
 	messages.success(request,' Armazem foi excluido.')
-	return redirect('armazem:list')
+	return redirect('armazem:lista')
 
 def armazem_detalhe(request,id):
 	queryset_detalhe = Armazem.objects.get(id=id)
 	context = { 'armazem':queryset_detalhe }
 	return render(request,'armazem_detalhe.html', context)
 
-def armazem_list(request):
+def armazem_lista(request):
 	queryset_list = Armazem.objects.all() 
 	# queryset = Armazem.objects.all().order_by('-criado,-atualizado') 
 	page_request_var='Pagina'
@@ -46,9 +46,9 @@ def armazem_list(request):
 		queryset_list = paginator.page(paginator.num_pages)
 	context = { 'armazens':queryset_list,
 				'page_request_var':page_request_var }
-	return render(request,'armazem_list.html', context)
+	return render(request,'armazem_lista.html', context)
 
-def armazem_edit(request,id=None):
+def armazem_edita(request,id=None):
 	instance = get_object_or_404(Armazem,id=id)
 	form = ArmazemForm(request.POST or None, instance=instance)
 	if form.is_valid():

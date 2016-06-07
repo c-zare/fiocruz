@@ -1,12 +1,12 @@
 from django.conf.urls import url, include
 
-from .views	import armazem_cria, armazem_list, armazem_detalhe, armazem_edit, armazem_delete
+from .views	import armazem_cria, armazem_lista, armazem_detalhe, armazem_edita, armazem_apaga
 	
 
 urlpatterns = [
-    url(r'^$', armazem_list, name='list'),
+    url(r'^$', armazem_lista, name='lista'),
     url(r'^cria/$', armazem_cria, name='cria'),
-    url(r'^delete/(?P<id>\d+)/$', armazem_delete, name='delete'),
+    url(r'^apaga/(?P<id>\d+)/$', armazem_apaga, name='apaga'),
     url(r'^detalhe/(?P<id>\d+)/$', armazem_detalhe, name='detalhe'),
-    url(r'^edit/(?P<id>\d+)/$', armazem_edit, name='edit')
+    url(r'^edita/(?P<id>\d+)/$', armazem_edita, name='edita')
 ]
