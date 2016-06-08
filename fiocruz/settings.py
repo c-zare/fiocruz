@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'armazem',
     'core',
     'fornecedor',
-]
+    'item',
+ ]
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',

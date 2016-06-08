@@ -3,19 +3,42 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 
+from .forms import FornecedorForm
 from .models import Fornecedor
 
-def fornecedor_apaga(request):
-	pass
+def fornecedor_apaga(request,id=None):
+	instance = get_object_or_404(Fornecedor,id=id)
+	instance.delete()
+	messages.success(request,' Fornecedor foi excluido.')
+	return redirect('fornecedor:lista')
 
 def fornecedor_cria(request):
-	pass
+	form = FornecedorForm(request.POST or None)
+	if form.is_valid():
+		instance = form.save(commit=False)
+		instance.save()
+		messages.success(request,' Fornecedor foi criado.')
+		return HttpResponseRedirect(instance.get_absolute_url())
+	context = {'form':form,}
+	return render(request,'fornecedor_form.html', context)
 
-def fornecedor_detalhe(request):
-	pass
+def fornecedor_detalhe(request,id):
+	queryset_detalhe = Fornecedor.objects.get(id=id)
+	context = { 'fornecedor':queryset_detalhe }
+	return render(request,'fornecedor_detalhe.html', context)
 
-def fornecedor_edita(request):
-	pass
+def fornecedor_edita(request,id=None):
+	instance = get_object_or_404(Fornecedor,id=id)
+	form = FornecedorForm(request.POST or None, instance=instance)
+	if form.is_valid():
+		instance = form.save(commit=False)
+		instance.save()
+		messages.success(request,' Fornecedor foi modificado.')
+		return HttpResponseRedirect(instance.get_absolute_url())
+#	else:
+#		messages.error(request,'Armazem is NOT Update')		
+	context = { 'instance':instance, 'form':form,}
+	return render(request,'fornecedor_form.html', context)
 
 def fornecedor_lista(request):
 	queryset_list = Fornecedor.objects.all() 

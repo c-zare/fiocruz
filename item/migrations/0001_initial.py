@@ -14,17 +14,13 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Armazem',
+            name='Item',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('nome', models.CharField(max_length=40)),
-                ('endereco', models.CharField(max_length=40)),
-                ('numero', models.IntegerField()),
-                ('complemento', models.CharField(max_length=40, null=True)),
-                ('localizador', models.CharField(max_length=10)),
+                ('estoque', models.IntegerField()),
                 ('criado', models.DateTimeField(auto_now_add=True)),
                 ('atualizado', models.DateTimeField(auto_now=True)),
-                ('slug', models.SlugField(unique=True)),
             ],
             options={
                 'ordering': ['-atualizado', '-criado'],

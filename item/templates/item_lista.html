@@ -2,11 +2,11 @@
 {% block header %}
 <div class="row">
     <div class="col-sm-4">
-        <h4>Lista de Fornecedores</h4>
+        <h4>Lista de Itens</h4>
     </div>
     <div class="col-sm-4">
         <div class="input-group">
-            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Fornecedor">
+            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar ítem">
 	            <span class="input-group-btn">
                 <button title='Pesquisar' class="btn btn-primary" type="submit">
                     <span class="glyphicon glyphicon-search"></span>
@@ -18,11 +18,11 @@
     </div>
     <form>
     	<div class="col-sm-1 text-center">
-        	<button title='Atualizar fornecedor' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'fornecedor:lista' %}">
+        	<button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'item:lista' %}">
 	        	<span class="glyphicon glyphicon-refresh"></span></button>
     	</div>
     	<div class="col-sm-1 text-center">
-        	<button title='Novo fornecedor' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'fornecedor:cria' %}">
+        	<button title='Novo Ítem' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'item:cria' %}">
 	        	<span class="glyphicon glyphicon-plus"></span></button>
     	</div>
    	</form>
@@ -36,11 +36,11 @@
 		    	<div class='col-sm-1 text-center'>
 		        	<li><strong>ID</strong></li>
 		        </div>
-		        <div class='col-sm-6'>
-		        	<li><strong>RAZÃO SOCIAL</strong></li>       
+		        <div class='col-sm-8'>
+		        	<li><strong>NOME</strong></li>       
 		        </div>
-		        <div class='col-sm-3'>
-		        	<li><strong>CONTATO</strong></li>
+		        <div class='col-sm-1'>
+		        	<li><strong>ESTOQUE</strong></li>
 		        </div>
 		        <div class='col-sm-2 text-center'>
 		        	<li><strong>OPÇÕES</strong></li>
@@ -48,27 +48,27 @@
 		    </ul>
 	    </div>
     </div><hr>
-	{% for obj in fornecedores %} <!-- Itens-->
+	{% for obj in itens %} <!-- Itens-->
 	    <div class='row'><br> 
 	    	<div class='col-sm-12 text-muted'>
 			    <ul class="list-inline">
 			    <div class='col-sm-1'>
 			        <li class='text-center'>{{forloop.counter}}</li>
 			    </div>
-			    <div class='col-sm-6'>
-			        <li>{{obj.razaosocial}}</li>
+			    <div class='col-sm-8'>
+			        <li>{{obj.nome}}</li>
 			    </div>       
-			    <div class='col-sm-3'>
-			        <li>{{obj.contato}}</li>
+			    <div class='col-sm-1'>
+			        <li>{{obj.estoque}}</li>
 			    </div>
 			    <div class='col-sm-2 text-center'>
 	                <a href='{{ obj.get_absolute_url }}'>
 	                   	<span title='Visualizar' class="glyphicon glyphicon-check"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
-	                <a href='{% url "fornecedor:edita" obj.id %}'>
+	                <a href='{% url "item:edita" obj.id %}'>
 	                   	<span title='Editar' class="glyphicon glyphicon-edit"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
-	                <a href='{% url "fornecedor:apaga" obj.id %}'>
+	                <a href='{% url "item:apaga" obj.id %}'>
 	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-remove"></span>
 	                </a>
 			    </div>
@@ -80,16 +80,16 @@
 	<div class='text-center'>
 	<div class="pagination"> <!-- Paginação-->
 	    <span class="step-links">
-	        {% if fornecedores.has_previous %}
-	            <a href="?{{ page_request_var }}={{ fornecedores.previous_page_number }}"><strong><< </strong></a>
+	        {% if itens.has_previous %}
+	            <a href="?{{ page_request_var }}={{ itens.previous_page_number }}"><strong><< </strong></a>
 	        {% endif %}
 
 	        <span class="current">
-	            {{ fornecedores.number }} / {{ fornecedores.paginator.num_pages }}
+	            {{ itens.number }} / {{ itens.paginator.num_pages }}
 	        </span>
 
-	        {% if fornecedores.has_next %}
-	            <a href="?{{ page_request_var }}={{ fornecedores.next_page_number }}"><strong> >></strong></a>
+	        {% if itens.has_next %}
+	            <a href="?{{ page_request_var }}={{ itens.next_page_number }}"><strong> >></strong></a>
 	        {% endif %}
 	    </span>
 	</div>
