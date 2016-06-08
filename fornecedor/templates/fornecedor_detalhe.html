@@ -35,11 +35,35 @@
     		<p><strong>Nome Fantasia</strong></p>
     		<p>{{fornecedor.nomefantasia}}</p>
   		</div>
-  		<div class="col-sm-4">
+  		<div class="col-sm-2">
     		<p><strong>CNPJ</strong></p>
     		<p>{{fornecedor.cnpj}}</p>
   		</div>
+      <div class="col-sm-2">
+      <p><strong>SITUAÇÃO</strong></p>
+        {% if fornecedor.situacao %}
+        <p><strong class='text-success'>HABILITADO</strong></p>
+        {% else %}
+        <p><strong class='text-danger'>DESABILITADO</strong></p>
+        {% endif %}
+      </div>
 	</div>
+</div>
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->
+  <div class="row">
+      <div class="col-sm-4">
+        <p><strong>Atividade</strong></p>
+        <p>{{fornecedor.atividade}}</p>
+      </div>
+      <div class="col-sm-4">
+        <p><strong>Estado</strong></p>
+        <p>{{fornecedor.estado}}</p>
+      </div>
+      <div class="col-sm-4">
+        <p><strong>Cidade</strong></p>
+        <p>{{fornecedor.cidade}}</p>
+      </div>
+  </div>
 </div>
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->
 	<div class="row">

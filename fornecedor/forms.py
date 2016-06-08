@@ -8,11 +8,15 @@ class FornecedorForm(forms.ModelForm):
 		fields = {
 			'razaosocial',
 			'nomefantasia',
+			'atividade',
 			'cnpj',
+			'estado',
+			'cidade',
 			'endereco',
 			'numero',
 			'complemento',
 			'cep',
 			'telefone',
-			'contato'
+			'contato',
+			'situacao',
 		}
