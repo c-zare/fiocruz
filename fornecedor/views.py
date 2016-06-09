@@ -19,12 +19,12 @@ def fornecedor_cria(request):
 		instance.save()
 		messages.success(request,' Fornecedor foi criado.')
 		return HttpResponseRedirect(instance.get_absolute_url())
-	context = {'form':form,}
+	context = {'form':form }
 	return render(request,'fornecedor_form.html', context)
 
 def fornecedor_detalhe(request,id):
 	queryset_detalhe = Fornecedor.objects.get(id=id)
-	context = { 'fornecedor':queryset_detalhe }
+	context = { 'fornecedor':queryset_detalhe}
 	return render(request,'fornecedor_detalhe.html', context)
 
 def fornecedor_edita(request,id=None):
@@ -35,9 +35,7 @@ def fornecedor_edita(request,id=None):
 		instance.save()
 		messages.success(request,' Fornecedor foi modificado.')
 		return HttpResponseRedirect(instance.get_absolute_url())
-#	else:
-#		messages.error(request,'Armazem is NOT Update')		
-	context = { 'instance':instance, 'form':form,}
+	context = { 'instance':instance, 'form':form }
 	return render(request,'fornecedor_form.html', context)
 
 def fornecedor_lista(request):

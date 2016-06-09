@@ -1,13 +1,15 @@
 from django.core.urlresolvers import reverse
 from django.db import models
 
+from core.models import Estado
+
 class Fornecedor(models.Model):
 
 	razaosocial	= models.CharField(max_length=80,null=False)
 	nomefantasia= models.CharField(max_length=40,null=False)
 	cnpj		= models.IntegerField()
 	atividade	= models.CharField(max_length=20,null=False)
-	estado		= models.CharField(max_length=2,null=False)
+	estado		= models.ForeignKey(Estado)
 	cidade		= models.CharField(max_length=20,null=False)		
 	endereco 	= models.CharField(max_length=40,null=False)
 	numero		= models.IntegerField()

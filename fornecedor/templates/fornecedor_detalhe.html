@@ -3,7 +3,7 @@
 {% block header %}
 <div class="row"> <!-- Cabecalho da página de Listas -->
     <div class="col-sm-4">
-        <h4>Detalhe do Armazém</h4>
+        <h4>Detalhe do Fornecedor</h4>
     </div>   
     <div class="col-sm-5">
     </div>   
@@ -42,9 +42,9 @@
       <div class="col-sm-2">
       <p><strong>SITUAÇÃO</strong></p>
         {% if fornecedor.situacao %}
-        <p><strong class='text-success'>HABILITADO</strong></p>
+          <p><strong class='text-success'>APTO</strong></p>
         {% else %}
-        <p><strong class='text-danger'>DESABILITADO</strong></p>
+          <p><strong class='text-danger'>NÃO APTO</strong></p>
         {% endif %}
       </div>
 	</div>

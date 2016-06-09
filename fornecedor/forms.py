@@ -1,8 +1,12 @@
 from django import forms
 
 from .models import Fornecedor
+from core.models import Estado
 
 class FornecedorForm(forms.ModelForm):
+
+	situacao 	= forms.BooleanField(required=False, label="situacao")
+
 	class Meta:
 		model = Fornecedor
 		fields = {

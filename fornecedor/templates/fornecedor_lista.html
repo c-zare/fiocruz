@@ -36,13 +36,13 @@
 		    	<div class='col-sm-1 text-center'>
 		        	<li><strong>ID</strong></li>
 		        </div>
-		        <div class='col-sm-5'>
+		        <div class='col-sm-4'>
 		        	<li><strong>RAZÃO SOCIAL</strong></li>       
 		        </div>
 		        <div class='col-sm-3'>
 		        	<li><strong>CONTATO</strong></li>
 		        </div>
-		        <div class='col-sm-1'>
+		        <div class='col-sm-2'>
 		        	<li><strong>SITUAÇÃO</strong></li>
 		        </div>
 		        <div class='col-sm-2 text-center'>
@@ -58,14 +58,20 @@
 			    <div class='col-sm-1'>
 			        <li class='text-center'>{{forloop.counter}}</li>
 			    </div>
-			    <div class='col-sm-5'>
+			    <div class='col-sm-4'>
 			        <li>{{obj.razaosocial}}</li>
 			    </div>       
 			    <div class='col-sm-3'>
 			        <li>{{obj.contato}}</li>
 			    </div>
-			    <div class='col-sm-1'>
-		        	<li><strong>{{obj.situacao}}</strong></li>
+			    <div class='col-sm-2'>
+			    	<li><strong>
+			    	{% if obj.situacao %}
+		        		APTO
+			    	{% else %}
+			    		NÃO APTO
+			    	{% endif %}
+			    	</strong></li>
 		        </div>
 			    <div class='col-sm-2 text-center'>
 	                <a href='{{ obj.get_absolute_url }}'>
