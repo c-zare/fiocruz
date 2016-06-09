@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Estado(models.Model):
 
 	sigla		= models.CharField(max_length=2,null=False)
@@ -15,6 +16,23 @@ class Estado(models.Model):
 
 	def __str__(self):
 		return self.nome
+
+class Municipio(models.Model):
+
+	nome		= models.CharField(max_length=30)
+	estado      = models.ForeignKey(Estado)
+	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
+	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
+
+	class Meta:
+		ordering = ['nome']
+		
+	def __unicode__(self):
+		return self.nome
+
+	def __str__(self):
+		return self.nome
+
 
 # Estado(sigla='AC',nome='Acre').save()
 # Estado(sigla='AL',nome='Alagoas').save()

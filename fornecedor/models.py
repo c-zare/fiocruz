@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse
 from django.db import models
 
 from core.models import Estado
+from core.models import Municipio
 
 class Fornecedor(models.Model):
 
@@ -10,7 +11,7 @@ class Fornecedor(models.Model):
 	cnpj		= models.IntegerField()
 	atividade	= models.CharField(max_length=20,null=False)
 	estado		= models.ForeignKey(Estado)
-	cidade		= models.CharField(max_length=20,null=False)		
+	cidade		= models.ForeignKey(Municipio)		
 	endereco 	= models.CharField(max_length=40,null=False)
 	numero		= models.IntegerField()
 	complemento	= models.CharField(max_length=40,null=True)
