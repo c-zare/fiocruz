@@ -1,11 +1,12 @@
 from django import forms
 
 from .models import Fornecedor
-from core.models import Estado
+from core.models import Estado, Municipio
 
 class FornecedorForm(forms.ModelForm):
 
 	situacao 	= forms.BooleanField(required=False, label="situacao")
+#	cidade   	= forms.ChoiceField(choices=Municipio, label=u'id')
 
 	class Meta:
 		model = Fornecedor

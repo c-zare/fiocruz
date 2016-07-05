@@ -1,3 +1,4 @@
+from django.conf	import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 
@@ -21,6 +22,7 @@ class Fornecedor(models.Model):
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
 	situacao	= models.BooleanField()
+	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL)
 
 	class Meta:
 		ordering = ['-atualizado','-criado']
