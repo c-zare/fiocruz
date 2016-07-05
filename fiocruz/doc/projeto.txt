@@ -1,0 +1,5 @@
+Registro de Atividades
+--------------------------------------------------------------------------------
+05-07-2016: Implementado na base de dados o usuário responsável pela alteração e criação do registro.
+04-07-2016: Implementado o acesso ao sistema atráves de Login padrao do django.
+04-07-2016: Imposto a obrigatóriedade de acesso atráves de um Login para as funções de view. (Controler) 
