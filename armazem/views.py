@@ -48,7 +48,8 @@ def armazem_lista(request):
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		queryset_list = paginator.page(paginator.num_pages)
 	context = { 'armazens':queryset_list,
-				'page_request_var':page_request_var }
+				'page_request_var':page_request_var 
+				}
 	return render(request,'armazem_lista.html', context)
 
 @login_required

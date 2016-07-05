@@ -28,8 +28,9 @@
               <li><a href="#">Menu 3</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Usuário</a></li>
-              <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Sair</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{{ request.user }}
+              </a></li>
+              <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span>&nbsp;&nbsp;Sair</a></li>
             </ul>
           </div>
         </div>
