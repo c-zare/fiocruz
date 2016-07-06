@@ -2,6 +2,10 @@
       h3,h4 {
         color: #ffffff;
       }
+      button[type=submit] {
+        visibility: hidden;
+        color: #ffffff;
+      }
       html, body {
         background-color: #c8c8c8;
       }

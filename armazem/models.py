@@ -17,6 +17,10 @@ class Armazem(models.Model):
 
 	class Meta:
 		ordering = ['-atualizado','-criado']
+		permissions = (
+            ('pode_administrar', 'Pode Administrar'),
+        )
+
 		
 	def __unicode__(self):
 		return self.nome

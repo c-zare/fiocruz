@@ -11,42 +11,42 @@
 	<link rel='stylesheet' href='/static/css/login.css'>
 </head>
 <body>
-  <div class="container">
+<div class="container">
     <div class="content">
       <div class="row">
         <div class="login-form text-center">
-          <form action="{% url 'django.contrib.auth.views.login' %}" method="post">
+          <form name="enviando" id="enviando" action="{% url 'django.contrib.auth.views.login' %}" method="post">
           {% csrf_token %}
             <fieldset>
             	<h3>FIOCRUZ</h3>
           		<h4>Mato Grosso do Sul</h4>
           		<div class="clearfix">
-                <input class="form-group input-sm" type="text" id="id_username" name="username" class="form_control" placeholder="Usuário" required autofocus>
-              </div>
-              <div class="clearfix">
-                <input class="form-group input-sm" type="password" id="id_password" name="password" class="form_control" placeholder="Senha" required>
-              </div>
-              <div>
-              	<button class="btn-primary btn-sm" type="submit">Entrar</button>
-              </div>
+                	<input class="form-group input-sm" type="text" id="id_username" name="username" class="form_control" placeholder="Usuário" required autofocus>
+              	</div>
+	            <div class="clearfix">
+	                <input class="form-group input-sm" type="password" id="id_password" name="password" class="form_control" placeholder="Senha" required>
+	              </div>
+	            <div class="clearfix">
+	            {% if form.errors %}
+	            	<br>
+					<div class="alert alert-default">
+						<button type="btn-sm" class='close'></button><span class="glyphicon glyphicon-info-sign"></span> Ops, não foi possível.
+					</div>
+				{% endif %}
+				</div>
+              	<div> 
+              	<button type="submit">Button de envio escondido pelo CSS.</button>
+              	</div> <!--
               	<input type="hidden" name="next" value="{{ lista }}"> <!-- Encaminha para página -->
             </fieldset>
-            <div class="clearfix">
-            {% if form.errors %}
-            	<br>
-				<div class="alert alert-default">
-					<button type="btn-sm" class='close'></button><span class="glyphicon glyphicon-info-sign"></span> Não encontrei você.
-				</div>
-			{% endif %}
-			</div>
           </form>
         </div>
       </div>
     </div>
-  </div> <!-- /container -->
-  	<div>
-		<script src="/static/js/jquery.min.2.2.4.js"></script>
-		<script src='/static/js/bootstrap.min.js'></script>
-	</div>
+</div> <!-- /container -->
+<div>
+	<script src="/static/js/jquery.min.2.2.4.js"></script>
+	<script src='/static/js/bootstrap.min.js'></script>
+</div>
 </body>
 </html>

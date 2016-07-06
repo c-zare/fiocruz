@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block header %}
+<div class="row"> <!-- Cabecalho da página de Listas -->
+    <div class="col-sm-12">
+        <h4 class='text-muted'>{{ request.user.get_full_name }}</h4>
+    </div>
+</div> 
+{% endblock %}
+{% block main %}
+<hr>
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
+	<div class="row">
+  		<div class="col-sm-4">
+    		<p class='text-muted'><strong>E-mail</strong></p>
+    		<p class='text-muted'>{{ request.user.email }}</p>
+  		</div>
+  		<div class="col-sm-4">
+    		<p class='text-muted'><strong>Permisões</strong></p>
+    		<p class='text-muted'>{{request.user.groups}}</p>
+  		</div>
+      <div class="col-sm-4">
+      <p class='text-muted'><strong>Ativo</strong></p>
+        {% if request.user.is_active %}
+          <p class='text-muted'><strong class='text-success'>Sim</strong></p>
+        {% else %}
+          <p class='text-muted'><strong class='text-danger'>Não</strong></p>
+        {% endif %}
+      </div>
+	</div>
+</div>
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->
+  <div class="row">
+      <div class="col-sm-4">
+        <p class='text-muted'><strong>Último acesso </strong></p>
+        <p class='text-muted'>{{request.user.last_login}}</p>
+      </div>
+      <div class="col-sm-4">
+        <p class='text-muted'<strong>Criado</strong></p>
+        <p class='text-muted'>{{request.user.date_joined}}</p>
+      </div>
+      <div class="col-sm-4">
+      </div>
+  </div>
+</div>
+</div>
+{% endblock %}

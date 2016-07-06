@@ -10,7 +10,7 @@ class Estado(models.Model):
 
 	class Meta:
 		ordering = ['sigla']
-		
+
 	def __unicode__(self):
 		return self.nome
 

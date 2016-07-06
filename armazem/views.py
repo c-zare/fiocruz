@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.contrib.auth.decorators import permission_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
@@ -8,6 +9,7 @@ from .forms import ArmazemForm
 from .models import Armazem
 
 @login_required
+# @permission_required('armazem.pode_administrar')
 def armazem_cria(request): 
 	form = ArmazemForm(request.POST or None)
 	if form.is_valid():
