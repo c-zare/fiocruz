@@ -1,5 +1,6 @@
 Registro de Atividades
 ---------------------------------------------------------------------------------------------------------
+06-07-2016: Implementado permissões para acesso a adição, alteração e exclusão padrão: 'pode_administrar'
 06-07-2016: Ajustes na tela de Login, fixando o tamanho da tela de entrada e exibindo a mensagem de erro.
 05-07-2016: Implementado na base de dados o usuário responsável pela alteração e criação do registro.
 04-07-2016: Implementado o acesso ao sistema atráves de Login padrao do django.

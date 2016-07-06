@@ -17,8 +17,10 @@
             <span class="glyphicon glyphicon-list"></span></button>
         </div>
         <div class="col-sm-1 text-right">
+        {% if perms.armazem.pode_administrar %}
             <button title='Novo Ítem' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'item:cria' %}">
             <span class="glyphicon glyphicon-plus"></span></button>
+        {% endif %}
         </div>
     </form>
 </div> 

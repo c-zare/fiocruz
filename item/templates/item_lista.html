@@ -22,8 +22,10 @@
 	        	<span class="glyphicon glyphicon-refresh"></span></button>
     	</div>
     	<div class="col-sm-1 text-center">
+    	{% if perms.armazem.pode_administrar %}
         	<button title='Novo Ítem' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'item:cria' %}">
 	        	<span class="glyphicon glyphicon-plus"></span></button>
+	    {% endif %}
     	</div>
    	</form>
 </div>
@@ -65,12 +67,14 @@
 	                <a href='{{ obj.get_absolute_url }}'>
 	                   	<span title='Visualizar' class="glyphicon glyphicon-check"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
+	                {% if perms.armazem.pode_administrar %}
 	                <a href='{% url "item:edita" obj.id %}'>
 	                   	<span title='Editar' class="glyphicon glyphicon-edit"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
 	                <a href='{% url "item:apaga" obj.id %}'>
 	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-remove"></span>
 	                </a>
+	                {% endif %}
 			    </div>
 			    </ul>
 		    </div>
