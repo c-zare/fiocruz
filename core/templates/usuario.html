@@ -15,8 +15,8 @@
     		<p class='text-muted'>{{ request.user.email }}</p>
   		</div>
   		<div class="col-sm-4">
-    		<p class='text-muted'><strong>Permisões</strong></p>
-    		<p class='text-muted'>{{request.user.groups}}</p>
+    		<p class='text-muted'><strong>Perfil</strong></p>
+    		<p class='text-muted'>{% if request.user.is_superuser %}Adminstrador{% else %}Usuário do sistema{% endif %}</p>
   		</div>
       <div class="col-sm-4">
       <p class='text-muted'><strong>Ativo</strong></p>
@@ -35,10 +35,14 @@
         <p class='text-muted'>{{request.user.last_login}}</p>
       </div>
       <div class="col-sm-4">
-        <p class='text-muted'<strong>Criado</strong></p>
+        <p class='text-muted'><strong>Criado</strong></p>
         <p class='text-muted'>{{request.user.date_joined}}</p>
       </div>
       <div class="col-sm-4">
+        <p><strong>Senha</strong></p>
+        <p>
+          <input class="input-sm" type="password" id="id_password" name="password" class="form_control" placeholder="Nova Senha" required>
+        </p>
       </div>
   </div>
 </div>
