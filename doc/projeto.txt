@@ -1,5 +1,7 @@
 Registro de Atividades
 ---------------------------------------------------------------------------------------------------------
+11-07-2016: Troca dos campos 'NUMERO' dos endereços e 'CNPJ' para textos para ajustes na formatação tela
+11-07-2016: Inserido no footer.html a função navbar-fixed-bottom para fixar ao final da página.
 06-07-2016: Implementado permissões para acesso a adição, alteração e exclusão padrão: 'pode_administrar'
 06-07-2016: Ajustes na tela de Login, fixando o tamanho da tela de entrada e exibindo a mensagem de erro.
 05-07-2016: Implementado na base de dados o usuário responsável pela alteração e criação do registro.

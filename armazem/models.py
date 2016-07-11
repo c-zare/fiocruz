@@ -8,7 +8,7 @@ class Armazem(models.Model):
 
 	nome 		= models.CharField(max_length=40,null=False)
 	endereco 	= models.CharField(max_length=40,null=False)
-	numero		= models.IntegerField()
+	numero		= models.CharField(max_length=6,null=False)
 	complemento	= models.CharField(max_length=40,null=True)
 	localizador	= models.CharField(max_length=10)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
