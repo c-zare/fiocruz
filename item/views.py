@@ -49,6 +49,9 @@ def item_edita(request,id=None):
 def item_lista(request):
 	queryset_list = Item.objects.all() 
 	page_request_var='Pagina'
+	query = request.GET.get('q')
+	if query:
+		queryset_list = queryset_list.filter(nome__icontains=query)
 	paginator = Paginator(queryset_list, 8)
 	page = request.GET.get(page_request_var)
 	try:

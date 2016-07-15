@@ -4,16 +4,20 @@
     <div class="col-sm-4">
         <h4>Lista de Itens</h4>
     </div>
-    <div class="col-sm-4">
-        <div class="input-group">
-            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar ítem">
-	            <span class="input-group-btn">
-                <button title='Pesquisar' class="btn btn-primary" type="submit">
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </span>
-        </div>
-	    </div> <!-- Pesquisa -->
+    <form method='GET' action=''>
+	    <div class="col-sm-4">
+	        <div class="input-group">
+	            <input name="q" class="form-control" id="search" type="text" placeholder="Pesquisar Item" value='{{request.GET.q}}'>
+		            <span class="input-group-btn">
+	                <button title='Pesquisar' class="btn btn-primary" type="submit">
+	                    <span class="glyphicon glyphicon-search"></span>
+	                </button>
+	            </span>
+	        </div>
+		</div> <!-- Pesquisa -->
+	    <div class="col-sm-2">
+	    </div>
+    </form>
     <div class="col-sm-2">
     </div>
     <form>

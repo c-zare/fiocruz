@@ -4,18 +4,21 @@
     <div class="col-sm-4">
         <h4>Lista de Armazens</h4>
     </div>
-    <div class="col-sm-4">
-        <div class="input-group">
-            <input name="data[search]" class="form-control" id="search" type="text" placeholder="Pesquisar Armazém">
-	            <span class="input-group-btn">
-                <button title='Pesquisar' class="btn btn-primary" type="submit">
-                    <span class="glyphicon glyphicon-search"></span>
-                </button>
-            </span>
-        </div>
-	</div> <!-- Pesquisa -->
-    <div class="col-sm-2">
-    </div>
+    <form method='GET' action=''>
+	    <div class="col-sm-4">
+	        <div class="input-group">
+	            <input name="q" class="form-control" id="search" type="text" placeholder="Pesquisar Armazém" value='{{request.GET.q}}'>
+		            <span class="input-group-btn">
+	                <button title='Pesquisar' class="btn btn-primary" type="submit">
+	                    <span class="glyphicon glyphicon-search"></span>
+	                </button>
+	            </span>
+	        </div>
+		</div> <!-- Pesquisa -->
+	    <div class="col-sm-2">
+	    </div>
+    </form>
+
     <form>
     	<div class="col-sm-1 text-center">
         	<button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'armazem:lista' %}">

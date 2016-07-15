@@ -1,50 +1,62 @@
 {% extends 'base.html' %}
 {% block header %}
-<div class="row"> <!-- Cabecalho da página de Listas -->
-    <div class="col-sm-12">
-        <h4 class='text-muted'>{{ request.user.get_full_name }}</h4>
-    </div>
-</div> 
+
 {% endblock %}
 {% block main %}
+<form method='POST' action=''>{% csrf_token %}
+<div class="row"> <!-- Cabecalho da página de Listas -->
+    <div class="col-sm-3">
+        <h4 class='text-muted'>{{ request.user.get_full_name }}</h4>
+    </div>   
+    <div class="col-sm-7">
+    </div>   
+    <div class="col-sm-1 text-center">
+        <button title='Alterar ' class='btn btn-primary btn-sm' type='submit'>
+          <span class="glyphicon glyphicon-check"></span>
+        </button>
+    </div>
+    <div class="col-sm-1 text-center">
+    </div>
+</div> 
 <hr>
-<div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
-	<div class="row">
-  		<div class="col-sm-4">
-    		<p class='text-muted'><strong>E-mail</strong></p>
-    		<p class='text-muted'>{{ request.user.email }}</p>
-  		</div>
-  		<div class="col-sm-4">
-    		<p class='text-muted'><strong>Perfil</strong></p>
-    		<p class='text-muted'>{% if request.user.is_superuser %}Adminstrador{% else %}Usuário do sistema{% endif %}</p>
-  		</div>
-      <div class="col-sm-4">
-      <p class='text-muted'><strong>Ativo</strong></p>
-        {% if request.user.is_active %}
-          <p class='text-muted'><strong class='text-success'>Sim</strong></p>
-        {% else %}
-          <p class='text-muted'><strong class='text-danger'>Não</strong></p>
-        {% endif %}
-      </div>
-	</div>
-</div>
-<div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->
-  <div class="row">
-      <div class="col-sm-4">
-        <p class='text-muted'><strong>Último acesso </strong></p>
-        <p class='text-muted'>{{request.user.last_login}}</p>
-      </div>
-      <div class="col-sm-4">
-        <p class='text-muted'><strong>Criado</strong></p>
-        <p class='text-muted'>{{request.user.date_joined}}</p>
-      </div>
-      <div class="col-sm-4">
-        <p><strong>Nova senha</strong></p>
-        <p>
-          <input class="input-sm" type="password" id="id_password" name="password" class="form_control" placeholder="Nova Senha" required>
-        </p>
-      </div>
+  <div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
+  	<div class="row">
+    		<div class="col-sm-4">
+      		<p class='text-muted'><strong>E-mail</strong></p>
+      		<p class='text-muted'>{{ request.user.email }}</p>
+    		</div>
+    		<div class="col-sm-4">
+      		<p class='text-muted'><strong>Perfil</strong></p>
+      		<p class='text-muted'>{% if request.user.is_superuser %}Adminstrador{% else %}Usuário do sistema{% endif %}</p>
+    		</div>
+        <div class="col-sm-4">
+        <p class='text-muted'><strong>Ativo</strong></p>
+          {% if request.user.is_active %}
+            <p class='text-muted'><strong class='text-success'>Sim</strong></p>
+          {% else %}
+            <p class='text-muted'><strong class='text-danger'>Não</strong></p>
+          {% endif %}
+        </div>
+  	</div>
   </div>
-</div>
-</div>
+
+  <div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->
+    <div class="row">
+        <div class="col-sm-4">
+          <p class='text-muted'><strong>Último acesso </strong></p>
+          <p class='text-muted'>{{request.user.last_login}}</p>
+        </div>
+        <div class="col-sm-4">
+          <p class='text-muted'><strong>Criado</strong></p>
+          <p class='text-muted'>{{request.user.date_joined}}</p>
+        </div>
+        <div class="col-sm-4">
+          <p><strong>Nova senha</strong></p>
+          <p>
+            <input class="input-sm" type="password" id="id_password" name="password" class="form_control" placeholder="Nova Senha" required>
+          </p>
+        </div>
+    </div>
+  </div>
+</form>
 {% endblock %}
