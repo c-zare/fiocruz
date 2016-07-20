@@ -1,4 +1,16 @@
-Registro de Atividades
+Registro de Atividades Pendentes
+---------------------------------------------------------------------------------------------------------
+Permitir a troca de senhas pelo usuário através da tela de perfil.
+Encadear Estado/Municipio para o cadastro de fornecedores.
+Limitar a quantidade de Logins no Django.
+Permitir a todos os usuários do sistema fazer requisições de items.
+Migrar base de dados para ambiente MySql.
+Migrar aplicação para o ambiente de produção, com serviços apache ou nginx.
+Implementar Manual do Usuário de Sistemas.
+Iniciar testes do Produto.
+Documentar Requisitos atendidos.
+
+Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
 13-07-2016: Fixando o nome a ser pesquisado após a consulta no campo de consulta.
 12-07-2016: Pesquisa na base de Armazem, Fornecedor e item acrescida ao sistema.
@@ -9,3 +21,9 @@ Registro de Atividades
 05-07-2016: Implementado na base de dados o usuário responsável pela alteração e criação do registro.
 04-07-2016: Implementado o acesso ao sistema atráves de Login padrao do django.
 04-07-2016: Imposto a obrigatóriedade de acesso atráves de um Login para as funções de view. (Controler) 
+16-06-2016: Ajustes no Designer do Bootstrap.
+22-05-2016: Controle de paginação das listas, foi adicionado a Itens, Fornecedores e Armazém.
+02-05-2016: Implementado CRUD para a base de Itens.
+20-04-2016: Implementado CRUD para a base de Fornecedores.
+04-04-2016: Implementado CRUD para a base de Armazém.
+21-03-2016: Inicio o Projeto.
