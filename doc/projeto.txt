@@ -8,6 +8,7 @@ Migrar aplicação para o ambiente de produção, com serviços apache ou nginx.
 Implementar Manual do Usuário de Sistemas.
 Iniciar testes do Produto.
 Documentar Requisitos atendidos.
+Implementar requisições para o sistema.
 
 
 Registro de Atividades Executadas
