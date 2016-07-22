@@ -1,5 +1,6 @@
 from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -52,7 +53,10 @@ def fornecedor_lista(request):
 	page_request_var='Pagina'
 	query = request.GET.get('q')
 	if query:
-		queryset_list = queryset_list.filter(nomefantasia__icontains=query)
+		queryset_list = queryset_list.filter(
+			Q(nomefantasia__icontains=query)|
+			Q(razaosocial__icontains=query)
+			)
 	paginator = Paginator(queryset_list, 8)
 	page = request.GET.get(page_request_var)
 	try:

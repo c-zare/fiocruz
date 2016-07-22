@@ -60,3 +60,6 @@ class Municipio(models.Model):
 # Estado(sigla='SP',nome='São Paulo').save()
 # Estado(sigla='SE',nome='Sergipe').save()
 # Estado(sigla='TO',nome='Tocantins').save()
+
+# e = Estado(sigla='MS',nome='Mato Grosso do Sul').save()
+# Estado(sigla='AC',nome='Acre').save()
