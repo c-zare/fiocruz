@@ -13,6 +13,7 @@ Implementar requisições para o sistema.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+29-07-2016: Implantado a aplicação no serviço http do apache
 22-07-2016: Mudança diretorio static das bases para o Core.
 21-07-2016: Inserido os dados da tabela Estados, e dos Municipios de Mato Grosso do Sul no sistema.
 20-07-2016: Hospedado a base de dados no MySql, instalando o  cymysql e django-cymysql através do pip.
