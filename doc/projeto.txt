@@ -1,5 +1,6 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
+Implementar na base de itens a referêmcia ao Fornecedor e ao armazem
 Permitir a troca de senhas pelo usuário através da tela de perfil.
 Encadear Estado/Municipio para o cadastro de fornecedores.
 Limitar a quantidade de Logins no Django.
@@ -13,6 +14,7 @@ Implementar requisições para o sistema.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+29-07-2016: Implantado acesso apenas por https.
 29-07-2016: Implantado a aplicação no serviço http do apache
 22-07-2016: Mudança diretorio static das bases para o Core.
 21-07-2016: Inserido os dados da tabela Estados, e dos Municipios de Mato Grosso do Sul no sistema.
