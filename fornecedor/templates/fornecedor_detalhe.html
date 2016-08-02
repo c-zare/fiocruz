@@ -17,7 +17,7 @@
             <span class="glyphicon glyphicon-list"></span></button>
         </div>
         <div class="col-sm-1 text-right">
-        {% if perms.armazem.pode_administrar %}
+        {% if perms.fornecedor.pode_administrar %}
             <button title='Novo Fornecedor' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'fornecedor:cria' %}">
             <span class="glyphicon glyphicon-plus"></span></button>
         {% endif %}
