@@ -15,5 +15,5 @@ def usuario_detalhe(request):
 			instance = request.user
 			instance.set_password(form.data['password'])
 			instance.save()
-			messages.success(request,' Senha foi alterada.')
+			messages.success(request,' Senha foi alterada, e necessario um novo login.')
 	return render(request,'usuario.html')
