@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.49, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.5.50, for debian-linux-gnu (x86_64)
 --
 -- Host: localhost    Database: producao
 -- ------------------------------------------------------
--- Server version	5.5.49-0+deb8u1
+-- Server version	5.5.50-0+deb8u1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -35,7 +35,7 @@ CREATE TABLE `armazem_armazem` (
   PRIMARY KEY (`id`),
   KEY `armazem_armazem_abfe0f96` (`usuario_id`),
   CONSTRAINT `armazem_armazem_usuario_id_47ce4d48_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,6 +44,7 @@ CREATE TABLE `armazem_armazem` (
 
 LOCK TABLES `armazem_armazem` WRITE;
 /*!40000 ALTER TABLE `armazem_armazem` DISABLE KEYS */;
+INSERT INTO `armazem_armazem` VALUES (1,'FIOCRUZ MS','Rua Gabriel Abrão','92','Não há','L001','2016-07-29 18:50:22','2016-08-01 20:04:20',3);
 /*!40000 ALTER TABLE `armazem_armazem` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,8 +86,8 @@ CREATE TABLE `auth_group_permissions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_group_permissions_group_id_0cd325b0_uniq` (`group_id`,`permission_id`),
   KEY `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` (`permission_id`),
-  CONSTRAINT `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`)
+  CONSTRAINT `auth_group_permissions_group_id_b120cbf9_fk_auth_group_id` FOREIGN KEY (`group_id`) REFERENCES `auth_group` (`id`),
+  CONSTRAINT `auth_group_permissi_permission_id_84c5c92e_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -157,7 +158,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$VmyS8ArgTQXz$DD5BnKtIVagxTPsl0VL+TGM2u/3eRRuxD/Ef3RY3MCc=','2016-07-21 09:38:16',1,'admin','Administrador','Administrador','admin@matogrossodosul.fiocruz.br',1,1,'2016-07-20 16:30:56'),(2,'pbkdf2_sha256$24000$wshnIBVPgWHz$dZPcMJf4WXju5Ns+C6HZpxVPqEhCx8OAGU5QROq963U=','2016-07-20 16:34:10',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:33'),(3,'pbkdf2_sha256$24000$mZ8kdn3yNKgj$zOITOSpaVGQOvuxtsVMCM2dTGEnlb8Olk9CsQZIL9g8=','2016-07-21 10:35:36',0,'master','Master','Master','master@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:56');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$VmyS8ArgTQXz$DD5BnKtIVagxTPsl0VL+TGM2u/3eRRuxD/Ef3RY3MCc=','2016-08-01 19:57:23',1,'admin','Administrador','Administrador','admin@matogrossodosul.fiocruz.br',1,1,'2016-07-20 16:30:56'),(2,'pbkdf2_sha256$24000$wshnIBVPgWHz$dZPcMJf4WXju5Ns+C6HZpxVPqEhCx8OAGU5QROq963U=','2016-08-02 12:50:24',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:33'),(3,'pbkdf2_sha256$24000$mZ8kdn3yNKgj$zOITOSpaVGQOvuxtsVMCM2dTGEnlb8Olk9CsQZIL9g8=','2016-08-02 12:50:43',0,'master','Master','Master','master@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:56');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,8 +204,8 @@ CREATE TABLE `auth_user_user_permissions` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `auth_user_user_permissions_user_id_14a6b632_uniq` (`user_id`,`permission_id`),
   KEY `auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id` (`permission_id`),
-  CONSTRAINT `auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`),
-  CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
+  CONSTRAINT `auth_user_user_permissions_user_id_a95ead1b_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`),
+  CONSTRAINT `auth_user_user_perm_permission_id_1fbb5f2c_fk_auth_permission_id` FOREIGN KEY (`permission_id`) REFERENCES `auth_permission` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -427,7 +428,7 @@ CREATE TABLE `fornecedor_fornecedor` (
 
 LOCK TABLES `fornecedor_fornecedor` WRITE;
 /*!40000 ALTER TABLE `fornecedor_fornecedor` DISABLE KEYS */;
-INSERT INTO `fornecedor_fornecedor` VALUES (1,'ZILIOTTO INDÚSTRIA, ATACADO, COMERCIO E REPRESENTACOES LTDA','ZORNIMAT','15491434000109','Fabricação de móveis','Rua Quatorze de Julho','931','Loja','79004391','(67) 3025-7272','Marcio Rodrigues','2016-07-21 10:34:45','2016-07-21 10:35:47',20,11,1,3);
+INSERT INTO `fornecedor_fornecedor` VALUES (1,'ZILIOTTO INDÚSTRIA, ATACADO, COMERCIO E REPRESENTACOES LTDA','ZORNIMAT','15491434000109','Fabricação de móveis','Rua Quatorze de Julho','931','Loja','79004391','(67) 3025-7272','Marcio Rodrigues','2016-07-21 10:34:45','2016-08-01 20:02:24',20,11,1,3);
 /*!40000 ALTER TABLE `fornecedor_fornecedor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -448,7 +449,7 @@ CREATE TABLE `item_item` (
   PRIMARY KEY (`id`),
   KEY `item_item_abfe0f96` (`usuario_id`),
   CONSTRAINT `item_item_usuario_id_69c4918c_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -457,6 +458,7 @@ CREATE TABLE `item_item` (
 
 LOCK TABLES `item_item` WRITE;
 /*!40000 ALTER TABLE `item_item` DISABLE KEYS */;
+INSERT INTO `item_item` VALUES (1,'Caneta cor Preta',22,'2016-07-29 18:49:43','2016-08-01 20:09:05',3);
 /*!40000 ALTER TABLE `item_item` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -469,4 +471,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-07-21  6:37:02
+-- Dump completed on 2016-08-02  9:02:53
