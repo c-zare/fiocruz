@@ -33,7 +33,6 @@ class Municipio(models.Model):
 	def __str__(self):
 		return self.nome
 
-
 # Estado(sigla='AC',nome='Acre').save()
 # Estado(sigla='AL',nome='Alagoas').save()
 # Estado(sigla='AP',nome='Amapá').save()

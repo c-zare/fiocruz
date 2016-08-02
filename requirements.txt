@@ -1,0 +1,3 @@
+cymysql==0.8.9
+Django==1.9.8
+django-cymysql==0.4.0

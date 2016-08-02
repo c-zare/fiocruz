@@ -1,5 +1,6 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
+Validar informações do formulário é no forms.py
 Implementar na base de itens a referêmcia ao Fornecedor e ao armazem
 Permitir a troca de senhas pelo usuário através da tela de perfil.
 Encadear Estado/Municipio para o cadastro de fornecedores.
@@ -10,10 +11,12 @@ Implementar Manual do Usuário de Sistemas.
 Iniciar testes do Produto.
 Documentar Requisitos atendidos.
 Implementar requisições para o sistema.
+Corrigir o problema da troca de senha esta executando o logout no sistema.
 
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+02-08-2016: Permitir ao usuário realizar a troca da senha pela edição do seu perfil.
 29-07-2016: Implantado acesso apenas por https.
 29-07-2016: Implantado a aplicação no serviço http do apache
 22-07-2016: Mudança diretorio static das bases para o Core.
