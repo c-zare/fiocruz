@@ -1,6 +1,7 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
 Validar informações do formulário é no forms.py
+implementar banco de dados para o quadro de avisos.
 Implementar na base de itens a referêmcia ao Fornecedor e ao armazem
 Permitir a troca de senhas pelo usuário através da tela de perfil.
 Encadear Estado/Municipio para o cadastro de fornecedores.
@@ -16,6 +17,9 @@ Corrigir o problema da troca de senha esta executando o logout no sistema.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+03-08-2016: Mudança no footer para identificar a instituição desenvolvedora do sistema.
+03-08-2016: Redirecionamento da página inicial do ambiente para /usuario/home
+03-08-2016: Inserido na base de dados de fornecedores o campo 'bairro'.
 02-08-2016: Permitir ao usuário realizar a troca da senha pela edição do seu perfil.
 29-07-2016: Implantado acesso apenas por https.
 29-07-2016: Implantado a aplicação no serviço http do apache
@@ -36,4 +40,4 @@ Registro de Atividades Executadas
 02-05-2016: Implementado CRUD para a base de Itens.
 20-04-2016: Implementado CRUD para a base de Fornecedores.
 04-04-2016: Implementado CRUD para a base de Armazém.
-21-03-2016: Inicio o Projeto.
+21-03-2016: Inicio o Projeto. 

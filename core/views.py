@@ -3,9 +3,12 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
-from django.contrib.auth import update_session_auth_hash
 
 from .forms import  UsuarioForm
+
+@login_required
+def home(request):
+	return render(request,'home.html')
 
 @login_required
 def usuario_detalhe(request):

@@ -17,6 +17,7 @@ class FornecedorForm(forms.ModelForm):
 			'cnpj',
 			'estado',
 			'cidade',
+			'bairro',
 			'endereco',
 			'numero',
 			'complemento',
