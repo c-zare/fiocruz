@@ -16,6 +16,7 @@ Corrigir o problema da indexação dos estados com os municipios.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+10-08-2016: Inclusão do Armazem no cadastro de Itens.
 03-08-2016: Mudança no footer para identificar a instituição desenvolvedora do sistema.
 03-08-2016: Redirecionamento da página inicial do ambiente para /usuario/home
 03-08-2016: Inserido na base de dados de fornecedores o campo 'bairro'.
