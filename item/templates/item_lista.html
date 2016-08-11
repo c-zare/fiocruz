@@ -63,7 +63,11 @@
 			        <li>{{obj.nome}}</li>
 			    </div>       
 			    <div class='col-sm-1'>
-			        <li>{{obj.estoque}}</li>
+			    	{% if obj.estoque == 0 %}
+				        <li class='text-danger'>{{obj.estoque}}</li>
+				    {% else %}
+				    	<li class='text-sucess'>{{obj.estoque}}</li>
+				    {% endif %}
 			    </div>
 			    <div class='col-sm-2 text-center'>
 	                <a href='{{ obj.get_absolute_url }}'>

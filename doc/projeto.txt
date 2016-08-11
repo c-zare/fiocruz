@@ -1,5 +1,7 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
+AJUSTAR DELEÇÂO DO FORNECEDOR AFETA AO ITEM RELACIONADO - SO PODE APAGAR SE NÂO HAVER ITEM
+AJUSTAR DELEÇÂO DO ARMAZEM AFETA AO ITEM RELACIONADO - SO PODE APAGAR SE NÂO HAVER ITEM
 Validar informações do formulário é no forms.py
 implementar banco de dados para o quadro de avisos.
 Implementar na base de itens a referêmcia ao Fornecedor e ao armazem
@@ -16,6 +18,8 @@ Corrigir o problema da indexação dos estados com os municipios.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+11-08-2016: Inclusão do estoque mínimo para alerta de reposição.
+11-08-2016: Inclusão do Fornecedor no cadastro de Itens.
 10-08-2016: Inclusão do Armazem no cadastro de Itens.
 03-08-2016: Mudança no footer para identificar a instituição desenvolvedora do sistema.
 03-08-2016: Redirecionamento da página inicial do ambiente para /usuario/home

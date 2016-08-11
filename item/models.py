@@ -2,12 +2,15 @@ from django.conf	import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 from armazem.models import Armazem
+from fornecedor.models import Fornecedor
 
 class Item(models.Model):
 
 	nome 		= models.CharField(max_length=40,null=False)
 	estoque		= models.IntegerField()
+	estoque_minimo	= models.IntegerField()
 	armazem		= models.ForeignKey(Armazem)
+	fornecedor  = models.ForeignKey(Fornecedor)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
 	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL)

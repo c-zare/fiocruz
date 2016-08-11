@@ -9,5 +9,7 @@ class ItemForm(forms.ModelForm):
 		fields = {
 			'nome',
 			'estoque',
-			'armazem'
+			'estoque_minimo',
+			'armazem',
+			'fornecedor'
 		}
