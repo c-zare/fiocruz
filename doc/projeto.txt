@@ -1,7 +1,7 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
-AJUSTAR DELEÇÂO DO FORNECEDOR AFETA AO ITEM RELACIONADO - SO PODE APAGAR SE NÂO HAVER ITEM
-AJUSTAR DELEÇÂO DO ARMAZEM AFETA AO ITEM RELACIONADO - SO PODE APAGAR SE NÂO HAVER ITEM
+*** FAZER OUTROS AJUSTES NAS BASES MUNICIPIO E ESTADO e USUARIO
+Avisar o usuário sobre o risco de apagar o registro dos cadastros e pedir confirmação, para exclusão.
 Validar informações do formulário é no forms.py
 implementar banco de dados para o quadro de avisos.
 Implementar na base de itens a referêmcia ao Fornecedor e ao armazem
@@ -15,9 +15,15 @@ Implementar requisições para o sistema.
 Corrigir o problema da troca de senha que esta executando o logout no sistema.
 Corrigir o problema da indexação dos estados com os municipios.
 
-
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+11-08-2016: Ajuste com on=delete=PROTECT no 'model' Armazém para evitar apagar um armazém vinculado 
+			ao item causando falha na integridade da BD, também foi tratada a mensagem de aviso para exclusão 
+            não permitida na função 'armazem_apaga'.
+11-08-2016: Exibir a lista de fornecedores com o nome fantasia ao invvés da razão social.
+11-08-2016: Ajuste com on=delete=PROTECT no 'model' Fornecedor para evitar apagar um fornecedor vinculado 
+			ao item causando falha na integridade da BD, também foi tratada a mensagem de aviso para exclusão 
+            não permitida na função 'fornecedor_apaga'.
 11-08-2016: Inclusão do estoque mínimo para alerta de reposição.
 11-08-2016: Inclusão do Fornecedor no cadastro de Itens.
 10-08-2016: Inclusão do Armazem no cadastro de Itens.

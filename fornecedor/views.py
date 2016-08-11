@@ -4,6 +4,7 @@ from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError
 
 from .forms import FornecedorForm
 from .models import Fornecedor
@@ -11,8 +12,11 @@ from .models import Fornecedor
 @login_required
 def fornecedor_apaga(request,id=None):
 	instance = get_object_or_404(Fornecedor,id=id)
-	instance.delete()
-	messages.success(request,' Fornecedor foi excluido.')
+	try:
+		instance.delete()
+		messages.success(request,' Fornecedor foi excluido.')
+	except IntegrityError:
+		messages.warning(request,' O Fornecedor %s não pode ser excluído, devido a vínculo com outra informação.' % instance.nomefantasia)
 	return redirect('fornecedor:lista')
 
 @login_required

@@ -13,7 +13,7 @@ class Armazem(models.Model):
 	localizador	= models.CharField(max_length=10)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
-	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL)
+	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
 
 	class Meta:
 		ordering = ['-atualizado','-criado']

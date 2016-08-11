@@ -4,6 +4,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError
 
 from .forms import ArmazemForm
 from .models import Armazem
@@ -24,8 +25,11 @@ def armazem_cria(request):
 @login_required
 def armazem_apaga(request,id=None):
 	instance = get_object_or_404(Armazem,id=id)
-	instance.delete()
-	messages.success(request,' Armazem foi excluido.')
+	try:
+		instance.delete()
+		messages.success(request,' Armazém foi excluido.')
+	except IntegrityError:
+		messages.warning(request,' O Armazem %s não pode ser excluído, devido a vínculo com outra informação.' % instance.nome)
 	return redirect('armazem:lista')
 
 @login_required
