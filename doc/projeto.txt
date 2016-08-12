@@ -17,6 +17,7 @@ Corrigir o problema da indexação dos estados com os municipios.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+12-08-2016: O usuário não pode incluir um item com fornecedor não apto.
 11-08-2016: Ajuste com on=delete=PROTECT no 'model' Armazém para evitar apagar um armazém vinculado 
 			ao item causando falha na integridade da BD, também foi tratada a mensagem de aviso para exclusão 
             não permitida na função 'armazem_apaga'.
