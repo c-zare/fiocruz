@@ -82,8 +82,12 @@
         <p>{{fornecedor.numero}}</p>
       </div>
   		<div class="col-sm-2">
-          <p><strong>Telefone</strong></p>
-          <p>{{fornecedor.telefone}}</p>
+          <p><strong>Situação</strong></p>
+          {% if fornecedor.situacao %}
+            <p><strong class='text-success'>APTO</strong></p>
+          {% else %}
+            <p><strong class='text-danger'>NÃO APTO</strong></p>
+          {% endif %}
   		</div>
 	</div>
 </div>
@@ -94,16 +98,14 @@
           <p>{{fornecedor.contato}}</p>
         </div>
         <div class="col-sm-3">
+          <p><strong>E-mail</strong></p>
+          <p>{{fornecedor.email}}</p>
         </div>
         <div class="col-sm-3">
+          <p><strong>Telefone</strong></p>
+          <p>{{fornecedor.telefone}}</p>
         </div>
          <div class="col-sm-2">
-          <p><strong>Situação</strong></p>
-          {% if fornecedor.situacao %}
-            <p><strong class='text-success'>APTO</strong></p>
-          {% else %}
-            <p><strong class='text-danger'>NÃO APTO</strong></p>
-          {% endif %}
          </div>
       </div>
 </div>

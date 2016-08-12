@@ -78,8 +78,13 @@
         <p>{{form.numero}}</p>
       </div>
       <div class="col-sm-2">
-        <p><strong>Telefone</strong></p>
-        <p>{{form.telefone}}</p>
+        <p  class='text-center'><label for="situacao"><strong>Apto</strong></label></p>
+        {% if instance.situacao %}
+            <p  class='text-center'><input type="checkbox" name="situacao" id="situacao" CHECKED ></p>
+        {% else %}
+            <p  class='text-center'><input type="checkbox" name="situacao" id="situacao" ></p>
+        {% endif %}
+        </p>
       </div>
   </div>
   </div>
@@ -90,17 +95,14 @@
         <p>{{form.contato}}</p>
       </div>
       <div class="col-sm-3">
+        <p><strong>E-mail</strong></p>
+        <p>{{form.email}}</p>      
       </div>
       <div class="col-sm-3">
+        <p><strong>Telefone</strong></p>
+        <p>{{form.telefone}}</p>
       </div>
       <div class="col-sm-2">
-        <p  class='text-center'><label for="situacao"><strong>Apto</strong></label></p>
-        {% if instance.situacao %}
-          <p  class='text-center'><input type="checkbox" name="situacao" id="situacao" CHECKED ></p>
-        {% else %}
-                  <p  class='text-center'><input type="checkbox" name="situacao" id="situacao" ></p>
-        {% endif %}
-        </p>
       </div>
   </div>
   </div>
