@@ -158,7 +158,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$VmyS8ArgTQXz$DD5BnKtIVagxTPsl0VL+TGM2u/3eRRuxD/Ef3RY3MCc=','2016-08-03 17:38:36',1,'admin','Administrador','Administrador','admin@matogrossodosul.fiocruz.br',1,1,'2016-07-20 16:30:56'),(2,'pbkdf2_sha256$24000$wshnIBVPgWHz$dZPcMJf4WXju5Ns+C6HZpxVPqEhCx8OAGU5QROq963U=','2016-08-03 16:29:01',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:33'),(3,'pbkdf2_sha256$24000$4KvO6SLNqRCT$+sAz92VGnhij7OskpBQ30QUoeJgU9ILu+g5uFUY+JzU=','2016-08-12 10:17:37',0,'master','Master','Master','master@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:56');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$VmyS8ArgTQXz$DD5BnKtIVagxTPsl0VL+TGM2u/3eRRuxD/Ef3RY3MCc=','2016-08-03 17:38:36',1,'admin','Administrador','Administrador','admin@matogrossodosul.fiocruz.br',1,1,'2016-07-20 16:30:56'),(2,'pbkdf2_sha256$24000$wshnIBVPgWHz$dZPcMJf4WXju5Ns+C6HZpxVPqEhCx8OAGU5QROq963U=','2016-08-03 16:29:01',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:33'),(3,'pbkdf2_sha256$24000$4KvO6SLNqRCT$+sAz92VGnhij7OskpBQ30QUoeJgU9ILu+g5uFUY+JzU=','2016-08-12 12:34:07',0,'master','Master','Master','master@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:56');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -383,7 +383,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('81tu5kjnwmqnfyaxtkag9nfleuskf6tu','NDM3ZTFmNzNmNmY3ZDczOTE5NWQzZTBhNWZiMDVmMjNmMjg0MmI3Njp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5MTExNjVlMjlkZmJkYjYxYjZjYTk3OTg0ZDY1YjBmZGJiODFhZjg0In0=','2016-08-24 18:35:13'),('whksw2pz86nulljpmkm33kngfx1y5r0z','ODE2MzMxMzQwMTIwYjc0ZWU1NjBmMGVjMjVhOWUyMDY3MzUwNzc1YTp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3YjU1MjZiNGFmZWE0MmYyMmIxYmQwYTU0NmVmOTI2Yjc5MmIyYzk3In0=','2016-08-04 10:35:37'),('yzvb3mra2lfsvsf9c2b3w7sykshnhj4y','YThlODMxNTAwZTMyY2JhZWEwODlkYmVhMDc4NDBlYWNhNWRmMDY2ZDp7Il9hdXRoX3VzZXJfaGFzaCI6IjkxMTE2NWUyOWRmYmRiNjFiNmNhOTc5ODRkNjViMGZkYmI4MWFmODQiLCJfYXV0aF91c2VyX2lkIjoiMyIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-08-26 10:17:38');
+INSERT INTO `django_session` VALUES ('81tu5kjnwmqnfyaxtkag9nfleuskf6tu','NDM3ZTFmNzNmNmY3ZDczOTE5NWQzZTBhNWZiMDVmMjNmMjg0MmI3Njp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5MTExNjVlMjlkZmJkYjYxYjZjYTk3OTg0ZDY1YjBmZGJiODFhZjg0In0=','2016-08-24 18:35:13'),('whksw2pz86nulljpmkm33kngfx1y5r0z','ODE2MzMxMzQwMTIwYjc0ZWU1NjBmMGVjMjVhOWUyMDY3MzUwNzc1YTp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3YjU1MjZiNGFmZWE0MmYyMmIxYmQwYTU0NmVmOTI2Yjc5MmIyYzk3In0=','2016-08-04 10:35:37'),('yzvb3mra2lfsvsf9c2b3w7sykshnhj4y','MTMyNWUyYmUzZGI1ODk5NzFlY2M4OWQ3NWFjZThmZmU5ODUxZTgzMjp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9oYXNoIjoiOTExMTY1ZTI5ZGZiZGI2MWI2Y2E5Nzk4NGQ2NWIwZmRiYjgxYWY4NCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-08-26 12:34:07');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -420,7 +420,7 @@ CREATE TABLE `fornecedor_fornecedor` (
   CONSTRAINT `fornecedor_fornecedor_cidade_id_f55ba7fa_fk_core_municipio_id` FOREIGN KEY (`cidade_id`) REFERENCES `core_municipio` (`id`),
   CONSTRAINT `fornecedor_fornecedor_estado_id_cc29b1e6_fk_core_estado_id` FOREIGN KEY (`estado_id`) REFERENCES `core_estado` (`id`),
   CONSTRAINT `fornecedor_fornecedor_usuario_id_0c6232f8_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -429,7 +429,7 @@ CREATE TABLE `fornecedor_fornecedor` (
 
 LOCK TABLES `fornecedor_fornecedor` WRITE;
 /*!40000 ALTER TABLE `fornecedor_fornecedor` DISABLE KEYS */;
-INSERT INTO `fornecedor_fornecedor` VALUES (1,'ZILIOTTO INDÚSTRIA, ATACADO, COMERCIO E REPRESENTACOES LTDA','ZORNIMAT','15491434000109','CNAE 4789007','Rua Quatorze de Julho','931','Loja','79004391','(67) 3025-7272','Marcio Rodrigues','2016-07-21 10:34:45','2016-08-12 11:06:43',20,11,1,3,'Vila Glória'),(2,'Suprimaq Equipamentos Para Escritorio Eireli','SUPRIMAC','15569643000128','CNAE 4789007','Rua 14 de Julho','446','Loja','79004392','(67) 3322 3200','Fernando Gonçalves','2016-08-12 11:06:30','2016-08-12 11:06:30',118,11,0,3,'Jardim Alvorada');
+INSERT INTO `fornecedor_fornecedor` VALUES (1,'ZILIOTTO INDÚSTRIA, ATACADO, COMERCIO E REPRESENTACOES LTDA','ZORNIMAT','15491434000109','CNAE 4789007','Rua Quatorze de Julho','931','Loja','79004391','(67) 3025-7272','Marcio Rodrigues','2016-07-21 10:34:45','2016-08-12 11:06:43',20,11,1,3,'Vila Glória'),(2,'Suprimaq Equipamentos Para Escritorio Eireli','SUPRIMAC','15569643000128','CNAE 4789007','Rua 14 de Julho','446','Loja','79004392','(67) 3322 3200','Fernando Gonçalves','2016-08-12 11:06:30','2016-08-12 11:06:30',20,11,0,3,'Jardim Alvorada'),(3,'Suportec Campo Grande Ltda - ME','SUPORTEC INFORMÁTICA','04533400000113','CNAE 4789007','Av. Mato Grosso','2687','Loja','7902020','(67) 3326-0463','Ricardo Silva','2016-08-12 12:51:29','2016-08-12 12:53:34',118,11,1,3,'Jardim dos Estados');
 /*!40000 ALTER TABLE `fornecedor_fornecedor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -466,7 +466,7 @@ CREATE TABLE `item_item` (
 
 LOCK TABLES `item_item` WRITE;
 /*!40000 ALTER TABLE `item_item` DISABLE KEYS */;
-INSERT INTO `item_item` VALUES (1,'Caneta cor Preta',22,'2016-07-29 18:49:43','2016-08-11 11:29:03',3,1,1,1),(3,'Lápis preto 2B',0,'2016-08-11 16:42:54','2016-08-11 16:42:54',3,1,1,1),(6,'Cadeira Padrão',5,'2016-08-12 11:07:16','2016-08-12 11:11:53',3,1,1,1);
+INSERT INTO `item_item` VALUES (1,'Caneta cor Preta',22,'2016-07-29 18:49:43','2016-08-11 11:29:03',3,1,1,1),(3,'Lápis preto 2B',0,'2016-08-11 16:42:54','2016-08-11 16:42:54',3,1,1,1),(6,'Cadeira Padrão',5,'2016-08-12 11:07:16','2016-08-12 12:35:08',3,1,1,1);
 /*!40000 ALTER TABLE `item_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -487,4 +487,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-12  8:26:16
+-- Dump completed on 2016-08-12  9:55:30

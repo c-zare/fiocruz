@@ -1,6 +1,5 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
-*** FAZER OUTROS AJUSTES NAS BASES MUNICIPIO E ESTADO e USUARIO
 Avisar o usuário sobre o risco de apagar o registro dos cadastros e pedir confirmação, para exclusão.
 Validar informações do formulário é no forms.py
 implementar banco de dados para o quadro de avisos.
