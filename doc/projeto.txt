@@ -3,6 +3,7 @@ Registro de Atividades Pendentes
 Avisar o usuário sobre o risco de apagar o registro dos cadastros e pedir confirmação, para exclusão.
 Validar informações do formulário é no forms.py
 implementar banco de dados para o quadro de avisos.
+implementar banco de dados para as atividade do fornecedor, CNAE.
 Implementar na base de itens a referêmcia ao Fornecedor e ao armazem
 Encadear Estado/Municipio para o cadastro de fornecedores.
 Limitar a quantidade de Logins no Django.

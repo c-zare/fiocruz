@@ -51,11 +51,11 @@
       </div>
       <div class="col-sm-3">
         <p><strong>Estado</strong></p>
-        <p name='estado'>{{form.estado}}</p>
+        <p>{{form.estado}}</p>
       </div>
       <div class="col-sm-3">
         <p><strong>Cidade</strong></p>
-        <p name='cidade'>{{form.cidade}}</p>      
+        <p>{{form.cidade}}</p>      
       </div>
       <div class="col-sm-2">
         <p><strong>Complemento</strong></p>
@@ -108,5 +108,14 @@
   </div>
 </div>
 </form>
+<p id='texto'></p>
 {% endblock %}
 
+{% block jquery %}
+      <script>
+        $('select[name="estado"]').click(function() {
+            var id_do_estado = $('#id_estado').val()            
+            $('#texto').text(id_do_estado);
+        });
+      </script>
+{% endblock %}
