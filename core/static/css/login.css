@@ -7,13 +7,19 @@
         color: #ffffff;
       }
       html, body {
-        background-color: #c8c8c8;
+        background: url("/static/images/1.jpg") no-repeat center top fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
       }
       body {
         padding-top: 80px; 
       }
       .container {
         width: 300px;
+        margin-top: 80px;
       }
 
       /* The white background content wrapper */

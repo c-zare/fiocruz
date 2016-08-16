@@ -17,6 +17,7 @@ Corrigir o problema da indexação dos estados com os municipios.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+16-08-2016: Implementado imagem de background para a página de login do sistema.
 12-08-2016: Adicionado a base de dados tabela fornecedor o campo 'email', com preenchimento obrigatório.
 12-08-2016: O usuário não pode incluir um item com fornecedor não apto.
 11-08-2016: Ajuste com on=delete=PROTECT no 'model' Armazém para evitar apagar um armazém vinculado 

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+ {% extends 'base.html' %}
 
 {% block header %}
 {% endblock %}
@@ -114,7 +114,19 @@
 {% block jquery %}
       <script>
         $('select[name="estado"]').click(function() {
-            var id_do_estado = $('#id_estado').val()            
+            var id_do_estado = $('#id_estado').val()     
+            $.ajax({
+              url = 'http://localhost:8000/fornecedor/cria/',
+              dataType: 'json',
+              success: function(retorno) {
+                $.each(retorno.id_cidade, function() {
+                  var cidade = this;
+                  alert(cidade.nome);
+                })
+              }
+            })
+
+
             $('#texto').text(id_do_estado);
         });
       </script>
