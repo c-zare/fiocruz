@@ -158,7 +158,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$VmyS8ArgTQXz$DD5BnKtIVagxTPsl0VL+TGM2u/3eRRuxD/Ef3RY3MCc=','2016-08-03 17:38:36',1,'admin','Administrador','Administrador','admin@matogrossodosul.fiocruz.br',1,1,'2016-07-20 16:30:56'),(2,'pbkdf2_sha256$24000$wshnIBVPgWHz$dZPcMJf4WXju5Ns+C6HZpxVPqEhCx8OAGU5QROq963U=','2016-08-12 18:20:14',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:33'),(3,'pbkdf2_sha256$24000$4KvO6SLNqRCT$+sAz92VGnhij7OskpBQ30QUoeJgU9ILu+g5uFUY+JzU=','2016-08-15 17:56:44',0,'master','Master','Master','master@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:56');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$VmyS8ArgTQXz$DD5BnKtIVagxTPsl0VL+TGM2u/3eRRuxD/Ef3RY3MCc=','2016-08-03 17:38:36',1,'admin','Administrador','Administrador','admin@matogrossodosul.fiocruz.br',1,1,'2016-07-20 16:30:56'),(2,'pbkdf2_sha256$24000$wshnIBVPgWHz$dZPcMJf4WXju5Ns+C6HZpxVPqEhCx8OAGU5QROq963U=','2016-08-12 18:20:14',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:33'),(3,'pbkdf2_sha256$24000$4KvO6SLNqRCT$+sAz92VGnhij7OskpBQ30QUoeJgU9ILu+g5uFUY+JzU=','2016-08-17 11:40:19',0,'master','Master','Master','master@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:56');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -383,7 +383,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('81tu5kjnwmqnfyaxtkag9nfleuskf6tu','YTQ0ZWM4NzIwNDU0NjU3NDA4MDNlZTM5ZmNmZjViNjBiZDEyYTg3MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjkxMTE2NWUyOWRmYmRiNjFiNmNhOTc5ODRkNjViMGZkYmI4MWFmODQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIzIn0=','2016-08-29 17:56:44'),('oc08zw9mkejjm9r73003hj65bizqej7n','YTQ0ZWM4NzIwNDU0NjU3NDA4MDNlZTM5ZmNmZjViNjBiZDEyYTg3MTp7Il9hdXRoX3VzZXJfaGFzaCI6IjkxMTE2NWUyOWRmYmRiNjFiNmNhOTc5ODRkNjViMGZkYmI4MWFmODQiLCJfYXV0aF91c2VyX2JhY2tlbmQiOiJkamFuZ28uY29udHJpYi5hdXRoLmJhY2tlbmRzLk1vZGVsQmFja2VuZCIsIl9hdXRoX3VzZXJfaWQiOiIzIn0=','2016-08-29 13:15:28'),('whksw2pz86nulljpmkm33kngfx1y5r0z','ODE2MzMxMzQwMTIwYjc0ZWU1NjBmMGVjMjVhOWUyMDY3MzUwNzc1YTp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3YjU1MjZiNGFmZWE0MmYyMmIxYmQwYTU0NmVmOTI2Yjc5MmIyYzk3In0=','2016-08-04 10:35:37');
+INSERT INTO `django_session` VALUES ('1u2jci4ttofljglg8f7ss1wmdmbl2war','NDM3ZTFmNzNmNmY3ZDczOTE5NWQzZTBhNWZiMDVmMjNmMjg0MmI3Njp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5MTExNjVlMjlkZmJkYjYxYjZjYTk3OTg0ZDY1YjBmZGJiODFhZjg0In0=','2016-08-31 11:40:20'),('5lmys74muamiphx3btvty1qqwbgr0gk7','NDM3ZTFmNzNmNmY3ZDczOTE5NWQzZTBhNWZiMDVmMjNmMjg0MmI3Njp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI5MTExNjVlMjlkZmJkYjYxYjZjYTk3OTg0ZDY1YjBmZGJiODFhZjg0In0=','2016-08-30 12:08:38'),('whksw2pz86nulljpmkm33kngfx1y5r0z','ODE2MzMxMzQwMTIwYjc0ZWU1NjBmMGVjMjVhOWUyMDY3MzUwNzc1YTp7Il9hdXRoX3VzZXJfaWQiOiIzIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3YjU1MjZiNGFmZWE0MmYyMmIxYmQwYTU0NmVmOTI2Yjc5MmIyYzk3In0=','2016-08-04 10:35:37');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -421,7 +421,7 @@ CREATE TABLE `fornecedor_fornecedor` (
   CONSTRAINT `fornecedor_fornecedor_cidade_id_f55ba7fa_fk_core_municipio_id` FOREIGN KEY (`cidade_id`) REFERENCES `core_municipio` (`id`),
   CONSTRAINT `fornecedor_fornecedor_estado_id_cc29b1e6_fk_core_estado_id` FOREIGN KEY (`estado_id`) REFERENCES `core_estado` (`id`),
   CONSTRAINT `fornecedor_fornecedor_usuario_id_0c6232f8_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -488,4 +488,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-15 15:42:42
+-- Dump completed on 2016-08-17  8:41:37
