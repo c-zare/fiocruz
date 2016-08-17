@@ -1,6 +1,5 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
-Avisar o usuário sobre o risco de apagar o registro dos cadastros e pedir confirmação, para exclusão.
 Validar informações do formulário é no forms.py
 implementar banco de dados para o quadro de avisos.
 implementar banco de dados para as atividade do fornecedor, CNAE.
@@ -17,6 +16,8 @@ Corrigir o problema da indexação dos estados com os municipios.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+17-08-2016: Avisar o usuário sobre o risco de apagar o registro dos cadastros e pedir confirmação, para
+            exclusão.
 16-08-2016: Implementado imagem de background para a página de login do sistema.
 12-08-2016: Adicionado a base de dados tabela fornecedor o campo 'email', com preenchimento obrigatório.
 12-08-2016: O usuário não pode incluir um item com fornecedor não apto.

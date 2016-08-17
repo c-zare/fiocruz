@@ -85,7 +85,8 @@
 	                <a href='{% url "fornecedor:edita" obj.id %}'>
 	                   	<span title='Editar' class="glyphicon glyphicon-edit"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
-	                <a href='{% url "fornecedor:apaga" obj.id %}'>
+	                <!-- <a href='{% url "fornecedor:apaga" obj.id %}'> -->
+	                <a href="javascript:func()" onclick="confirmacao('{% url "fornecedor:apaga" obj.id %}')">
 	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-remove"></span>
 	                </a>
 	                {% endif %}
@@ -112,4 +113,14 @@
 	    </span>
 	</div>
 	</div>
+{% endblock %}
+{% block jquery %}
+	<script language="Javascript">
+		function confirmacao(id) {
+			var resposta = confirm("Deseja remover este fornecedor ?");
+   			if (resposta == true) {
+      			window.location.href = id;
+   			}
+		}
+	</script>
 {% endblock %}
