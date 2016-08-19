@@ -7,11 +7,10 @@ class Itemcompra(forms.ModelForm):
 	class Meta:
 		model = Itemcompra
 		fields = {
-			'numero',
 			'quantidade',
 			'item',
 			'fornecedor',
-			'custo_unitario',
+			'custo',
 		}
 
 class CompraForm(forms.ModelForm):
@@ -21,7 +20,7 @@ class CompraForm(forms.ModelForm):
 	class Meta:
 		model = Compra
 		fields = {
-			'numero',
+			'nota',
 			'item_compra',
 			'data_compra',
 			'data_entrega',

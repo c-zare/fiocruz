@@ -10,11 +10,10 @@ from fornecedor.models import Fornecedor
 
 class Itemcompra(models.Model):
 
-	numero		= models.IntegerField(null=False)
 	quantidade	= models.IntegerField(null=False)	
 	item		= models.ForeignKey(Item,on_delete=models.PROTECT)
 	fornecedor  = models.ForeignKey(Fornecedor,on_delete=models.PROTECT)
-	custo_unitario = models.DecimalField(max_digits=10,decimal_places=2)
+	custo		= models.DecimalField(max_digits=10,decimal_places=2)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
 	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
@@ -26,14 +25,14 @@ class Itemcompra(models.Model):
         )
 
 	def __unicode__(self):
-		return self.numero		
+		return self.id		
 
 	def __str__(self):
-		return self.numero
+		return self.id
 
 class Compra(models.Model):
 
-	numero		= models.IntegerField(null=False)
+	nota		= models.IntegerField(default=0,null=False)
 	item_compra = models.ManyToManyField(Itemcompra)
 	data_compra	= models.DateField(default=datetime.today)
 	data_entrega= models.DateField(default=datetime.today)
@@ -49,7 +48,7 @@ class Compra(models.Model):
         )
 
 	def __unicode__(self):
-		return self.numero		
+		return self.id		
 
 	def __str__(self):
-		return self.numero    
+		return self.id    

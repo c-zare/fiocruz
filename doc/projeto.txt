@@ -1,6 +1,7 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
 Quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
+RETIRAR da base de Itens os campos ARMAZEM e FORNECEDOR, reconfigurar a BASE DE ITENS.
 Validar informações do formulário é no forms.py
 implementar banco de dados para o quadro de avisos.
 implementar banco de dados para as atividade do fornecedor, CNAE.
@@ -12,12 +13,12 @@ Implementar Manual do Usuário de Sistemas.
 Iniciar testes do Produto.
 Documentar Requisitos atendidos.
 Implementar requisições para o sistema.
-Corrigir o problema da troca de senha que esta executando o logout no sistema.
 Corrigir o problema da indexação dos estados com os municipios.
 Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+19-08-2016: Corrigido o problema da troca de senha que esta executando o logout no sistema.
 19-08-2016: Implementado a lista de compra.
 18-08-2016: Implantado a base de dados de compra.
 17-08-2016: Avisar o usuário sobre o risco de apagar o registro dos cadastros e pedir confirmação, para

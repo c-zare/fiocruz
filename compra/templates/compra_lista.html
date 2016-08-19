@@ -41,7 +41,7 @@
 		        	<li><strong>ID</strong></li>
 		        </div>
 		        <div class='col-sm-4'>
-		        	<li><strong>NUMERO DA COMPRA</strong></li>       
+		        	<li><strong>NOTA</strong></li>       
 		        </div>
 		        <div class='col-sm-5'>
 		        	<li><strong>DATA COMPRA</strong></li>
@@ -60,10 +60,10 @@
 			        <li class='text-center'>{{forloop.counter}}</li>
 			    </div>
 			    <div class='col-sm-4'>
-			        <li>{{obj.nome}}</li>
+			        <li>{{obj.nota}}</li>
 			    </div>       
 			    <div class='col-sm-5'>
-			        <li>{{obj.endereco}}</li>
+			        <li>{{obj.data_compra}}</li>
 			    </div>
 			    <div class='col-sm-2 text-center'>
 	                <a href='{{ obj.get_absolute_url }}'>

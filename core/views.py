@@ -1,5 +1,6 @@
 
 from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
@@ -18,5 +19,7 @@ def usuario_detalhe(request):
 			instance = request.user
 			instance.set_password(form.data['password'])
 			instance.save()
+			update_session_auth_hash(request, request.user)
 			messages.success(request,' Senha foi alterada, e necessario um novo login.')
 	return render(request,'usuario.html')
+
