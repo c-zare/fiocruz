@@ -132,3 +132,6 @@ STATIC_URL = '/static/'
 LOGIN_URL = '/login/'
 LOGOUT_URL ='/logout/'
 LOGIN_REDIRECT_URL = '/usuario/home/'
+
+# SESSION_COOKIE_AGE = 86400 # 24 horas * 60 minutos * 60 segundos para fechar a sessão
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = True

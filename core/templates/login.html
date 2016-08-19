@@ -16,7 +16,7 @@
     <div class="content">
       <div class="row">
         <div class="login-form text-center">
-          <form name="enviando" id="enviando" action="{% url 'django.contrib.auth.views.login' %}" method="post">
+          <form name="enviando" id="enviando" action="{% url 'login' %}" method="post">
           {% csrf_token %}
             <fieldset>
             	<h3>FIOCRUZ</h3>
