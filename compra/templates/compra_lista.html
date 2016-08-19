@@ -2,7 +2,7 @@
 {% block header %}
 <div class="row">
     <div class="col-sm-4">
-        <h4>Lista de Compra</h4>
+        <h4>Materiais: Compras</h4>
     </div>
     <form method='GET' action=''>
 	    <div class="col-sm-4">
@@ -40,11 +40,14 @@
 		    	<div class='col-sm-1 text-center'>
 		        	<li><strong>ID</strong></li>
 		        </div>
-		        <div class='col-sm-4'>
+		        <div class='col-sm-3'>
 		        	<li><strong>NOTA</strong></li>       
 		        </div>
-		        <div class='col-sm-5'>
+		        <div class='col-sm-3'>
 		        	<li><strong>DATA COMPRA</strong></li>
+		        </div>
+		        <div class='col-sm-3'>
+		        	<li><strong>SITUAÇÃO</strong></li>
 		        </div>
 		        <div class='col-sm-2 text-center'>
 		        	<li><strong>OPÇÕES</strong></li>
@@ -59,11 +62,18 @@
 			    <div class='col-sm-1'>
 			        <li class='text-center'>{{forloop.counter}}</li>
 			    </div>
-			    <div class='col-sm-4'>
+			    <div class='col-sm-3'>
 			        <li>{{obj.nota}}</li>
 			    </div>       
-			    <div class='col-sm-5'>
+			    <div class='col-sm-3'>
 			        <li>{{obj.data_compra}}</li>
+			    </div>
+			    <div class='col-sm-3'>
+			    {% if obj.situacao %}
+			        <li>FECHADA</li>
+			    {% else %}
+			    	<li>ABERTA</li>
+			    {% endif %}
 			    </div>
 			    <div class='col-sm-2 text-center'>
 	                <a href='{{ obj.get_absolute_url }}'>
