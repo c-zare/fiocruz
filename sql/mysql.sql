@@ -158,7 +158,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$VmyS8ArgTQXz$DD5BnKtIVagxTPsl0VL+TGM2u/3eRRuxD/Ef3RY3MCc=','2016-08-03 17:38:36',1,'admin','Administrador','Administrador','admin@matogrossodosul.fiocruz.br',1,1,'2016-07-20 16:30:56'),(2,'pbkdf2_sha256$24000$wshnIBVPgWHz$dZPcMJf4WXju5Ns+C6HZpxVPqEhCx8OAGU5QROq963U=','2016-08-12 18:20:14',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:33'),(3,'pbkdf2_sha256$24000$4KvO6SLNqRCT$+sAz92VGnhij7OskpBQ30QUoeJgU9ILu+g5uFUY+JzU=','2016-08-18 18:33:45',0,'master','Master','Master','master@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:56');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$VmyS8ArgTQXz$DD5BnKtIVagxTPsl0VL+TGM2u/3eRRuxD/Ef3RY3MCc=','2016-08-03 17:38:36',1,'admin','Administrador','Administrador','admin@matogrossodosul.fiocruz.br',1,1,'2016-07-20 16:30:56'),(2,'pbkdf2_sha256$24000$wshnIBVPgWHz$dZPcMJf4WXju5Ns+C6HZpxVPqEhCx8OAGU5QROq963U=','2016-08-12 18:20:14',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:33'),(3,'pbkdf2_sha256$24000$4KvO6SLNqRCT$+sAz92VGnhij7OskpBQ30QUoeJgU9ILu+g5uFUY+JzU=','2016-08-18 19:00:17',0,'master','Master','Master','master@matogrossodosul.fiocruz.br',0,1,'2016-07-20 16:31:56');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -582,4 +582,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-18 15:35:20
+-- Dump completed on 2016-08-19  7:50:59
