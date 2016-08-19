@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% block header %}
+<div class="row">
+    <div class="col-sm-4">
+        <h4>Lista de Compra</h4>
+    </div>
+    <form method='GET' action=''>
+	    <div class="col-sm-4">
+	        <div class="input-group">
+	            <input name="q" class="form-control" id="search" type="text" placeholder="Pesquisar Compra" value='{{request.GET.q}}'>
+		            <span class="input-group-btn">
+	                <button title='Pesquisar' class="btn btn-primary" type="submit">
+	                    <span class="glyphicon glyphicon-search"></span>
+	                </button>
+	            </span>
+	        </div>
+		</div> <!-- Pesquisa -->
+    </form>
+    <div class="col-sm-2">
+    </div>
+    <form>
+    	<div class="col-sm-1 text-center">
+        	<button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'compra:lista' %}">
+	        	<span class="glyphicon glyphicon-refresh"></span></button>
+    	</div>
+    	<div class="col-sm-1 text-center">
+    	{% if perms.compra.pode_administrar %}
+        	<button title='Nova Compra' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'compra:cria' %}">
+	        	<span class="glyphicon glyphicon-plus"></span></button>
+	    {% endif %}
+    	</div>
+   	</form>
+</div>
+{% endblock %}
+{% block main %}
+	<br><br>
+	<div class='row'>	<!-- Cabeçalho-->
+		<div class='col-sm-12'>
+		    <ul class="list-inline">
+		    	<div class='col-sm-1 text-center'>
+		        	<li><strong>ID</strong></li>
+		        </div>
+		        <div class='col-sm-4'>
+		        	<li><strong>NUMERO DA COMPRA</strong></li>       
+		        </div>
+		        <div class='col-sm-5'>
+		        	<li><strong>DATA COMPRA</strong></li>
+		        </div>
+		        <div class='col-sm-2 text-center'>
+		        	<li><strong>OPÇÕES</strong></li>
+		    	</div>
+		    </ul>
+	    </div>
+    </div><hr>
+	{% for obj in compras %} <!-- Itens-->
+	    <div class='row'><br> 
+	    	<div class='col-sm-12 text-muted'>
+			    <ul class="list-inline">
+			    <div class='col-sm-1'>
+			        <li class='text-center'>{{forloop.counter}}</li>
+			    </div>
+			    <div class='col-sm-4'>
+			        <li>{{obj.nome}}</li>
+			    </div>       
+			    <div class='col-sm-5'>
+			        <li>{{obj.endereco}}</li>
+			    </div>
+			    <div class='col-sm-2 text-center'>
+	                <a href='{{ obj.get_absolute_url }}'>
+	                   	<span title='Visualizar' class="glyphicon glyphicon-check"></span>
+	                </a>&nbsp;&nbsp;&nbsp;
+	                {% if perms.compra.pode_administrar %}
+	                <a href='{% url "compra:edita" obj.id %}'>
+	                   	<span title='Editar' class="glyphicon glyphicon-edit"></span>
+	                </a>&nbsp;&nbsp;&nbsp;
+	                <a href="javascript:func()" onclick="confirmacao('{% url "compra:apaga" obj.id %}')">
+	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-remove"></span>
+	                </a>
+	                {% endif %}
+			    </div>
+			    </ul>
+		    </div>
+	  	</div>
+	{% endfor %}
+	<hr>
+	<div class='text-center'>
+	<div class="pagination"> <!-- Paginação-->
+	    <span class="step-links">
+	        {% if compras.has_previous %}
+	            <a href="?{{ page_request_var }}={{ compras.previous_page_number }}"><strong><< </strong></a>
+	        {% endif %}
+
+	        <span class="current">
+	            {{ compras.number }} / {{ compras.paginator.num_pages }}
+	        </span>
+
+	        {% if compras.has_next %}
+	            <a href="?{{ page_request_var }}={{ compras.next_page_number }}"><strong> >></strong></a>
+	        {% endif %}
+	    </span>
+	</div>
+	</div>
+{% endblock %}
+{% block jquery %}
+	<script language="Javascript">
+		function confirmacao(id) {
+			var resposta = confirm("Deseja remover esta compra ?");
+   			if (resposta == true) {
+      			window.location.href = id;
+   			}
+		}
+	</script>
+{% endblock %}

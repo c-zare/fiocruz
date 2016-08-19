@@ -1,5 +1,6 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
+Quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
 Validar informações do formulário é no forms.py
 implementar banco de dados para o quadro de avisos.
 implementar banco de dados para as atividade do fornecedor, CNAE.
@@ -13,9 +14,12 @@ Documentar Requisitos atendidos.
 Implementar requisições para o sistema.
 Corrigir o problema da troca de senha que esta executando o logout no sistema.
 Corrigir o problema da indexação dos estados com os municipios.
+Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+19-08-2016: Implementado a lista de compra.
+18-08-2016: Implantado a base de dados de compra.
 17-08-2016: Avisar o usuário sobre o risco de apagar o registro dos cadastros e pedir confirmação, para
             exclusão.
 16-08-2016: Implementado imagem de background para a página de login do sistema.

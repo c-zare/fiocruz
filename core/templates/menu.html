@@ -17,11 +17,12 @@
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Materiais <span class="caret"></span></a>
                 <ul class="dropdown-menu">
+                  <li><a href="#">Requsição</a></li>  
+                  <li class="divider"></li>              
                   <li><a href="{% url 'armazem:lista' %}">Armazém</a></li>
-                  <li><a href="{% url 'item:lista' %}">Ítens</a></li>
+                  <li><a href="{% url 'compra:lista' %}">Compra</a></li>                  
                   <li><a href="{% url 'fornecedor:lista' %}">Fornecedor</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#">Requsição</a></li>
+                  <li><a href="{% url 'item:lista' %}">Ítens</a></li>
                 </ul>
               </li>
               <li><a href="#">Menu 2</a></li>

@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+<form method='POST' action=''>{% csrf_token %}
+<div class="row"> <!-- Cabecalho da página de Listas -->
+    <div class="col-sm-3">
+        <h4>Adicionar Compra</h4>
+    </div>   
+    <div class="col-sm-7">
+    </div>   
+    <div class="col-sm-1 text-center">
+        <button title='Adicionar Compra' class='btn btn-primary btn-sm' type='submit'>
+          <span class="glyphicon glyphicon-check"></span>
+        </button>
+    </div>
+    <div class="col-sm-1 text-center">
+        <button title='Listar Compra' class='btn btn-primary btn-sm' type='submit' formaction="{% url 'compra:lista' %}">
+          <span class="glyphicon glyphicon-list"></span>
+        </button>
+    </div>
+</div>
+
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
+  <hr>
+	<div class="row">
+  		<div class="col-sm-3">
+    		<p><strong>Numero</strong></p>
+    		<p>{{form.numero}}</p>
+  		</div>
+  		<div class="col-sm-3">
+    		<p><strong>Data da Compra</strong></p>
+    		<p>{{form.data_compra}}</p>
+  		</div>
+  		<div class="col-sm-3">
+    		<p><strong>Data da Entrega</strong></p>
+    		<p>{{form.data_entrega}}</p>
+  		</div>
+      <div class="col-sm-3">
+        <p><strong>Finalizar</strong></p>
+        <p>{{form.situacao}}</p>
+      </div>
+	</div>
+</div>
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 2-->
+  <hr>
+  <div class="row">
+      <div class="col-sm-4">
+        <p><strong>Itens</strong></p>
+        <p>{{form.item_compra}}</p>
+      </div>
+      <div class="col-sm-4">
+      </div>
+      <div class="col-sm-4">
+      </div>
+  </div>
+</div>
+</form>
+{% endblock %}
