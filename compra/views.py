@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 
 from .forms import CompraForm
-from .models import Compra, Itemcompra
+from .models import Compra
 
 @login_required
 def compra_cria(request): 
@@ -15,9 +15,14 @@ def compra_cria(request):
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.usuario = request.user
+		instance.itens(item=form.item,quantidade=form.quantidade,custo=form.custo)
 		instance.save()
 		messages.success(request,' Compra foi criada.')
 		return HttpResponseRedirect(instance.get_absolute_url())
+	else:
+		print('Erro no form')
+		print(form.notafiscal, form.data_compra, form.data_entrega, form.situacao)
+		print(form.item, form.quantidade, form.custo)
 	context = {'form':form,}
 	return render(request,'compra_form.html', context)
 

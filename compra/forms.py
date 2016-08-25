@@ -1,27 +1,19 @@
 from django import forms
 
-from .models import Compra, Itemcompra
-
-class Itemcompra(forms.ModelForm):
-
-	class Meta:
-		model = Itemcompra
-		fields = {
-			'quantidade',
-			'item',
-			'fornecedor',
-			'custo',
-		}
+from .models import Compra, CompraItem
+from fornecedor.models import Fornecedor
+from item.models import Item
 
 class CompraForm(forms.ModelForm):
 
-	#item_compra = forms.ModelMultipleChoiceField(queryset=Itemcompra.objects.all())
+    itens       = forms.ModelMultipleChoiceField(queryset=Item.objects.all(), required=False, widget=forms.Select)
+    quantidade  = forms.IntegerField()
+    custo       = forms.DecimalField(max_digits=10,decimal_places=2)
 
-	class Meta:
-		model = Compra
-		fields = {
-			'nota',
-			'item_compra',
+    class Meta:
+    	model = Compra
+    	fields = {
+    		'notafiscal',
 			'data_compra',
 			'data_entrega',
 			'situacao',

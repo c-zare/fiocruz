@@ -8,32 +8,28 @@ from datetime import datetime
 from item.models import Item
 from fornecedor.models import Fornecedor
 
-class Itemcompra(models.Model):
+class CompraItem(models.Model):
 
-	quantidade	= models.IntegerField(null=False)	
-	item		= models.ForeignKey(Item,on_delete=models.PROTECT)
-	fornecedor  = models.ForeignKey(Fornecedor,on_delete=models.PROTECT)
-	custo		= models.DecimalField(max_digits=10,decimal_places=2)
-	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
-	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
-	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
+	item 		= models.ForeignKey(Item,on_delete=models.PROTECT)
+	quantidade 	= models.IntegerField(default=1)
+	custo 		= models.DecimalField(max_digits=10,decimal_places=2)
 
 	class Meta:
-		ordering = ['-atualizado','-criado']
+		ordering = ['item']
 		permissions = (
             ('pode_administrar', 'Pode Administrar'),
         )
 
 	def __unicode__(self):
-		return self.id		
+		return self.item	
 
 	def __str__(self):
-		return self.id
+		return self.item  
 
 class Compra(models.Model):
 
-	nota		= models.IntegerField(default=0,null=False)
-	item_compra = models.ManyToManyField(Itemcompra)
+	notafiscal	= models.IntegerField(default=0,null=False)
+	itens		= models.ForeignKey(CompraItem,on_delete=models.CASCADE)
 	data_compra	= models.DateField(default=datetime.today)
 	data_entrega= models.DateField(default=datetime.today)
 	situacao	= models.BooleanField(default=False)
@@ -52,3 +48,6 @@ class Compra(models.Model):
 
 	def __str__(self):
 		return self.id    
+
+	def get_absolute_url(self):
+		return reverse('compra:lista')
