@@ -27,9 +27,8 @@ class CompraItem(models.Model):
 		return self.item  
 
 class Compra(models.Model):
-
-	notafiscal	= models.IntegerField(default=0,null=False)
-	itens		= models.ForeignKey(CompraItem,on_delete=models.CASCADE)
+# Falta incluir Fornecedor
+	notafiscal	= models.CharField(max_length=20,null=False)
 	data_compra	= models.DateField(default=datetime.today)
 	data_entrega= models.DateField(default=datetime.today)
 	situacao	= models.BooleanField(default=False)
@@ -50,4 +49,4 @@ class Compra(models.Model):
 		return self.id    
 
 	def get_absolute_url(self):
-		return reverse('compra:lista')
+		return reverse('compra:detalhe', kwargs={'id':self.id})

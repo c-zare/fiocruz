@@ -1,5 +1,7 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
+Incluir identificação de FORNECEDOR na base de COMPRAS
+Incluir Itens na base de COMPRAS.
 Quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
 RETIRAR da base de Itens os campos ARMAZEM e FORNECEDOR, reconfigurar a BASE DE ITENS.
 Validar informações do formulário é no forms.py
@@ -18,6 +20,8 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+29-09-2016: Implementado detalhe para base de compras.
+29-09-2016: Implementado inclusão e apagar registro de compras.
 19-08-2016: Corrigido o problema da troca de senha que esta executando o logout no sistema.
 19-08-2016: Implementado a lista de compra.
 18-08-2016: Implantado a base de dados de compra.

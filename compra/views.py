@@ -15,24 +15,29 @@ def compra_cria(request):
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.usuario = request.user
-		instance.itens(item=form.item,quantidade=form.quantidade,custo=form.custo)
 		instance.save()
 		messages.success(request,' Compra foi criada.')
 		return HttpResponseRedirect(instance.get_absolute_url())
 	else:
 		print('Erro no form')
-		print(form.notafiscal, form.data_compra, form.data_entrega, form.situacao)
-		print(form.item, form.quantidade, form.custo)
 	context = {'form':form,}
 	return render(request,'compra_form.html', context)
 
 @login_required
 def compra_apaga(request,id=None):
-	pass
+	instance = get_object_or_404(Compra,id=id)
+	try:
+		instance.delete()
+		messages.success(request,' Compra foi excluida.')
+	except IntegrityError:
+		messages.warning(request,' O Compra %s não pode ser excluído, devido a vínculo com outra informação.' % instance.nome)
+	return redirect('compra:lista')
 
 @login_required
 def compra_detalhe(request,id):
-	pass
+	queryset_detalhe = Compra.objects.get(id=id)
+	context = { 'compra':queryset_detalhe }
+	return render(request,'compra_detalhe.html', context)
 
 @login_required
 def compra_lista(request):
@@ -52,7 +57,7 @@ def compra_lista(request):
 	except EmptyPage:
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		queryset_list = paginator.page(paginator.num_pages)
-	context = { 'armazens':queryset_list,
+	context = { 'compras':queryset_list,
 				'page_request_var':page_request_var 
 				}
 	return render(request,'compra_lista.html', context)
