@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Compra, CompraItem
+from .models import Compra, ItemCompra
 from fornecedor.models import Fornecedor
 from item.models import Item
 
@@ -14,6 +14,7 @@ class CompraForm(forms.ModelForm):
     	model = Compra
     	fields = {
     		'notafiscal',
+    		'fornecedor',
 			'data_compra',
 			'data_entrega',
 			'situacao',

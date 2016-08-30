@@ -1,13 +1,15 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
-Incluir identificação de FORNECEDOR na base de COMPRAS
+Só é possivel apagar compra que não esteja fechada.
+Definir fluxo de cadastro de itens para o banco de ARMAZEM.
+Ao fechar a compra é preciso definir qual armazem sera encaminhado o item.
+Ao fechar a compra é necessário que exista pelo menos um ITEMCOMPRA relacionado na tabela.
 Incluir Itens na base de COMPRAS.
 Quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
-RETIRAR da base de Itens os campos ARMAZEM e FORNECEDOR, reconfigurar a BASE DE ITENS.
+RETIRAR da base de Itens os campos ARMAZEM, reconfigurar a BASE DE ITENS.
 Validar informações do formulário é no forms.py
 implementar banco de dados para o quadro de avisos.
 implementar banco de dados para as atividade do fornecedor, CNAE.
-Implementar na base de itens a referêmcia ao Fornecedor e ao armazem
 Encadear Estado/Municipio para o cadastro de fornecedores.
 Limitar a quantidade de Logins no Django.
 Permitir a todos os usuários do sistema fazer requisições de items.
@@ -20,8 +22,12 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
-29-09-2016: Implementado detalhe para base de compras.
-29-09-2016: Implementado inclusão e apagar registro de compras.
+30-08-2016: RETIRAR da base de Itens os campos FORNECEDOR, reconfigurar a BASE DE ITENS.
+30-08-2016: Incluído identificação de FORNECEDOR na base de COMPRAS.
+30-08-2016: Possibilitado a edição de COMPRAS.
+30-08-2016: Pesquisa por notafiscal e data de entrada implantado para COMPRAS.
+29-08-2016: Implementado detalhe para base de compras.
+29-08-2016: Implementado inclusão e apagar registro de compras.
 19-08-2016: Corrigido o problema da troca de senha que esta executando o logout no sistema.
 19-08-2016: Implementado a lista de compra.
 18-08-2016: Implantado a base de dados de compra.

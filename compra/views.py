@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
@@ -46,7 +47,10 @@ def compra_lista(request):
 	page_request_var='Pagina'
 	query = request.GET.get('q')
 	if query:
-		queryset_list = queryset_list.filter(nome__icontains=query)
+		queryset_list = queryset_list.filter(
+			Q(notafiscal__icontains=query)|
+			Q(data_compra__icontains=query)
+			)
 	paginator = Paginator(queryset_list, 8)
 	page = request.GET.get(page_request_var)
 	try:
@@ -64,4 +68,13 @@ def compra_lista(request):
 
 @login_required
 def compra_edita(request,id=None):
-	pass
+	instance = get_object_or_404(Compra,id=id)
+	form = CompraForm(request.POST or None, instance=instance)
+	if form.is_valid():
+		instance = form.save(commit=False)
+		instance.usuario = request.user
+		instance.save()
+		messages.success(request,' Compra foi modificado.')
+		return HttpResponseRedirect(instance.get_absolute_url())
+	context = { 'instance':instance, 'form':form,}
+	return render(request,'compra_form.html', context)
