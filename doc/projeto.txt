@@ -1,5 +1,8 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
+Verificar se apos o fechamento da compra e o impedimento de exclusão e alteracao desta é possível acessar
+esta por meio da URL.
+Inserir na comnpra o responsável por sua autorização.
 Só é possivel apagar compra que não esteja fechada.
 Definir fluxo de cadastro de itens para o banco de ARMAZEM.
 Ao fechar a compra é preciso definir qual armazem sera encaminhado o item.
@@ -22,6 +25,7 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+31-08-2016: Uma vez fechada a compra não pode ser mas editada (alterada).
 31-08-2016: Inserido no detalhe da compra os itens e somas de quantidade de itens e custos.
 30-08-2016: RETIRAR da base de Itens os campos FORNECEDOR, reconfigurar a BASE DE ITENS.
 30-08-2016: Incluído identificação de FORNECEDOR na base de COMPRAS.

@@ -80,12 +80,15 @@
 	                   	<span title='Visualizar' class="glyphicon glyphicon-check"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
 	                {% if perms.compra.pode_administrar %}
-	                <a href='{% url "compra:edita" obj.id %}'>
-	                   	<span title='Editar' class="glyphicon glyphicon-edit"></span>
-	                </a>&nbsp;&nbsp;&nbsp;
-	                <a href="javascript:func()" onclick="confirmacao('{% url "compra:apaga" obj.id %}')">
-	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-remove"></span>
-	                </a>
+		                {% if obj.situacao %}
+			                {% else %}
+			                <a href='{% url "compra:edita" obj.id %}'>
+			                   	<span title='Editar' class="glyphicon glyphicon-edit"></span>
+			                </a>&nbsp;&nbsp;&nbsp;
+			                <a href="javascript:func()" onclick="confirmacao('{% url "compra:apaga" obj.id %}')">
+			                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-remove"></span>
+			                </a
+		                {% endif %}
 	                {% endif %}
 			    </div>
 			    </ul>
