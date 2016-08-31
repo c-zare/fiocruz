@@ -2,13 +2,14 @@ from django.contrib import messages
 from django.contrib.auth.decorators import permission_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.db.models import Q
+from django.db.models import Sum
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 
 from .forms import CompraForm
-from .models import Compra
+from .models import Compra,ItemCompra
 
 @login_required
 def compra_cria(request): 
@@ -19,8 +20,6 @@ def compra_cria(request):
 		instance.save()
 		messages.success(request,' Compra foi criada.')
 		return HttpResponseRedirect(instance.get_absolute_url())
-	else:
-		print('Erro no form')
 	context = {'form':form,}
 	return render(request,'compra_form.html', context)
 
@@ -37,7 +36,13 @@ def compra_apaga(request,id=None):
 @login_required
 def compra_detalhe(request,id):
 	queryset_detalhe = Compra.objects.get(id=id)
-	context = { 'compra':queryset_detalhe }
+	queryset_detalhe_item = ItemCompra.objects.filter(compra__id=id)
+	queryset_detalhe_item_soma = ItemCompra.objects.aggregate(Sum('custo'))
+	queryset_detalhe_quantidade_soma = ItemCompra.objects.filter(compra__id=id).count()
+	context = { 'compra':queryset_detalhe,
+				'itemcompra':queryset_detalhe_item,
+				'itemcomprasoma':queryset_detalhe_item_soma,
+				'itemcompraquantidadesoma':queryset_detalhe_quantidade_soma }
 	return render(request,'compra_detalhe.html', context)
 
 @login_required

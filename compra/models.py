@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Sum
 
 # Create your models here.
 from django.conf	import settings
@@ -36,7 +37,7 @@ class ItemCompra(models.Model):
 	item 		= models.ForeignKey(Item,on_delete=models.PROTECT)
 	quantidade 	= models.IntegerField(default=1)
 	custo 		= models.DecimalField(max_digits=10,decimal_places=2)
-	compra      = models.ForeignKey(Compra,on_delete=models.PROTECT)
+	compra      = models.ForeignKey(Compra,on_delete=models.CASCADE)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
 	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
@@ -48,7 +49,4 @@ class ItemCompra(models.Model):
         )
 
 	def __unicode__(self):
-		return self.item	
-
-	def __str__(self):
-		return self.item  
+		return self.id

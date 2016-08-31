@@ -22,6 +22,7 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+31-08-2016: Inserido no detalhe da compra os itens e somas de quantidade de itens e custos.
 30-08-2016: RETIRAR da base de Itens os campos FORNECEDOR, reconfigurar a BASE DE ITENS.
 30-08-2016: Incluído identificação de FORNECEDOR na base de COMPRAS.
 30-08-2016: Possibilitado a edição de COMPRAS.
