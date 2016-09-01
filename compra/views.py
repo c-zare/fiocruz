@@ -8,30 +8,36 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.db import IntegrityError
 
-from .forms import CompraForm
+from .forms import CompraForm,ItemCompraForm
 from .models import Compra,ItemCompra
 
 @login_required
 def compra_cria(request): 
-	form = CompraForm(request.POST or None)
+	form = CompraForm(request.POST or None)	
+	formItem = ItemCompraForm(request.POST or None)
 	if form.is_valid():
 		instance = form.save(commit=False)
 		instance.usuario = request.user
 		instance.save()
 		messages.success(request,' Compra foi criada.')
 		return HttpResponseRedirect(instance.get_absolute_url())
-	context = {'form':form,}
+	context = { 'form':form,
+				'formItem': formItem }
 	return render(request,'compra_form.html', context)
 
 @login_required
 def compra_apaga(request,id=None):
 	instance = get_object_or_404(Compra,id=id)
-	try:
-		instance.delete()
-		messages.success(request,' Compra foi excluida.')
-	except IntegrityError:
-		messages.warning(request,' O Compra %s não pode ser excluído, devido a vínculo com outra informação.' % instance.nome)
-	return redirect('compra:lista')
+	if instance.situacao: 
+		messages.warning(request,' Compra fechada, não é possivel excluir.')
+		return redirect('compra:lista')
+	else:
+		try:
+			instance.delete()
+			messages.success(request,' Compra foi excluida.')
+		except IntegrityError:
+			messages.warning(request,' O Compra %s não pode ser excluído, devido a vínculo com outra informação.' % instance.nome)
+		return redirect('compra:lista')
 
 @login_required
 def compra_detalhe(request,id):
@@ -42,7 +48,8 @@ def compra_detalhe(request,id):
 	context = { 'compra':queryset_detalhe,
 				'itemcompra':queryset_detalhe_item,
 				'itemcomprasoma':queryset_detalhe_item_soma,
-				'itemcompraquantidadesoma':queryset_detalhe_quantidade_soma }
+				'itemcompraquantidadesoma':queryset_detalhe_quantidade_soma,
+				}
 	return render(request,'compra_detalhe.html', context)
 
 @login_required
@@ -72,14 +79,18 @@ def compra_lista(request):
 	return render(request,'compra_lista.html', context)
 
 @login_required
-def compra_edita(request,id=None):
+def compra_edita(request,id=None):	
 	instance = get_object_or_404(Compra,id=id)
 	form = CompraForm(request.POST or None, instance=instance)
-	if form.is_valid():
-		instance = form.save(commit=False)
-		instance.usuario = request.user
-		instance.save()
-		messages.success(request,' Compra foi modificado.')
-		return HttpResponseRedirect(instance.get_absolute_url())
+	if instance.situacao: 
+		messages.warning(request,' Compra fechada, não é possivel editar.')
+		return redirect('compra:lista')
+	else:
+		if form.is_valid():
+			instance = form.save(commit=False)
+			instance.usuario = request.user
+			instance.save()
+			messages.success(request,' Compra foi modificado.')
+			return HttpResponseRedirect(instance.get_absolute_url())
 	context = { 'instance':instance, 'form':form,}
 	return render(request,'compra_form.html', context)

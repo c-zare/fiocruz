@@ -19,3 +19,15 @@ class CompraForm(forms.ModelForm):
 			'data_entrega',
 			'situacao',
 		}
+
+class ItemCompraForm(forms.ModelForm):
+
+	item = forms.ModelChoiceField(queryset=Item.objects.all())
+
+	class Meta:
+		model = ItemCompra
+		fields = {
+			'item',
+			'quantidade',
+			'custo',
+		}	

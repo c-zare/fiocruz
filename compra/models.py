@@ -26,7 +26,7 @@ class Compra(models.Model):
             ('pode_administrar', 'Pode Administrar'),
         )
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.id		
 
 	def get_absolute_url(self):
@@ -48,5 +48,5 @@ class ItemCompra(models.Model):
             ('pode_administrar', 'Pode Administrar'),
         )
 
-	def __unicode__(self):
+	def __str__(self):
 		return self.id
