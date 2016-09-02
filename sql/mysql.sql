@@ -158,7 +158,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$RwCWowXrfyBa$/l8HftktAlzU0i5dKPTpfzCyRfXPD2hdejFGAeloAiQ=','2016-08-31 13:30:57.906008',1,'admin','Administrador','Administrador','administrador@matogrossodosul.fiocruz.br',1,1,'2016-08-22 16:57:04.000000'),(2,'pbkdf2_sha256$24000$rKZ1Us2iZtHP$ipMolYUKpEirGJWOUcN8pzaiDk01M6YdE7YYR0WIsS4=','2016-08-31 13:31:38.323320',0,'master','master','master','master@matogrossodosul.fiocruz.br',0,1,'2016-08-23 11:18:53.000000'),(3,'pbkdf2_sha256$24000$B2f3bKKXRcf5$tiWIfl7lvXcdGjOW4tRFtVF68JzCuWurXEuIy5g3nZk=','2016-08-23 11:21:20.769952',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-08-23 11:20:20.000000');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$RwCWowXrfyBa$/l8HftktAlzU0i5dKPTpfzCyRfXPD2hdejFGAeloAiQ=','2016-09-01 12:26:58.521025',1,'admin','Administrador','Administrador','administrador@matogrossodosul.fiocruz.br',1,1,'2016-08-22 16:57:04.000000'),(2,'pbkdf2_sha256$24000$rKZ1Us2iZtHP$ipMolYUKpEirGJWOUcN8pzaiDk01M6YdE7YYR0WIsS4=','2016-09-02 10:53:17.449362',0,'master','master','master','master@matogrossodosul.fiocruz.br',0,1,'2016-08-23 11:18:53.000000'),(3,'pbkdf2_sha256$24000$B2f3bKKXRcf5$tiWIfl7lvXcdGjOW4tRFtVF68JzCuWurXEuIy5g3nZk=','2016-09-01 18:43:44.418789',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-08-23 11:20:20.000000');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -241,7 +241,7 @@ CREATE TABLE `compra_compra` (
   KEY `compra_compra_0074dfda` (`fornecedor_id`),
   CONSTRAINT `compra_compra_fornecedor_id_37580b80_fk_fornecedor_fornecedor_id` FOREIGN KEY (`fornecedor_id`) REFERENCES `fornecedor_fornecedor` (`id`),
   CONSTRAINT `compra_compra_usuario_id_978e855e_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -250,7 +250,7 @@ CREATE TABLE `compra_compra` (
 
 LOCK TABLES `compra_compra` WRITE;
 /*!40000 ALTER TABLE `compra_compra` DISABLE KEYS */;
-INSERT INTO `compra_compra` VALUES (24,'864385468486','2016-08-30','2016-08-30',0,'2016-08-30 13:49:36.483299','2016-08-31 17:14:35.247236',2,1);
+INSERT INTO `compra_compra` VALUES (24,'864385468486','2016-08-30','2016-08-30',1,'2016-08-30 13:49:36.483299','2016-09-01 11:26:39.770006',2,1),(29,'\'1','2016-09-02','2016-09-02',0,'2016-09-02 11:12:04.308815','2016-09-02 11:12:04.308815',2,2);
 /*!40000 ALTER TABLE `compra_compra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -419,7 +419,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -428,7 +428,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2016-08-22 16:55:36.114405'),(2,'auth','0001_initial','2016-08-22 16:55:49.530429'),(3,'admin','0001_initial','2016-08-22 16:55:52.837635'),(4,'admin','0002_logentry_remove_auto_add','2016-08-22 16:55:53.165235'),(5,'armazem','0001_initial','2016-08-22 16:55:54.538038'),(6,'contenttypes','0002_remove_content_type_name','2016-08-22 16:55:56.238441'),(7,'auth','0002_alter_permission_name_max_length','2016-08-22 16:55:57.455243'),(8,'auth','0003_alter_user_email_max_length','2016-08-22 16:55:58.500445'),(9,'auth','0004_alter_user_username_opts','2016-08-22 16:55:58.609645'),(10,'auth','0005_alter_user_last_login_null','2016-08-22 16:55:59.842047'),(11,'auth','0006_require_contenttypes_0002','2016-08-22 16:55:59.904447'),(12,'auth','0007_alter_validators_add_error_messages','2016-08-22 16:56:00.013647'),(13,'core','0001_initial','2016-08-22 16:56:05.021256'),(14,'fornecedor','0001_initial','2016-08-22 16:56:09.779265'),(15,'item','0001_initial','2016-08-22 16:56:14.240872'),(16,'compra','0001_initial','2016-08-22 16:56:25.004891'),(17,'sessions','0001_initial','2016-08-22 16:56:26.206093'),(18,'compra','0002_remove_itemcompra_fornecedor','2016-08-22 17:17:59.489390'),(19,'compra','0003_auto_20160822_1436','2016-08-22 17:36:31.669876'),(20,'compra','0004_compra_fornecedor','2016-08-22 17:48:09.771102'),(21,'compra','0005_auto_20160822_1452','2016-08-22 17:52:46.281588'),(22,'compra','0006_auto_20160822_1511','2016-08-22 18:11:41.109015'),(23,'compra','0007_compraitem_custo','2016-08-22 18:30:43.815634'),(24,'compra','0008_auto_20160824_0805','2016-08-24 11:06:04.787693'),(25,'compra','0009_auto_20160824_0830','2016-08-24 11:30:22.361440'),(26,'compra','0010_auto_20160829_1349','2016-08-29 16:50:00.491689'),(27,'compra','0010_auto_20160829_1428','2016-08-29 17:29:05.531818'),(28,'compra','0011_compra_fornecedor','2016-08-30 12:53:16.749990'),(29,'compra','0012_auto_20160830_1504','2016-08-30 18:04:58.130857'),(30,'compra','0013_auto_20160831_0907','2016-08-31 12:07:43.827954'),(31,'compra','0014_auto_20160831_0939','2016-08-31 12:39:55.036822');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2016-08-22 16:55:36.114405'),(2,'auth','0001_initial','2016-08-22 16:55:49.530429'),(3,'admin','0001_initial','2016-08-22 16:55:52.837635'),(4,'admin','0002_logentry_remove_auto_add','2016-08-22 16:55:53.165235'),(5,'armazem','0001_initial','2016-08-22 16:55:54.538038'),(6,'contenttypes','0002_remove_content_type_name','2016-08-22 16:55:56.238441'),(7,'auth','0002_alter_permission_name_max_length','2016-08-22 16:55:57.455243'),(8,'auth','0003_alter_user_email_max_length','2016-08-22 16:55:58.500445'),(9,'auth','0004_alter_user_username_opts','2016-08-22 16:55:58.609645'),(10,'auth','0005_alter_user_last_login_null','2016-08-22 16:55:59.842047'),(11,'auth','0006_require_contenttypes_0002','2016-08-22 16:55:59.904447'),(12,'auth','0007_alter_validators_add_error_messages','2016-08-22 16:56:00.013647'),(13,'core','0001_initial','2016-08-22 16:56:05.021256'),(14,'fornecedor','0001_initial','2016-08-22 16:56:09.779265'),(15,'item','0001_initial','2016-08-22 16:56:14.240872'),(16,'compra','0001_initial','2016-08-22 16:56:25.004891'),(17,'sessions','0001_initial','2016-08-22 16:56:26.206093'),(18,'compra','0002_remove_itemcompra_fornecedor','2016-08-22 17:17:59.489390'),(19,'compra','0003_auto_20160822_1436','2016-08-22 17:36:31.669876'),(20,'compra','0004_compra_fornecedor','2016-08-22 17:48:09.771102'),(21,'compra','0005_auto_20160822_1452','2016-08-22 17:52:46.281588'),(22,'compra','0006_auto_20160822_1511','2016-08-22 18:11:41.109015'),(23,'compra','0007_compraitem_custo','2016-08-22 18:30:43.815634'),(24,'compra','0008_auto_20160824_0805','2016-08-24 11:06:04.787693'),(25,'compra','0009_auto_20160824_0830','2016-08-24 11:30:22.361440'),(26,'compra','0010_auto_20160829_1349','2016-08-29 16:50:00.491689'),(27,'compra','0010_auto_20160829_1428','2016-08-29 17:29:05.531818'),(28,'compra','0011_compra_fornecedor','2016-08-30 12:53:16.749990'),(29,'compra','0012_auto_20160830_1504','2016-08-30 18:04:58.130857'),(30,'compra','0013_auto_20160831_0907','2016-08-31 12:07:43.827954'),(31,'compra','0014_auto_20160831_0939','2016-08-31 12:39:55.036822'),(32,'compra','0015_compra_complemento','2016-09-01 12:38:03.790455'),(33,'compra','0016_auto_20160901_0941','2016-09-01 12:41:11.910215'),(34,'compra','0017_auto_20160901_1006','2016-09-01 13:06:56.049535'),(35,'compra','0018_auto_20160901_1011','2016-09-01 13:11:21.528719'),(36,'compra','0019_auto_20160901_1035','2016-09-01 13:38:11.142089'),(37,'compra','0020_remove_compra_observacao','2016-09-01 13:42:18.480523');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,7 +454,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('eii2ox5xe19tzs16pl5bsb7jj63ub8mi','MGQ3MmViNGJkYjcyZmQ1MmYzNGVmMmU1OTE1MTU4NzJkZjM4ZWEzNzp7Il9hdXRoX3VzZXJfaWQiOiIyIiwiX2F1dGhfdXNlcl9oYXNoIjoiNTkxMjg3M2JkMDFkOTM1NWRjM2Y1MTE0YThiOWZjODA2ZjcyNjkwMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-09-14 13:31:38.403324');
+INSERT INTO `django_session` VALUES ('fn7fq48z39rc35kyj0101jz410q2btac','Zjg3OWYxZGMxODlkYTE0YTc2ZGU4OGQyMzc2ZDYyNjQ0MzYwZDQwNzp7Il9hdXRoX3VzZXJfaGFzaCI6IjU5MTI4NzNiZDAxZDkzNTVkYzNmNTExNGE4YjlmYzgwNmY3MjY5MDIiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-09-16 10:53:17.602371');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -529,7 +529,7 @@ CREATE TABLE `item_item` (
   CONSTRAINT `item_item_armazem_id_6fbf1c0f_fk_armazem_armazem_id` FOREIGN KEY (`armazem_id`) REFERENCES `armazem_armazem` (`id`),
   CONSTRAINT `item_item_fornecedor_id_b849e10b_fk_fornecedor_fornecedor_id` FOREIGN KEY (`fornecedor_id`) REFERENCES `fornecedor_fornecedor` (`id`),
   CONSTRAINT `item_item_usuario_id_69c4918c_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -538,7 +538,7 @@ CREATE TABLE `item_item` (
 
 LOCK TABLES `item_item` WRITE;
 /*!40000 ALTER TABLE `item_item` DISABLE KEYS */;
-INSERT INTO `item_item` VALUES (1,'Bloco A4 500 Folhas',10,2,'2016-08-22 17:45:52.865262','2016-08-22 17:45:52.865262',1,1,1),(2,'Caneta cor Preta',50,5,'2016-08-22 18:00:59.328043','2016-08-22 18:00:59.328043',1,1,1);
+INSERT INTO `item_item` VALUES (1,'Bloco A4 500 Folhas',10,2,'2016-08-22 17:45:52.865262','2016-08-22 17:45:52.865262',1,1,1),(2,'Caneta cor Preta',50,5,'2016-08-22 18:00:59.328043','2016-08-22 18:00:59.328043',1,1,1),(3,'Mesa de escritório modelo A 568 Marron',1,1,'2016-09-01 17:55:57.929000','2016-09-01 17:55:57.929000',1,2,2);
 /*!40000 ALTER TABLE `item_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -559,4 +559,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-31 14:57:51
+-- Dump completed on 2016-09-02  8:32:57

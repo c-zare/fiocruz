@@ -67,15 +67,15 @@
 			    </div>
 			    <div class='col-sm-2 text-center'>
 	                <a href='{{ obj.get_absolute_url }}'>
-	                   	<span title='Visualizar' class="glyphicon glyphicon-check"></span>
+	                   	<span title='Visualizar' class="glyphicon glyphicon glyphicon-zoom-in"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
 	                {% if perms.armazem.pode_administrar %}
 	                <a href='{% url "armazem:edita" obj.id %}'>
-	                   	<span title='Editar' class="glyphicon glyphicon-edit"></span>
+	                   	<span title='Editar' class="glyphicon glyphicon-pencil"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
 	                <!-- <a href='{% url "armazem:apaga" obj.id %}'> -->
 	                <a href="javascript:func()" onclick="confirmacao('{% url "armazem:apaga" obj.id %}')">
-	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-remove"></span>
+	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-trash"></span>
 	                </a>
 	                {% endif %}
 			    </div>
