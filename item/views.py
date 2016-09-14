@@ -3,6 +3,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.db import IntegrityError
 
 from .forms import ItemForm
 from .models import Item
@@ -10,8 +11,11 @@ from .models import Item
 @login_required
 def item_apaga(request,id=None):
 	instance = get_object_or_404(Item,id=id)
-	instance.delete()
-	messages.success(request,' Ítem foi excluido.')
+	try:
+		instance.delete()
+		messages.success(request,' Ítem foi excluido.')
+	except IntegrityError:
+		messages.warning(request,' O Item "%s" não pode ser excluído, devido a vínculo com outra informação.' % instance.nome)
 	return redirect('item:lista')
 
 @login_required

@@ -80,8 +80,8 @@
 	                   	<span title='Visualizar' class="glyphicon glyphicon glyphicon-zoom-in"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
 	                {% if perms.compra.pode_administrar %}
-			                <a href=''>
-			                   	<span title='Adicionar item' class="glyphicon glyphicon-paperclip"></span>
+			                <a href='{% url "compra:listadeitens" obj.id %}'>
+			                   	<span title='Itens' class="glyphicon glyphicon-paperclip"></span>
 			                </a>&nbsp;&nbsp;&nbsp;
 			                <a href='{% url "compra:edita" obj.id %}'>
 			                   	<span title='Editar' class="glyphicon glyphicon-pencil"></span>

@@ -16,7 +16,7 @@ def fornecedor_apaga(request,id=None):
 		instance.delete()
 		messages.success(request,' Fornecedor foi excluido.')
 	except IntegrityError:
-		messages.warning(request,' O Fornecedor %s não pode ser excluído, devido a vínculo com outra informação.' % instance.nomefantasia)
+		messages.warning(request,' O Fornecedor "%s" não pode ser excluído, devido a vínculo com outra informação.' % instance.nomefantasia)
 	return redirect('fornecedor:lista')
 
 @login_required

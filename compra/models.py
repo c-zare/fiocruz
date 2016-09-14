@@ -29,6 +29,9 @@ class Compra(models.Model):
 	def __str__(self):
 		return self.id		
 
+	def __unicode__(self):
+		return self.id	
+
 	def get_absolute_url(self):
 		return reverse('compra:detalhe', kwargs={'id':self.id})
 

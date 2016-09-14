@@ -29,7 +29,7 @@ def armazem_apaga(request,id=None):
 		instance.delete()
 		messages.success(request,' Armazém foi excluido.')
 	except IntegrityError:
-		messages.warning(request,' O Armazem %s não pode ser excluído, devido a vínculo com outra informação.' % instance.nome)
+		messages.warning(request,' O Armazem "%s" não pode ser excluído, devido a vínculo com outra informação.' % instance.nome)
 	return redirect('armazem:lista')
 
 @login_required

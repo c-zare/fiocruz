@@ -1,5 +1,6 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
+Não permitir que itens sejam apagados quando estes forqam cadastrados nas base de compra.
 Inserir na compra o responsável por sua autorização.
 Só é possivel apagar compra que não esteja fechada.
 Definir fluxo de cadastro de itens para o banco de ARMAZEM.
