@@ -102,7 +102,7 @@ def listadeitens(request,id):
 	page_request_var='Pagina'
 	query = request.GET.get('q')
 	if query:
-		queryset_list = queryset_list.filter(item__icontains=query)
+		queryset_list = queryset_list.filter(item__nome__icontains=query)
 	paginator = Paginator(queryset_list, 8)
 	page = request.GET.get(page_request_var)
 	try:

@@ -1,6 +1,7 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
-Não permitir que itens sejam apagados quando estes forqam cadastrados nas base de compra.
+Verificar se o usuário pode acessar os itens (editar e excluir) embora sem permissões pelo Link.
+Não permitir que itens sejam apagados quando estes foram cadastrados nas base de compra.
 Inserir na compra o responsável por sua autorização.
 Só é possivel apagar compra que não esteja fechada.
 Definir fluxo de cadastro de itens para o banco de ARMAZEM.
@@ -24,6 +25,8 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+15-09-2016: correção nas pesquisa de itens de compras, para pesquisar itens__nome.icontrains.
+15-09-2016: Implementado lista de itens de compras com opções de visualizar editar excluir.
 01-09-2016: Usuario padrao não pode adicionar itens a compras.
 01-09-2016: Inserido icone para adicionar itens na lista de compra.
 01-09-2016: Uma vez fechada a compra não pode ser mas excluída.

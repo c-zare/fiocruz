@@ -1,18 +1,93 @@
 {% extends 'base.html' %}
 
 {% block header %}
-
 <div class="row"> <!-- Cabecalho da página de Listas -->
-    <div class="col-sm-12">
+    <div class="col-sm-6">
         <h4>Quadro de Avisos</h4>
         <hr>
     </div>   
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-5">
+        <h4>Indicadores</h4>
+        <hr>
+    </div>  
 </div> 
 {% endblock %}
 
 {% block main %}
-  <p>30-08-2016 - <i>Inplementado base de dados para Compras</i></p>
-  <p>11-08-2016 - <i>Implementado integridade no banco de dados para eventos de exclusão nos cadastros vinculados.</i></p>
-  <p>29-07-2016 - <i>Implantado o sistema no ambiente Apache 2.4 por SSL, acesso pela url: https://amambai.fiocruz.ms/login</i></p>
-  <p>20-07-2016 - <i>Migração da base de dados para o MySql Server 5.7.</i></p>
+<div class="row"> <!-- Cabecalho da página de Listas -->
+    <div class="col-sm-6">
+	  <p>Custos Agosto: {{grafico.custo__sum}}</p>
+	  <p>30-08-2016 - <i>Inplementado base de dados para Compras</i></p>
+	  <p>11-08-2016 - <i>Implementado integridade no banco de dados para eventos vinculados.</i></p>
+	  <p>29-07-2016 - <i>Implantado o sistema no ambiente Apache 2.4 por SSL</i></p>
+	  <p>20-07-2016 - <i>Migração da base de dados para o MySql Server 5.7.</i></p>
+	</div>
+	<div class="col-sm-1">
+	</div>
+	<div class="col-sm-5">
+	  <p class="text-center">Compras em (R$)</p>
+	  <div id="barras" style="width:400px;height:250px"></div>
+	</div>
+</div>
+
+{% endblock %}
+
+{% block jquery %}
+<script type="text/javascript">
+
+	$(function() {
+
+		var data = [ 	["Jan", 100,00], 
+						["Fev", 127,00], 
+						["Mar", 315,00], 
+						["Abr", 3910,00], 
+						["Mai", 10982,90], 
+						["Jun", 600,79],  
+						["Jul", 919,90],  
+						["Ago", 0,0 ],  
+						["Set", 12009,00],  
+						["Out", 15928,00],  
+						["Nov", 22000,90],  
+						["Dez", 31298,00] ];
+
+		$.plot("#barras", [ data ], {
+			series: { 
+				//label: " Compras (R$)",
+				bars: {
+					show: true,
+					barWidth: 0.6,
+					align: "center"
+				}
+			},
+			xaxis: {
+				mode: "categories",
+				tickLength: 0
+			}
+		});
+
+		// Add the Flot version string to the footer
+		//$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
+		
+		// The format of a single series object is as follows:
+
+		//{
+		//    color: color or number
+		//    data: rawdata
+		//    label: string
+		//    lines: specific lines options
+		//    bars: specific bars options
+		//    points: specific points options
+		//    xaxis: number
+		//    yaxis: number
+		//    clickable: boolean
+		//    hoverable: boolean
+		//    shadowSize: number
+		//    highlightColor: color or number
+		//}
+
+	});
+
+	</script>
 {% endblock %}
