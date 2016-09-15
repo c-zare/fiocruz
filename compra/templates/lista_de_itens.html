@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block header %}
+<div class="row">
+    <div class="col-sm-4">
+        <h4>Materiais: Compra - Lista de Itens</h4>
+    </div>
+    <form method='GET' action=''>
+	    <div class="col-sm-4">
+	        <div class="input-group">
+	            <input name="q" class="form-control" id="search" type="text" placeholder="Pesquisar Itens da Compra" value='{{request.GET.q}}'>
+		            <span class="input-group-btn">
+	                <button title='Pesquisar' class="btn btn-primary" type="submit">
+	                    <span class="glyphicon glyphicon-search"></span>
+	                </button>
+	            </span>
+	        </div>
+		</div> <!-- Pesquisa -->
+    </form>
+    <div class="col-sm-4">
+    </div>
+    <form>
+        <div class="col-sm-1 text-center">
+        </div>
+    	<div class="col-sm-1 text-center">
+        	<button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="">
+	        	<span class="glyphicon glyphicon-refresh"></span></button>
+    	</div>
+    	<div class="col-sm-1 text-center">
+            <button title='Listar Compras' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'compra:lista' %}">
+            <span class="glyphicon glyphicon-list"></span></button>
+        </div>
+    	<div class="col-sm-1 text-center">
+    	{% if perms.compra.pode_administrar %}
+        	<button title='Novo Item de Compra' class='btn btn-primary btn-sm' type='submit' formaction="">
+	        	<span class="glyphicon glyphicon-plus"></span></button>
+	    {% endif %}
+    	</div>
+   	</form>
+</div>
+{% endblock %}
+{% block main %}
+	<br><br>
+	<div class='row'>	<!-- Cabeçalho-->
+		<div class='col-sm-12'>
+		    <ul class="list-inline">
+		    	<div class='col-sm-1 text-center'>
+		        	<li><strong>ID</strong></li>
+		        </div>
+		        <div class='col-sm-3'>
+		        	<li><strong>ITEM</strong></li>       
+		        </div>
+		        <div class='col-sm-3'>
+		        	<li><strong>QUANTIDADE</strong></li>
+		        </div>
+		        <div class='col-sm-3'>
+		        	<li><strong>CUSTO</strong></li>
+		        </div>
+		        <div class='col-sm-2 text-center'>
+		        	<li><strong>OPÇÕES</strong></li>
+		    	</div>
+		    </ul>
+	    </div>
+    </div><hr>
+	{% for obj in listadeitens %} <!-- Itens-->
+	    <div class='row'><br> 
+	    	<div class='col-sm-12 text-muted'>
+			    <ul class="list-inline">
+			    <div class='col-sm-1'>
+			        <li class='text-center'>{{forloop.counter}}</li>
+			    </div>
+			    <div class='col-sm-3'>
+			        <li>{{obj.item}}</li>
+			    </div>       
+			    <div class='col-sm-3'>
+			        <li>{{obj.quantidade}}</li>
+			    </div>
+			    <div class='col-sm-3'>
+			        <li>{{obj.custo}}</li>
+			    </div>
+			    <div class='col-sm-2 text-center'>
+	                <a href=''>
+	                   	<span title='Visualizar' class="glyphicon glyphicon glyphicon-zoom-in"></span>
+	                </a>&nbsp;&nbsp;&nbsp;
+	                {% if perms.compra.pode_administrar %}
+			                <a href=''>
+			                   	<span title='Editar' class="glyphicon glyphicon-pencil"></span>
+			                </a>&nbsp;&nbsp;&nbsp;
+			                <a href="javascript:func()" onclick="confirmacao('')">
+			                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-trash"></span>
+			                </a
+	                {% endif %}
+			    </div>
+			    </ul>
+		    </div>
+	  	</div>
+	{% endfor %}
+	<hr>
+	<div class='text-center'>
+	<div class="pagination"> <!-- Paginação-->
+	    <span class="step-links">
+	        {% if listadeitens.has_previous %}
+	            <a href="?{{ page_request_var }}={{ listadeitens.previous_page_number }}"><strong><< </strong></a>
+	        {% endif %}
+
+	        <span class="current">
+	            {{ listadeitens.number }} / {{ listadeitens.paginator.num_pages }}
+	        </span>
+
+	        {% if listadeitens.has_next %}
+	            <a href="?{{ page_request_var }}={{ listadeitens.next_page_number }}"><strong> >></strong></a>
+	        {% endif %}
+	    </span>
+	</div>
+	</div>
+{% endblock %}
+{% block jquery %}
+	<script language="Javascript">
+		function confirmacao(id) {
+			var resposta = confirm("Deseja remover esta compra ?");
+   			if (resposta == true) {
+      			window.location.href = id;
+   			}
+		}
+	</script>
+{% endblock %}
