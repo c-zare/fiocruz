@@ -25,6 +25,7 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+16-09-2016: Definido no settings.py o parametro USE_TZ = False, possibilitando a soma de valor para datas.
 15-09-2016: correção nas pesquisa de itens de compras, para pesquisar itens__nome.icontrains.
 15-09-2016: Implementado lista de itens de compras com opções de visualizar editar excluir.
 01-09-2016: Usuario padrao não pode adicionar itens a compras.

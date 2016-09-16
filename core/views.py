@@ -9,12 +9,12 @@ from compra.models import Compra,ItemCompra
 
 @login_required
 def home(request):
-	f8 = ItemCompra.objects.filter(
-		Q(criado__year='2016')|
-		Q(criado__month='08'))
-	f = f8.aggregate(Sum('custo'))
-	print(f)
-	context = { 'grafico': f }
+	meses = []							# Geração dos saldos de compras
+	for indice in range(12):
+		queryset = ItemCompra.objects.filter(criado__month=indice).filter(criado__year=2016)
+		queryset = queryset.aggregate(Sum('custo'))		
+		meses.append(queryset)
+	context = { 'totalizacao_compras_mes': meses }
 	return render(request,'home.html', context)
 
 @login_required

@@ -18,11 +18,15 @@
 {% block main %}
 <div class="row"> <!-- Cabecalho da página de Listas -->
     <div class="col-sm-6">
-	  <p>Custos Agosto: {{grafico.custo__sum}}</p>
-	  <p>30-08-2016 - <i>Inplementado base de dados para Compras</i></p>
+	  <p>30-08-2016 - <i>Inplementado base de Compras</i></p>
 	  <p>11-08-2016 - <i>Implementado integridade no banco de dados para eventos vinculados.</i></p>
 	  <p>29-07-2016 - <i>Implantado o sistema no ambiente Apache 2.4 por SSL</i></p>
 	  <p>20-07-2016 - <i>Migração da base de dados para o MySql Server 5.7.</i></p>
+
+	  {% for obj in totalizacao_compras_mes %}
+	      <p>{{obj.custo__sum}}</p>
+	  {% endfor %}
+
 	</div>
 	<div class="col-sm-1">
 	</div>

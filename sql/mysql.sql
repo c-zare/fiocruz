@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: producao
 -- ------------------------------------------------------
--- Server version	5.7.13-log
+-- Server version	5.7.15-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -158,7 +158,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$RwCWowXrfyBa$/l8HftktAlzU0i5dKPTpfzCyRfXPD2hdejFGAeloAiQ=','2016-09-01 12:26:58.521025',1,'admin','Administrador','Administrador','administrador@matogrossodosul.fiocruz.br',1,1,'2016-08-22 16:57:04.000000'),(2,'pbkdf2_sha256$24000$rKZ1Us2iZtHP$ipMolYUKpEirGJWOUcN8pzaiDk01M6YdE7YYR0WIsS4=','2016-09-02 10:53:17.449362',0,'master','master','master','master@matogrossodosul.fiocruz.br',0,1,'2016-08-23 11:18:53.000000'),(3,'pbkdf2_sha256$24000$B2f3bKKXRcf5$tiWIfl7lvXcdGjOW4tRFtVF68JzCuWurXEuIy5g3nZk=','2016-09-01 18:43:44.418789',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-08-23 11:20:20.000000');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$RwCWowXrfyBa$/l8HftktAlzU0i5dKPTpfzCyRfXPD2hdejFGAeloAiQ=','2016-09-01 12:26:58.521025',1,'admin','Administrador','Administrador','administrador@matogrossodosul.fiocruz.br',1,1,'2016-08-22 16:57:04.000000'),(2,'pbkdf2_sha256$24000$rKZ1Us2iZtHP$ipMolYUKpEirGJWOUcN8pzaiDk01M6YdE7YYR0WIsS4=','2016-09-16 13:13:54.997894',0,'master','master','master','master@matogrossodosul.fiocruz.br',0,1,'2016-08-23 11:18:53.000000'),(3,'pbkdf2_sha256$24000$B2f3bKKXRcf5$tiWIfl7lvXcdGjOW4tRFtVF68JzCuWurXEuIy5g3nZk=','2016-09-01 18:43:44.418789',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-08-23 11:20:20.000000');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -277,7 +277,7 @@ CREATE TABLE `compra_itemcompra` (
   CONSTRAINT `compra_itemcompra_compra_id_85e2b81b_fk_compra_compra_id` FOREIGN KEY (`compra_id`) REFERENCES `compra_compra` (`id`),
   CONSTRAINT `compra_itemcompra_item_id_6d9a99fc_fk_item_item_id` FOREIGN KEY (`item_id`) REFERENCES `item_item` (`id`),
   CONSTRAINT `compra_itemcompra_usuario_id_170783e6_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -286,7 +286,7 @@ CREATE TABLE `compra_itemcompra` (
 
 LOCK TABLES `compra_itemcompra` WRITE;
 /*!40000 ALTER TABLE `compra_itemcompra` DISABLE KEYS */;
-INSERT INTO `compra_itemcompra` VALUES (1,10,350.00,'2016-08-30 18:11:28.069142','2016-08-30 18:11:28.069142',24,1,1),(2,50,425.00,'2016-08-31 16:06:29.731758','2016-08-31 16:06:29.731758',24,2,1);
+INSERT INTO `compra_itemcompra` VALUES (1,10,350.00,'2016-08-30 18:11:28.069142','2016-08-30 18:11:28.069142',24,1,1),(2,50,425.00,'2016-08-31 16:06:29.731758','2016-08-31 16:06:29.731758',24,2,1),(3,1,100.00,'2016-09-16 13:17:54.155573','2016-09-16 13:17:54.155573',29,3,1);
 /*!40000 ALTER TABLE `compra_itemcompra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,7 +454,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('fn7fq48z39rc35kyj0101jz410q2btac','Zjg3OWYxZGMxODlkYTE0YTc2ZGU4OGQyMzc2ZDYyNjQ0MzYwZDQwNzp7Il9hdXRoX3VzZXJfaGFzaCI6IjU5MTI4NzNiZDAxZDkzNTVkYzNmNTExNGE4YjlmYzgwNmY3MjY5MDIiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-09-16 10:53:17.602371');
+INSERT INTO `django_session` VALUES ('fn7fq48z39rc35kyj0101jz410q2btac','Zjg3OWYxZGMxODlkYTE0YTc2ZGU4OGQyMzc2ZDYyNjQ0MzYwZDQwNzp7Il9hdXRoX3VzZXJfaGFzaCI6IjU5MTI4NzNiZDAxZDkzNTVkYzNmNTExNGE4YjlmYzgwNmY3MjY5MDIiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-09-16 10:53:17.602371'),('q7j9b0wkun5j5u7bp811ip1ebwgo4cfk','Zjg3OWYxZGMxODlkYTE0YTc2ZGU4OGQyMzc2ZDYyNjQ0MzYwZDQwNzp7Il9hdXRoX3VzZXJfaGFzaCI6IjU5MTI4NzNiZDAxZDkzNTVkYzNmNTExNGE4YjlmYzgwNmY3MjY5MDIiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-09-30 13:13:55.156903');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -559,4 +559,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-02  8:32:57
+-- Dump completed on 2016-09-16 14:04:13
