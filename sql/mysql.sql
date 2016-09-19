@@ -158,7 +158,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$RwCWowXrfyBa$/l8HftktAlzU0i5dKPTpfzCyRfXPD2hdejFGAeloAiQ=','2016-09-01 12:26:58.521025',1,'admin','Administrador','Administrador','administrador@matogrossodosul.fiocruz.br',1,1,'2016-08-22 16:57:04.000000'),(2,'pbkdf2_sha256$24000$rKZ1Us2iZtHP$ipMolYUKpEirGJWOUcN8pzaiDk01M6YdE7YYR0WIsS4=','2016-09-16 13:13:54.997894',0,'master','master','master','master@matogrossodosul.fiocruz.br',0,1,'2016-08-23 11:18:53.000000'),(3,'pbkdf2_sha256$24000$B2f3bKKXRcf5$tiWIfl7lvXcdGjOW4tRFtVF68JzCuWurXEuIy5g3nZk=','2016-09-01 18:43:44.418789',0,'usuario','Usuário','Usuário','usuario@matogrossodosul.fiocruz.br',0,1,'2016-08-23 11:20:20.000000');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$24000$RwCWowXrfyBa$/l8HftktAlzU0i5dKPTpfzCyRfXPD2hdejFGAeloAiQ=','2016-09-19 14:52:38.330878',1,'admin','Administrador','Administrador','administrador@matogrossodosul.fiocruz.br',1,1,'2016-08-22 16:57:04.000000'),(2,'pbkdf2_sha256$24000$rKZ1Us2iZtHP$ipMolYUKpEirGJWOUcN8pzaiDk01M6YdE7YYR0WIsS4=','2016-09-19 14:54:15.166417',0,'rafael.alves','Rafael','Alves','rafael.alves@fiocruz.br',0,1,'2016-08-23 11:18:53.000000'),(3,'pbkdf2_sha256$24000$B2f3bKKXRcf5$tiWIfl7lvXcdGjOW4tRFtVF68JzCuWurXEuIy5g3nZk=','2016-09-19 14:54:32.151388',0,'julio.oliveira','Julio','Oliveira','jcoimbra@fiocruz.br',0,1,'2016-08-23 11:20:20.000000');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -250,7 +250,7 @@ CREATE TABLE `compra_compra` (
 
 LOCK TABLES `compra_compra` WRITE;
 /*!40000 ALTER TABLE `compra_compra` DISABLE KEYS */;
-INSERT INTO `compra_compra` VALUES (24,'864385468486','2016-08-30','2016-08-30',1,'2016-08-30 13:49:36.483299','2016-09-01 11:26:39.770006',2,1),(29,'\'1','2016-09-02','2016-09-02',0,'2016-09-02 11:12:04.308815','2016-09-02 11:12:04.308815',2,2);
+INSERT INTO `compra_compra` VALUES (24,'864385468486','2016-08-30','2016-08-30',1,'2016-08-30 13:49:36.483299','2016-09-01 11:26:39.770006',2,1),(29,'586632000009','2016-09-02','2016-09-02',0,'2016-09-02 11:12:04.308815','2016-09-19 07:54:05.670417',2,2);
 /*!40000 ALTER TABLE `compra_compra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -277,7 +277,7 @@ CREATE TABLE `compra_itemcompra` (
   CONSTRAINT `compra_itemcompra_compra_id_85e2b81b_fk_compra_compra_id` FOREIGN KEY (`compra_id`) REFERENCES `compra_compra` (`id`),
   CONSTRAINT `compra_itemcompra_item_id_6d9a99fc_fk_item_item_id` FOREIGN KEY (`item_id`) REFERENCES `item_item` (`id`),
   CONSTRAINT `compra_itemcompra_usuario_id_170783e6_fk_auth_user_id` FOREIGN KEY (`usuario_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -286,7 +286,7 @@ CREATE TABLE `compra_itemcompra` (
 
 LOCK TABLES `compra_itemcompra` WRITE;
 /*!40000 ALTER TABLE `compra_itemcompra` DISABLE KEYS */;
-INSERT INTO `compra_itemcompra` VALUES (1,10,350.00,'2016-08-30 18:11:28.069142','2016-08-30 18:11:28.069142',24,1,1),(2,50,425.00,'2016-08-31 16:06:29.731758','2016-08-31 16:06:29.731758',24,2,1),(3,1,100.00,'2016-09-16 13:17:54.155573','2016-09-16 13:17:54.155573',29,3,1);
+INSERT INTO `compra_itemcompra` VALUES (1,10,350.00,'2016-08-30 18:11:28.069142','2016-08-30 18:11:28.069142',24,1,1),(2,50,425.00,'2016-08-31 16:06:29.731758','2016-08-31 16:06:29.731758',24,2,1),(3,1,100.00,'2016-09-16 13:17:54.155573','2016-09-16 13:17:54.155573',29,3,1),(5,50,250.01,'2016-09-19 09:33:10.925466','2016-09-19 09:33:10.925466',29,3,2),(6,1,100.00,'2016-09-19 09:33:50.242715','2016-09-19 09:33:50.242715',29,2,2),(7,1,100.00,'2016-09-19 09:34:06.636652','2016-09-19 09:34:06.636652',29,2,2),(10,1,100.36,'2016-09-19 09:37:25.240012','2016-09-19 09:37:25.240012',29,2,2),(11,101,0.56,'2016-09-19 09:43:46.580823','2016-09-19 09:43:46.580823',29,2,2);
 /*!40000 ALTER TABLE `compra_itemcompra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -367,7 +367,7 @@ CREATE TABLE `django_admin_log` (
   KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
   CONSTRAINT `django_admin__content_type_id_c4bce8eb_fk_django_content_type_id` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -376,7 +376,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2016-08-23 11:18:00.287485','1','admin',2,'Modificado first_name e last_name.',4,1),(2,'2016-08-23 11:18:32.574332','1','admin',2,'Modificado last_name.',4,1),(3,'2016-08-23 11:18:53.741542','2','master',1,'Adicionado.',4,1),(4,'2016-08-23 11:20:04.169571','2','master',2,'Modificado first_name, last_name, email e user_permissions.',4,1),(5,'2016-08-23 11:20:20.968531','3','usuario',1,'Adicionado.',4,1),(6,'2016-08-23 11:20:45.508935','3','usuario',2,'Modificado first_name, last_name e email.',4,1),(7,'2016-08-31 13:31:25.481585','2','master',2,'Modificado user_permissions.',4,1);
+INSERT INTO `django_admin_log` VALUES (1,'2016-08-23 11:18:00.287485','1','admin',2,'Modificado first_name e last_name.',4,1),(2,'2016-08-23 11:18:32.574332','1','admin',2,'Modificado last_name.',4,1),(3,'2016-08-23 11:18:53.741542','2','master',1,'Adicionado.',4,1),(4,'2016-08-23 11:20:04.169571','2','master',2,'Modificado first_name, last_name, email e user_permissions.',4,1),(5,'2016-08-23 11:20:20.968531','3','usuario',1,'Adicionado.',4,1),(6,'2016-08-23 11:20:45.508935','3','usuario',2,'Modificado first_name, last_name e email.',4,1),(7,'2016-08-31 13:31:25.481585','2','master',2,'Modificado user_permissions.',4,1),(8,'2016-09-19 14:53:19.179215','2','rafael.alves',2,'Modificado username, first_name, last_name e email.',4,1),(9,'2016-09-19 14:53:56.631357','3','julio.oliveira',2,'Modificado username, first_name, last_name e email.',4,1);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,7 +454,7 @@ CREATE TABLE `django_session` (
 
 LOCK TABLES `django_session` WRITE;
 /*!40000 ALTER TABLE `django_session` DISABLE KEYS */;
-INSERT INTO `django_session` VALUES ('fn7fq48z39rc35kyj0101jz410q2btac','Zjg3OWYxZGMxODlkYTE0YTc2ZGU4OGQyMzc2ZDYyNjQ0MzYwZDQwNzp7Il9hdXRoX3VzZXJfaGFzaCI6IjU5MTI4NzNiZDAxZDkzNTVkYzNmNTExNGE4YjlmYzgwNmY3MjY5MDIiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-09-16 10:53:17.602371'),('q7j9b0wkun5j5u7bp811ip1ebwgo4cfk','Zjg3OWYxZGMxODlkYTE0YTc2ZGU4OGQyMzc2ZDYyNjQ0MzYwZDQwNzp7Il9hdXRoX3VzZXJfaGFzaCI6IjU5MTI4NzNiZDAxZDkzNTVkYzNmNTExNGE4YjlmYzgwNmY3MjY5MDIiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-09-30 13:13:55.156903');
+INSERT INTO `django_session` VALUES ('fn7fq48z39rc35kyj0101jz410q2btac','Zjg3OWYxZGMxODlkYTE0YTc2ZGU4OGQyMzc2ZDYyNjQ0MzYwZDQwNzp7Il9hdXRoX3VzZXJfaGFzaCI6IjU5MTI4NzNiZDAxZDkzNTVkYzNmNTExNGE4YjlmYzgwNmY3MjY5MDIiLCJfYXV0aF91c2VyX2lkIjoiMiIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIn0=','2016-09-16 10:53:17.602371');
 /*!40000 ALTER TABLE `django_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -559,4 +559,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-09-16 14:04:13
+-- Dump completed on 2016-09-19 14:55:26

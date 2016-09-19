@@ -31,7 +31,7 @@
         </div>
     	<div class="col-sm-1 text-center">
     	{% if perms.compra.pode_administrar %}
-        	<button title='Novo Item de Compra' class='btn btn-primary btn-sm' type='submit' formaction="">
+        		<button title='Novo Item de Compra' class='btn btn-primary btn-sm' type='submit' formaction="{% url 'compra:compraitemcria' compra.id %}">
 	        	<span class="glyphicon glyphicon-plus"></span></button>
 	    {% endif %}
     	</div>
@@ -78,16 +78,16 @@
 			        <li>{{obj.custo}}</li>
 			    </div>
 			    <div class='col-sm-2 text-center'>
-	                <a href=''>
+	                <a href='{% url "compra:compraitemdetalhe" obj.id %}'>
 	                   	<span title='Visualizar' class="glyphicon glyphicon glyphicon-zoom-in"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
 	                {% if perms.compra.pode_administrar %}
 			                <a href=''>
 			                   	<span title='Editar' class="glyphicon glyphicon-pencil"></span>
 			                </a>&nbsp;&nbsp;&nbsp;
-			                <a href="javascript:func()" onclick="confirmacao('')">
+			                <a href="javascript:func()" onclick="confirmacao('{% url "compra:compraitemapaga" obj.id %}')">
 			                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-trash"></span>
-			                </a
+			                </a>
 	                {% endif %}
 			    </div>
 			    </ul>
@@ -116,7 +116,7 @@
 {% block jquery %}
 	<script language="Javascript">
 		function confirmacao(id) {
-			var resposta = confirm("Deseja remover esta compra ?");
+			var resposta = confirm("Deseja remover este item da compra ?");
    			if (resposta == true) {
       			window.location.href = id;
    			}

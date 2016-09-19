@@ -53,3 +53,6 @@ class ItemCompra(models.Model):
 
 	def __str__(self):
 		return self.id
+
+	def get_absolute_url(self):
+		return reverse('compra:compraitemdetalhe', kwargs={'id':self.id})

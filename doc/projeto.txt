@@ -25,6 +25,12 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+19-09-2016: Implementado funcionalidade para exclusão do item de compra, com critica a compra fechada.
+19-09-2016: Corrigido BUG de somatorio do custo dos itens no detalhe da compra.
+19-09-2016: Implementado a funcionaliade de inclusão de itens de compra para uma compra.
+19-09-2016: Implementado visualizar itens de compra a partir da lista de itens de determinada compra.
+19-09-2016: Impedido adição de novos itens na lista de itens e a opções de lista, se a compra esta com a
+            situação de fechada.
 16-09-2016: Definido no settings.py o parametro USE_TZ = False, possibilitando a soma de valor para datas.
 15-09-2016: correção nas pesquisa de itens de compras, para pesquisar itens__nome.icontrains.
 15-09-2016: Implementado lista de itens de compras com opções de visualizar editar excluir.
