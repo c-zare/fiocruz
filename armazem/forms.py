@@ -10,5 +10,4 @@ class ArmazemForm(forms.ModelForm):
 			'endereco',
 			'numero',
 			'complemento',
-			'localizador'
 		}

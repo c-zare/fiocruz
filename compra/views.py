@@ -10,6 +10,7 @@ from django.db import IntegrityError
 
 from .forms import CompraForm,ItemCompraForm
 from .models import Compra,ItemCompra
+from fornecedor.models import Fornecedor
 
 @login_required
 def compra_apaga(request,id=None):
@@ -28,15 +29,16 @@ def compra_apaga(request,id=None):
 @login_required
 def compra_cria(request): 
 	form = CompraForm(request.POST or None)	
-	formItem = ItemCompraForm(request.POST or None)
 	if form.is_valid():
-		instance = form.save(commit=False)
-		instance.usuario = request.user
-		instance.save()
-		messages.success(request,' Compra foi criada.')
-		return HttpResponseRedirect(instance.get_absolute_url())
-	context = { 'form':form,
-				'formItem': formItem }
+			instance = form.save(commit=False)
+			if instance.fornecedor.situacao:
+				instance.usuario = request.user
+				instance.save()
+				messages.success(request,' Compra foi criada.')
+				return HttpResponseRedirect(instance.get_absolute_url())
+			else:
+				messages.warning(request,' Fornecedor não esta apto, somente fornecedores aptos são permitidos a compra.')
+	context = { 'form':form }
 	return render(request,'compra_form.html', context)
 
 @login_required
@@ -49,7 +51,7 @@ def compra_detalhe(request,id):
 				'itemcompra':queryset_detalhe_item,
 				'itemcomprasoma':queryset_detalhe_item_soma,
 				'itemcompraquantidadesoma':queryset_detalhe_quantidade_soma,
-				}
+				} 
 	return render(request,'compra_detalhe.html', context)
 
 @login_required
@@ -95,8 +97,6 @@ def compra_lista(request):
 				}
 	return render(request,'compra_lista.html', context) 
 
-
-
 @login_required
 def compraitem_apaga(request,id=None):
 	instance = get_object_or_404(ItemCompra,id=id)
@@ -126,7 +126,8 @@ def compraitem_cria(request,id):
 			instance.save()
 			messages.success(request,' Item de Compra foi criado.')
 			return HttpResponseRedirect(instance.get_absolute_url())
-		context = { 'formItem': formItem }
+		context = { 'formItem': formItem,
+					'compra':queryset_compra, }
 		return render(request,'compraitem_form.html', context)
 
 @login_required

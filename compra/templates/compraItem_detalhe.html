@@ -9,7 +9,7 @@
     </div>   
     <form>
         <div class="col-sm-1 text-right">
-            <button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="{{ compra.get_absolute_url }}">
+            <button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="{{ compraitem.get_absolute_url }}">
             <span class="glyphicon glyphicon-refresh"></span></button>
         </div>
         <div class="col-sm-1 text-right">
@@ -33,7 +33,7 @@
     		<p><strong>Item</strong></p>
     		<p>{{ compraitem.item }}</p>
   		</div>
-  		<div class="col-sm-6">
+  		<div class="col-sm-3">
     		<p><strong>Quantidade</strong></p>
     		<p>{{ compraitem.quantidade }}</p>
   		</div>
@@ -41,6 +41,10 @@
         <p><strong>Custo</strong></p>
         <p>{{ compraitem.custo }}
       </div>      
+      <div class="col-sm-3">
+        <p><strong>Armazém</strong></p>
+        <p>{{ compraitem.armazem}}</p>
+      </div>
 	</div>
 </div>
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->

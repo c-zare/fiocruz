@@ -23,13 +23,10 @@ def item_cria(request):
 	form = ItemForm(request.POST or None)
 	if form.is_valid():
 		instance = form.save(commit=False)
-		if instance.fornecedor.situacao:
-			instance.usuario = request.user
-			instance.save()
-			messages.success(request,' Ítem foi criado.')
-			return HttpResponseRedirect(instance.get_absolute_url())			
-		else:
-			messages.warning(request,' Fornecedor selecionado esta com a situação não apto no cadastro.')
+		instance.usuario = request.user
+		instance.save()
+		messages.success(request,' Ítem foi criado.')
+		return HttpResponseRedirect(instance.get_absolute_url())			
 	context = {'form':form,}
 	return render(request,'item_form.html', context)
 
@@ -44,13 +41,10 @@ def item_edita(request,id=None):
 	instance = get_object_or_404(Item,id=id)
 	form = ItemForm(request.POST or None, instance=instance)
 	if form.is_valid():
-		if instance.fornecedor.situacao:
-			instance.usuario = request.user
-			instance.save()
-			messages.success(request,' Ítem foi modificado.')
-			return HttpResponseRedirect(instance.get_absolute_url())			
-		else:
-			messages.warning(request,' Fornecedor selecionado esta com a situação não apto no cadastro.')
+		instance.usuario = request.user
+		instance.save()
+		messages.success(request,' Ítem foi modificado.')
+		return HttpResponseRedirect(instance.get_absolute_url())			
 	context = { 'instance':instance, 'form':form,}
 	return render(request,'item_form.html', context)
 

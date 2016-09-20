@@ -1,5 +1,6 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
+Incluir na compra o armazem que sera depositado o estoque.
 Verificar se o usuário pode acessar os itens (editar e excluir) embora sem permissões pelo Link.
 Não permitir que itens sejam apagados quando estes foram cadastrados nas base de compra.
 Inserir na compra o responsável por sua autorização.
@@ -25,6 +26,10 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+20-09-2016: Na Criação do Item o estoque deve ser 0 e o estoque minimo 1.
+20-09-2016: A verificação do fornecedor apto esta vinculada a criação da compra.
+20-09-2016: Inserido armazem na tabelas de itemcompra. Reprogramado o CRUD ItemCompra
+20-09-2016: Excluido fornecedor e armazem da tabela de itens. Reprogramado o CRUD Armazem
 19-09-2016: Implementado funcionalidade para exclusão do item de compra, com critica a compra fechada.
 19-09-2016: Corrigido BUG de somatorio do custo dos itens no detalhe da compra.
 19-09-2016: Implementado a funcionaliade de inclusão de itens de compra para uma compra.

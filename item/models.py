@@ -7,10 +7,8 @@ from fornecedor.models import Fornecedor
 class Item(models.Model):
 
 	nome 		= models.CharField(max_length=40,null=False)
-	estoque		= models.IntegerField()
-	estoque_minimo	= models.IntegerField()
-	armazem		= models.ForeignKey(Armazem,on_delete=models.PROTECT)
-	fornecedor  = models.ForeignKey(Fornecedor,on_delete=models.PROTECT)
+	estoque		= models.IntegerField(default=0)
+	estoque_minimo	= models.IntegerField(default=1)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
 	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)

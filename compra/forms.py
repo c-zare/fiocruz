@@ -30,4 +30,5 @@ class ItemCompraForm(forms.ModelForm):
 			'item',
 			'quantidade',
 			'custo',
+			'armazem',
 		}	

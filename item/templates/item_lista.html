@@ -40,11 +40,14 @@
 		    	<div class='col-sm-1 text-center'>
 		        	<li><strong>ID</strong></li>
 		        </div>
-		        <div class='col-sm-8'>
+		        <div class='col-sm-5'>
 		        	<li><strong>NOME</strong></li>       
 		        </div>
-		        <div class='col-sm-1'>
+		        <div class='col-sm-2'>
 		        	<li><strong>ESTOQUE</strong></li>
+		        </div>
+		        <div class='col-sm-2'>
+		        	<li><strong>REPOSIÇÃO</strong></li>
 		        </div>
 		        <div class='col-sm-2 text-center'>
 		        	<li><strong>OPÇÕES</strong></li>
@@ -59,16 +62,19 @@
 			    <div class='col-sm-1'>
 			        <li class='text-center'>{{forloop.counter}}</li>
 			    </div>
-			    <div class='col-sm-8'>
+			    <div class='col-sm-5'>
 			        <li>{{obj.nome}}</li>
 			    </div>       
-			    <div class='col-sm-1'>
+			    <div class='col-sm-2'>
 			    	{% if obj.estoque == 0 %}
 				        <li class='text-danger'>{{obj.estoque}}</li>
 				    {% else %}
 				    	<li class='text-sucess'>{{obj.estoque}}</li>
 				    {% endif %}
 			    </div>
+			    <div class='col-sm-2'>
+			       	<li>{{obj.estoque_minimo}}</li>
+				</div>
 			    <div class='col-sm-2 text-center'>
 	                <a href='{{ obj.get_absolute_url }}'>
 	                   	<span title='Visualizar' class="glyphicon glyphicon-zoom-in"></span>

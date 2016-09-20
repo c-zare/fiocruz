@@ -8,6 +8,7 @@ from datetime import datetime
 
 from item.models import Item
 from fornecedor.models import Fornecedor
+from armazem.models import Armazem
 
 class Compra(models.Model):
 # Falta incluir Fornecedor
@@ -37,10 +38,11 @@ class Compra(models.Model):
 
 class ItemCompra(models.Model):
 
-	item 		= models.ForeignKey(Item,on_delete=models.PROTECT)
+	item 		= models.ForeignKey(Item,on_delete=models.PROTECT)	
 	quantidade 	= models.IntegerField(default=1)
 	custo 		= models.DecimalField(max_digits=10,decimal_places=2)
 	compra      = models.ForeignKey(Compra,on_delete=models.CASCADE)
+	armazem		= models.ForeignKey(Armazem,on_delete=models.PROTECT)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
 	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)

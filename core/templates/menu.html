@@ -13,20 +13,20 @@
           </div>
           <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-              <li><a href="{% url 'core:home' %}">Início</a></li>
-              <li><a href="#">Qualidade</a></li>
+              <li><a href="{% url 'core:home' %}"><span class="glyphicon glyphicon-home"></span> Início</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-th-list"></span> Qualidade</a></li>
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Materiais <span class="caret"></span></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-th-list"></span> Materiais</a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">Requsições</a></li>  
+                  <li><a href="#"><span class="glyphicon glyphicon-inbox"></span> Requsições</a></li>  
                   <li class="divider"></li>              
-                  <li><a href="{% url 'armazem:lista' %}">Armazens</a></li>
-                  <li><a href="{% url 'compra:lista' %}">Compras</a></li>                  
-                  <li><a href="{% url 'fornecedor:lista' %}">Fornecedores</a></li>
-                  <li><a href="{% url 'item:lista' %}">Ítens</a></li>
+                  <li><a href="{% url 'armazem:lista' %}"><span class="glyphicon glyphicon-list-alt"></span>  Armazens</a></li>
+                  <li><a href="{% url 'compra:lista' %}"><span class="glyphicon glyphicon-list-alt"></span> Compras</a></li>                  
+                  <li><a href="{% url 'fornecedor:lista' %}"><span class="glyphicon glyphicon-list-alt"></span> Fornecedores</a></li>
+                  <li><a href="{% url 'item:lista' %}"><span class="glyphicon glyphicon-list-alt"></span> Ítens</a></li>
                 </ul>
               </li>
-              <li><a href="#">Patrimonio</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-th-list"></span> Patrimonio</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
               <li><a href="{% url 'core:usuario' %}"><span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;{{ request.user.first_name }}

@@ -1,7 +1,6 @@
 from django.conf.urls import url, include
 
 from .views	import armazem_cria, armazem_lista, armazem_detalhe, armazem_edita, armazem_apaga
-	
 
 urlpatterns = [
     url(r'^$', armazem_lista, name='lista'),

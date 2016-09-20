@@ -17,7 +17,7 @@
         </button>
     </div>
     <div class="col-sm-1 text-center">
-        <button title='Listar Itens de Compra' class='btn btn-primary btn-sm' type='submit' formaction="">
+        <button title='Listar Itens de Compra' class='btn btn-primary btn-sm' type='submit' formaction="{% url 'compra:listadeitens' compra.id %}">
           <span class="glyphicon glyphicon-list"></span>
         </button>
     </div>
@@ -32,15 +32,17 @@
   		</div>
       <div class="col-sm-1">
       </div>
-  		<div class="col-sm-3">
+  		<div class="col-sm-2">
         <p><strong>Quantidade</strong></p>
         <p>{{formItem.quantidade}}</p>
   		</div>
-      <div class="col-sm-1">
-      </div>
-      <div class="col-sm-3">
+      <div class="col-sm-2">
         <p><strong>Custo</strong></p>
         <p>{{formItem.custo}}</p>
+      </div>
+      <div class="col-sm-2">
+        <p><strong>Armazém</strong></p>
+        <p>{{formItem.armazem}}</p>
       </div>
 	</div>
 </div>
