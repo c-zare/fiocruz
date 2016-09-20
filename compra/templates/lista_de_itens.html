@@ -82,7 +82,7 @@
 	                   	<span title='Visualizar' class="glyphicon glyphicon glyphicon-zoom-in"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
 	                {% if perms.compra.pode_administrar %}
-			                <a href=''>
+			                <a href='{% url "compra:compraitemedita" obj.id %}'>
 			                   	<span title='Editar' class="glyphicon glyphicon-pencil"></span>
 			                </a>&nbsp;&nbsp;&nbsp;
 			                <a href="javascript:func()" onclick="confirmacao('{% url "compra:compraitemapaga" obj.id %}')">

@@ -26,6 +26,7 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+20-09-2016: Implementado a funcionalidade de edição de itens de compra caso a compra não esteja fechada.
 20-09-2016: Na Criação do Item o estoque deve ser 0 e o estoque minimo 1.
 20-09-2016: A verificação do fornecedor apto esta vinculada a criação da compra.
 20-09-2016: Inserido armazem na tabelas de itemcompra. Reprogramado o CRUD ItemCompra

@@ -22,11 +22,6 @@
 	  <p>11-08-2016 - <i>Implementado integridade no banco de dados para eventos vinculados.</i></p>
 	  <p>29-07-2016 - <i>Implantado o sistema no ambiente Apache 2.4 por SSL</i></p>
 	  <p>20-07-2016 - <i>Migração da base de dados para o MySql Server 5.7.</i></p>
-
-<!--	  {% for obj in totalizacao_compras_mes %}
-	      <p>{{obj.custo__sum}}</p>
-	  {% endfor %} -->
-
 	</div>
 	<div class="col-sm-1">
 	</div>
@@ -43,18 +38,18 @@
 
 	$(function() {
 
-		var data = [ 	["Jan", 100,00], 
-						["Fev", 127,00], 
-						["Mar", 315,00], 
-						["Abr", 3910,00], 
-						["Mai", 10982,90], 
-						["Jun", 600,79],  
-						["Jul", 919,90],  
-						["Ago", 775,00],  
-						["Set", 100,00],  
-						["Out", 15928,00],  
-						["Nov", 22000,90],  
-						["Dez", 31298,00] ];
+		var data = [ 	["Jan", {{jan.custo__sum}} ], 
+						["Fev", {{fev.custo__sum}} ], 
+						["Mar", {{mar.custo__sum}} ], 
+						["Abr", {{abr.custo__sum}} ], 
+						["Mai", {{mai.custo__sum}} ], 
+						["Jun", {{jun.custo__sum}} ],  
+						["Jul", {{jul.custo__sum}} ],  
+						["Ago", {{ago.custo__sum}} ],  
+						["Set", {{set.custo__sum}} ],  
+						["Out", {{out.custo__sum}} ],  
+						["Nov", {{nov.custo__sum}} ],  
+						["Dez", {{dez.custo__sum}} ] ];
 
 		$.plot("#barras", [ data ], {
 			series: { 

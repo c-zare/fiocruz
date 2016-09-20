@@ -131,6 +131,25 @@ def compraitem_cria(request,id):
 		return render(request,'compraitem_form.html', context)
 
 @login_required
+def compraitem_edita(request,id=None):	
+	instance = get_object_or_404(ItemCompra,id=id)
+	queryset_compra = Compra.objects.get(id=instance.compra.id)
+	form = ItemCompraForm(request.POST or None, instance=instance)
+	if queryset_compra.situacao: 
+		messages.warning(request,' Compra fechada, não é possivel editar itens.')
+		return redirect('compra:listadeitens',instance.compra.id)
+	else:
+		if form.is_valid():
+				instance = form.save(commit=False)
+				instance.usuario = request.user
+				instance.save()
+				messages.success(request,' item da Compra foi modificado.')
+				return HttpResponseRedirect(instance.get_absolute_url())
+	context = { 'formItem':form,
+				'compra':queryset_compra,}
+	return render(request,'compraitem_form.html', context)
+
+@login_required
 def compraitem_detalhe(request,id):
 	queryset_detalhe = ItemCompra.objects.get(id=id)
 	queryset_compra = Compra.objects.get(id=queryset_detalhe.compra.id)

@@ -12,9 +12,24 @@ def home(request):
 	meses = []							# Geração dos saldos de compras
 	for indice in range(12):
 		queryset = ItemCompra.objects.filter(criado__month=indice).filter(criado__year=2016)
-		queryset = queryset.aggregate(Sum('custo'))		
-		meses.append(queryset)
-	context = { 'totalizacao_compras_mes': meses }
+		queryset = queryset.aggregate(Sum('custo'))	
+		if queryset == {'custo__sum': None}:
+			meses.append(0)
+		else:
+			meses.append(queryset)
+		print(queryset)
+	context = { 'jan':meses[0],
+				'fev':meses[1],
+				'mar':meses[2],
+				'abr':meses[3],
+				'mai':meses[4],
+				'jun':meses[5],
+				'jul':meses[6],
+				'ago':meses[7],
+				'set':meses[8],
+				'out':meses[9],
+				'nov':meses[10],
+				'dez':meses[11]}				
 	return render(request,'home.html', context)
 
 @login_required

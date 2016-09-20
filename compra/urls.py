@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
 
 from .views	import compra_cria, compra_lista, compra_detalhe, compra_edita, compra_apaga
-from .views import listadeitens,compraitem_detalhe, compraitem_cria, compraitem_apaga
+from .views import listadeitens,compraitem_detalhe, compraitem_cria, compraitem_apaga, compraitem_edita
 
 urlpatterns = [
     url(r'^$', compra_lista, name='lista'),
@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^compraitemapaga/(?P<id>\d+)/$', compraitem_apaga, name='compraitemapaga'),
     url(r'^compraitemdetalhe/(?P<id>\d+)/$', compraitem_detalhe, name='compraitemdetalhe'),
     url(r'^compraitemcria/(?P<id>\d+)/$', compraitem_cria, name='compraitemcria'),
+    url(r'^compraitemedita/(?P<id>\d+)/$', compraitem_edita, name='compraitemedita'),
 ]
