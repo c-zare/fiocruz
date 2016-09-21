@@ -1,5 +1,8 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
+No calculo do grafico e necessário passar o ano atual no lugar de ter a entrada manual.
+A data de da entrega não nao deve ser superior a data atual, e a da compra.
+A data de Pagamento não deve ser superior a data atual e da entrega.
 Gerar registro de estoque em separado visando separar o custo de cada compra individualmente por item
 No armazem, deve visualizar a quantidade de itens locados no mesmo
 Incluir na compra o armazem que sera depositado o estoque.
@@ -25,6 +28,7 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+21-09-2016: Incluido o campo data_pagamento na compra, que é utilizado no grafico padrao do Dashboard.
 20-09-2016: Ajuste no Rodapé para não repassar acima dos dados.
 20-09-2016: Implementado a funcionalidade de edição de itens de compra caso a compra não esteja fechada.
 20-09-2016: Na Criação do Item o estoque deve ser 0 e o estoque minimo 1.

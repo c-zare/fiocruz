@@ -4,7 +4,7 @@ from django.db.models import Sum
 # Create your models here.
 from django.conf	import settings
 from django.core.urlresolvers import reverse
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from item.models import Item
 from fornecedor.models import Fornecedor
@@ -16,6 +16,7 @@ class Compra(models.Model):
 	fornecedor  = models.ForeignKey(Fornecedor,on_delete=models.PROTECT)
 	data_compra	= models.DateField(default=datetime.today)
 	data_entrega= models.DateField(default=datetime.today)
+	data_pagamento= models.DateField(default=datetime.today()+timedelta(days=90))
 	situacao	= models.BooleanField(default=False)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)

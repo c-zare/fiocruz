@@ -11,7 +11,7 @@ from compra.models import Compra,ItemCompra
 def home(request):
 	meses = []							# Geração dos saldos de compras
 	for indice in range(13):
-		queryset = ItemCompra.objects.filter(criado__month=indice).filter(criado__year=2016)
+		queryset = ItemCompra.objects.filter(compra__data_pagamento__month=indice).filter(criado__year=2016)
 		queryset = queryset.aggregate(Sum('custo'))	
 		meses.append(queryset)
 	context = { 'jan':meses[1],

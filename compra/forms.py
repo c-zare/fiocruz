@@ -17,6 +17,7 @@ class CompraForm(forms.ModelForm):
     		'fornecedor',
 			'data_compra',
 			'data_entrega',
+			'data_pagamento',
 			'situacao',
 		}
 
