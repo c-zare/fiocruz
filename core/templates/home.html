@@ -26,9 +26,8 @@
 	<div class="col-sm-1">
 	</div>
 	<div class="col-sm-5">
-	  <p class="text-center">Compras em (R$)</p>
 	  <div id="barras" style="width:400px;height:250px"></div>
-	</div>
+	</div> 
 </div>
 
 {% endblock %}
@@ -38,22 +37,29 @@
 
 	$(function() {
 
-		var data = [ 	["Jan", {{jan.custo__sum}} ], 
-						["Fev", {{fev.custo__sum}} ], 
-						["Mar", {{mar.custo__sum}} ], 
-						["Abr", {{abr.custo__sum}} ], 
-						["Mai", {{mai.custo__sum}} ], 
-						["Jun", {{jun.custo__sum}} ],  
-						["Jul", {{jul.custo__sum}} ],  
-						["Ago", {{ago.custo__sum}} ],  
-						["Set", {{set.custo__sum}} ],  
-						["Out", {{out.custo__sum}} ],  
-						["Nov", {{nov.custo__sum}} ],  
-						["Dez", {{dez.custo__sum}} ] ];
+		var data = [ 	["Jan", {% if jan.custo__sum %} {{jan.custo__sum}} {% else %} 0 {% endif %} ], 
+						["Fev", {% if fev.custo__sum %} {{fev.custo__sum}} {% else %} 0 {% endif %} ], 
+						["Mar", {% if mar.custo__sum %} {{mar.custo__sum}} {% else %} 0 {% endif %} ], 
+						["Abr", {% if abr.custo__sum %} {{abr.custo__sum}} {% else %} 0 {% endif %} ], 
+						["Mai", {% if mai.custo__sum %} {{mai.custo__sum}} {% else %} 0 {% endif %} ], 
+						["Jun", {% if jun.custo__sum %} {{jun.custo__sum}} {% else %} 0 {% endif %} ],  
+						["Jul", {% if jul.custo__sum %} {{jul.custo__sum}} {% else %} 0 {% endif %} ],  
+						["Ago", {% if ago.custo__sum %} {{ago.custo__sum}} {% else %} 0 {% endif %} ],  
+						["Set", {% if set.custo__sum %} {{set.custo__sum}} {% else %} 0 {% endif %} ],  
+						["Out", {% if out.custo__sum %} {{out.custo__sum}} {% else %} 0 {% endif %} ],  
+						["Nov", {% if nov.custo__sum %} {{nov.custo__sum}} {% else %} 0 {% endif %} ],  
+						["Dez", {% if dez.custo__sum %} {{dez.custo__sum}} {% else %} 0 {% endif %} ] ];
 
-		$.plot("#barras", [ data ], {
+		var options = {
+			grid: {
+				borderWidth: 1,
+			},
+			legend: {
+				backgroundColor: "#cbcbcb"
+			},
 			series: { 
-				//label: " Compras (R$)",
+				label: " Compras (R$)",
+				color: "#337ab7",
 				bars: {
 					show: true,
 					barWidth: 0.6,
@@ -63,8 +69,10 @@
 			xaxis: {
 				mode: "categories",
 				tickLength: 0
-			}
-		});
+			},
+		};
+
+		$.plot("#barras", [ data ], options );
 
 		// Add the Flot version string to the footer
 		//$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
@@ -85,8 +93,38 @@
 		//    shadowSize: number
 		//    highlightColor: color or number
 		//}
+		//legend: {
+	    //show: boolean
+	    //labelFormatter: null or (fn: string, series object -> string)
+	    //labelBoxBorderColor: color
+	    //noColumns: number
+	    //position: "ne" or "nw" or "se" or "sw"
+	    //margin: number of pixels or [x margin, y margin]
+	    //backgroundColor: null or color
+	    //backgroundOpacity: number between 0 and 1
+	    //container: null or jQuery object/DOM element/jQuery expression
+	    //sorted: null/false, true, "ascending", "descending", "reverse", or a comparator
+		//}
+		//grid: {
+	    //show: boolean
+	    //aboveData: boolean
+	    //color: color
+	    //backgroundColor: color/gradient or null
+	    //margin: number or margin object
+	    //labelMargin: number
+	    //axisMargin: number
+	    //markings: array of markings or (fn: axes -> array of markings)
+	    //borderWidth: number or object with "top", "right", "bottom" and "left" properties with different widths
+	    //borderColor: color or null or object with "top", "right", "bottom" and "left" properties with different colors
+	    //minBorderMargin: number or null
+	    //clickable: boolean
+	    //hoverable: boolean
+	    //autoHighlight: boolean
+	    //mouseActiveRadius: number
+		//}
+
 
 	});
 
-	</script>
+</script> 
 {% endblock %}

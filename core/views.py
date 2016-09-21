@@ -10,26 +10,22 @@ from compra.models import Compra,ItemCompra
 @login_required
 def home(request):
 	meses = []							# Geração dos saldos de compras
-	for indice in range(12):
+	for indice in range(13):
 		queryset = ItemCompra.objects.filter(criado__month=indice).filter(criado__year=2016)
 		queryset = queryset.aggregate(Sum('custo'))	
-		if queryset == {'custo__sum': None}:
-			meses.append(0)
-		else:
-			meses.append(queryset)
-		print(queryset)
-	context = { 'jan':meses[0],
-				'fev':meses[1],
-				'mar':meses[2],
-				'abr':meses[3],
-				'mai':meses[4],
-				'jun':meses[5],
-				'jul':meses[6],
-				'ago':meses[7],
-				'set':meses[8],
-				'out':meses[9],
-				'nov':meses[10],
-				'dez':meses[11]}				
+		meses.append(queryset)
+	context = { 'jan':meses[1],
+				'fev':meses[2],
+				'mar':meses[3],
+				'abr':meses[4],
+				'mai':meses[5],
+				'jun':meses[6],
+				'jul':meses[7],
+				'ago':meses[8],
+				'set':meses[9],
+				'out':meses[10],
+				'nov':meses[11],
+				'dez':meses[12]}				
 	return render(request,'home.html', context)
 
 @login_required
