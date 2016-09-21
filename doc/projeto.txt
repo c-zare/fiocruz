@@ -1,14 +1,13 @@
 Registro de Atividades Pendentes
 ---------------------------------------------------------------------------------------------------------
+Gerar registro de estoque em separado visando separar o custo de cada compra individualmente por item
+No armazem, deve visualizar a quantidade de itens locados no mesmo
 Incluir na compra o armazem que sera depositado o estoque.
 Verificar se o usuário pode acessar os itens (editar e excluir) embora sem permissões pelo Link.
 Não permitir que itens sejam apagados quando estes foram cadastrados nas base de compra.
 Inserir na compra o responsável por sua autorização.
-Só é possivel apagar compra que não esteja fechada.
 Definir fluxo de cadastro de itens para o banco de ARMAZEM.
-Ao fechar a compra é preciso definir qual armazem sera encaminhado o item.
 Ao fechar a compra é necessário que exista pelo menos um ITEMCOMPRA relacionado na tabela.
-Incluir Itens na base de COMPRAS.
 Quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
 RETIRAR da base de Itens os campos ARMAZEM, reconfigurar a BASE DE ITENS.
 Validar informações do formulário é no forms.py
@@ -26,6 +25,7 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 ---------------------------------------------------------------------------------------------------------
+20-09-2016: Ajuste no Rodapé para não repassar acima dos dados.
 20-09-2016: Implementado a funcionalidade de edição de itens de compra caso a compra não esteja fechada.
 20-09-2016: Na Criação do Item o estoque deve ser 0 e o estoque minimo 1.
 20-09-2016: A verificação do fornecedor apto esta vinculada a criação da compra.
