@@ -20,7 +20,7 @@ class Fornecedor(models.Model):
 	cep			= models.CharField(max_length=8,null=False)
 	telefone	= models.CharField(max_length=20,null=False)
 	contato		= models.CharField(max_length=40,null=False)
-	email		= models.EmailField(null=False)
+	email		= models.EmailField(null=True)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
 	situacao	= models.BooleanField()

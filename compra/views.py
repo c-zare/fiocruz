@@ -31,13 +31,16 @@ def compra_cria(request):
 	form = CompraForm(request.POST or None)	
 	if form.is_valid():
 			instance = form.save(commit=False)
-			if instance.fornecedor.situacao:
-				instance.usuario = request.user
-				instance.save()
-				messages.success(request,' Compra foi criada.')
-				return HttpResponseRedirect(instance.get_absolute_url())
+			if instance.data_entrega < instance.data_compra or instance.data_pagamento < instance.data_entrega:  # Criar FUNCAo 1
+				messages.warning(request,' Verifique as datas de entrega e pagamento.')
 			else:
-				messages.warning(request,' Fornecedor não esta apto, somente fornecedores aptos são permitidos a compra.')
+				if instance.fornecedor.situacao:
+					instance.usuario = request.user
+					instance.save()
+					messages.success(request,' Compra foi criada.')
+					return HttpResponseRedirect(instance.get_absolute_url())
+				else:
+					messages.warning(request,' Fornecedor não esta apto, somente fornecedores aptos são permitidos a compra.')				
 	context = { 'form':form }
 	return render(request,'compra_form.html', context)
 
@@ -64,10 +67,13 @@ def compra_edita(request,id=None):
 	else:
 		if form.is_valid():
 			instance = form.save(commit=False)
-			instance.usuario = request.user
-			instance.save()
-			messages.success(request,' Compra foi modificado.')
-			return HttpResponseRedirect(instance.get_absolute_url())
+			if instance.data_entrega < instance.data_compra or instance.data_pagamento < instance.data_entrega:   # CRIAR FUNCAO 1
+				messages.warning(request,' Verifique as datas de entrega e pagamento.')
+			else:
+				instance.usuario = request.user
+				instance.save()
+				messages.success(request,' Compra foi modificado.')
+				return HttpResponseRedirect(instance.get_absolute_url())
 	context = { 'instance':instance, 'form':form,}
 	return render(request,'compra_form.html', context)
 

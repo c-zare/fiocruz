@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
-
 {% block header %}
-<div class="row"> <!-- Cabecalho da página de Listas -->
+<div class="row"> 
     <div class="col-sm-6">
         <h4>Quadro de Avisos</h4>
         <hr>
@@ -14,13 +13,13 @@
     </div>  
 </div> 
 {% endblock %}
-
 {% block main %}
-<div class="row"> <!-- Cabecalho da página de Listas -->
+<div class="row"> 
     <div class="col-sm-6">
-	  <p>30-08-2016 - <i>Inplementado base de Compras</i></p>
-	  <p>11-08-2016 - <i>Implementado integridade no banco de dados para eventos vinculados.</i></p>
-	  <p>29-07-2016 - <i>Implantado o sistema no ambiente Apache 2.4 por SSL</i></p>
+      <p>22-09-2016 - <i>Incluído o demostrativo gráfico de compras.</i></p>
+	  <p>30-08-2016 - <i>Inplementado base de compras.</i></p>
+	  <p>11-08-2016 - <i>Implementado integridade de eventos vinculados.</i></p>
+	  <p>29-07-2016 - <i>Implantado o sistema no ambiente Apache 2.4 por SSL.</i></p>
 	  <p>20-07-2016 - <i>Migração da base de dados para o MySql Server 5.7.</i></p>
 	</div>
 	<div class="col-sm-1">
@@ -29,27 +28,16 @@
 	  <div id="barras" style="width:400px;height:250px"></div>
 	</div> 
 </div>
-
 {% endblock %}
-
 {% block jquery %}
 <script type="text/javascript">
-
 	$(function() {
-
-		var data = [ 	["Jan", {% if jan.custo__sum %} {{jan.custo__sum}} {% else %} 0 {% endif %} ], 
-						["Fev", {% if fev.custo__sum %} {{fev.custo__sum}} {% else %} 0 {% endif %} ], 
-						["Mar", {% if mar.custo__sum %} {{mar.custo__sum}} {% else %} 0 {% endif %} ], 
-						["Abr", {% if abr.custo__sum %} {{abr.custo__sum}} {% else %} 0 {% endif %} ], 
-						["Mai", {% if mai.custo__sum %} {{mai.custo__sum}} {% else %} 0 {% endif %} ], 
-						["Jun", {% if jun.custo__sum %} {{jun.custo__sum}} {% else %} 0 {% endif %} ],  
-						["Jul", {% if jul.custo__sum %} {{jul.custo__sum}} {% else %} 0 {% endif %} ],  
-						["Ago", {% if ago.custo__sum %} {{ago.custo__sum}} {% else %} 0 {% endif %} ],  
-						["Set", {% if set.custo__sum %} {{set.custo__sum}} {% else %} 0 {% endif %} ],  
-						["Out", {% if out.custo__sum %} {{out.custo__sum}} {% else %} 0 {% endif %} ],  
-						["Nov", {% if nov.custo__sum %} {{nov.custo__sum}} {% else %} 0 {% endif %} ],  
-						["Dez", {% if dez.custo__sum %} {{dez.custo__sum}} {% else %} 0 {% endif %} ] ];
-
+		meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+		var data = [ 	
+					{% for mes in totais %}
+						[ meses[{{forloop.counter}}-1] ,{% if mes.custo__sum %} {{mes.custo__sum}} {% else %} 0 {% endif %} ],
+					{% endfor %}
+				];
 		var options = {
 			grid: {
 				borderWidth: 1,
@@ -71,60 +59,7 @@
 				tickLength: 0
 			},
 		};
-
 		$.plot("#barras", [ data ], options );
-
-		// Add the Flot version string to the footer
-		//$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
-		
-		// The format of a single series object is as follows:
-
-		//{
-		//    color: color or number
-		//    data: rawdata
-		//    label: string
-		//    lines: specific lines options
-		//    bars: specific bars options
-		//    points: specific points options
-		//    xaxis: number
-		//    yaxis: number
-		//    clickable: boolean
-		//    hoverable: boolean
-		//    shadowSize: number
-		//    highlightColor: color or number
-		//}
-		//legend: {
-	    //show: boolean
-	    //labelFormatter: null or (fn: string, series object -> string)
-	    //labelBoxBorderColor: color
-	    //noColumns: number
-	    //position: "ne" or "nw" or "se" or "sw"
-	    //margin: number of pixels or [x margin, y margin]
-	    //backgroundColor: null or color
-	    //backgroundOpacity: number between 0 and 1
-	    //container: null or jQuery object/DOM element/jQuery expression
-	    //sorted: null/false, true, "ascending", "descending", "reverse", or a comparator
-		//}
-		//grid: {
-	    //show: boolean
-	    //aboveData: boolean
-	    //color: color
-	    //backgroundColor: color/gradient or null
-	    //margin: number or margin object
-	    //labelMargin: number
-	    //axisMargin: number
-	    //markings: array of markings or (fn: axes -> array of markings)
-	    //borderWidth: number or object with "top", "right", "bottom" and "left" properties with different widths
-	    //borderColor: color or null or object with "top", "right", "bottom" and "left" properties with different colors
-	    //minBorderMargin: number or null
-	    //clickable: boolean
-	    //hoverable: boolean
-	    //autoHighlight: boolean
-	    //mouseActiveRadius: number
-		//}
-
-
 	});
-
 </script> 
 {% endblock %}

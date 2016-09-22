@@ -1,17 +1,10 @@
 Registro de Atividades Pendentes
----------------------------------------------------------------------------------------------------------
-No calculo do grafico e necessário passar o ano atual no lugar de ter a entrada manual.
-A data de da entrega não nao deve ser superior a data atual, e a da compra.
-A data de Pagamento não deve ser superior a data atual e da entrega.
+-----------------------------------------------------------------------------------------------------------------------
 Gerar registro de estoque em separado visando separar o custo de cada compra individualmente por item
 No armazem, deve visualizar a quantidade de itens locados no mesmo
-Incluir na compra o armazem que sera depositado o estoque.
 Verificar se o usuário pode acessar os itens (editar e excluir) embora sem permissões pelo Link.
-Não permitir que itens sejam apagados quando estes foram cadastrados nas base de compra.
-Inserir na compra o responsável por sua autorização.
 Definir fluxo de cadastro de itens para o banco de ARMAZEM.
 Ao fechar a compra é necessário que exista pelo menos um ITEMCOMPRA relacionado na tabela.
-Quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
 RETIRAR da base de Itens os campos ARMAZEM, reconfigurar a BASE DE ITENS.
 Validar informações do formulário é no forms.py
 implementar banco de dados para o quadro de avisos.
@@ -27,70 +20,79 @@ Corrigir o problema da indexação dos estados com os municipios.
 Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
----------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------
+>>>>>>>>>>> Build 0.79
+22-09-2016: Ajuste na rotina de envio de dados para o gráfico de compras do dashboard.
+			O Ano para a exibição do gráfico foi definido como o atual, através da função date.
+			As informações de complemento e email de fornecedores não são mas obrigatórios o seu preenchimento.
+			A data de entrega não pode ser inferior a data da compra.
+			A data de pagamento não pode ser inferior a data da entrega.
+			Inserido na compra o resquisitante pela compra.
+			Corrigido o Bug de quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
+>>>>>>>>>>> Build 0.78
 21-09-2016: Incluido o campo data_pagamento na compra, que é utilizado no grafico padrao do Dashboard.
 20-09-2016: Ajuste no Rodapé para não repassar acima dos dados.
-20-09-2016: Implementado a funcionalidade de edição de itens de compra caso a compra não esteja fechada.
-20-09-2016: Na Criação do Item o estoque deve ser 0 e o estoque minimo 1.
-20-09-2016: A verificação do fornecedor apto esta vinculada a criação da compra.
-20-09-2016: Inserido armazem na tabelas de itemcompra. Reprogramado o CRUD ItemCompra
-20-09-2016: Excluido fornecedor e armazem da tabela de itens. Reprogramado o CRUD Armazem
+			Implementado a funcionalidade de edição de itens de compra caso a compra não esteja fechada.
+			Na Criação do Item o estoque deve ser 0 e o estoque minimo 1.
+			A verificação do fornecedor apto esta vinculada a criação da compra.
+			Inserido armazem na tabelas de itemcompra. Reprogramado o CRUD ItemCompra
+			Excluido fornecedor e armazem da tabela de itens. Reprogramado o CRUD Armazem
 19-09-2016: Implementado funcionalidade para exclusão do item de compra, com critica a compra fechada.
-19-09-2016: Corrigido BUG de somatorio do custo dos itens no detalhe da compra.
-19-09-2016: Implementado a funcionaliade de inclusão de itens de compra para uma compra.
-19-09-2016: Implementado visualizar itens de compra a partir da lista de itens de determinada compra.
-19-09-2016: Impedido adição de novos itens na lista de itens e a opções de lista, se a compra esta com a
+			Corrigido BUG de somatorio do custo dos itens no detalhe da compra.
+			Implementado a funcionaliade de inclusão de itens de compra para uma compra.
+			Implementado visualizar itens de compra a partir da lista de itens de determinada compra.
+			Impedido adição de novos itens na lista de itens e a opções de lista, se a compra esta com a
             situação de fechada.
 16-09-2016: Definido no settings.py o parametro USE_TZ = False, possibilitando a soma de valor para datas.
 15-09-2016: correção nas pesquisa de itens de compras, para pesquisar itens__nome.icontrains.
-15-09-2016: Implementado lista de itens de compras com opções de visualizar editar excluir.
+			Implementado lista de itens de compras com opções de visualizar editar excluir.
 01-09-2016: Usuario padrao não pode adicionar itens a compras.
-01-09-2016: Inserido icone para adicionar itens na lista de compra.
-01-09-2016: Uma vez fechada a compra não pode ser mas excluída.
+			Inserido icone para adicionar itens na lista de compra.
+			Uma vez fechada a compra não pode ser mas excluída.
 31-08-2016: Uma vez fechada a compra não pode ser mas editada (alterada).
-31-08-2016: Inserido no detalhe da compra os itens e somas de quantidade de itens e custos.
+			Inserido no detalhe da compra os itens e somas de quantidade de itens e custos.
 30-08-2016: RETIRAR da base de Itens os campos FORNECEDOR, reconfigurar a BASE DE ITENS.
-30-08-2016: Incluído identificação de FORNECEDOR na base de COMPRAS.
-30-08-2016: Possibilitado a edição de COMPRAS.
-30-08-2016: Pesquisa por notafiscal e data de entrada implantado para COMPRAS.
+			Incluído identificação de FORNECEDOR na base de COMPRAS.
+			Possibilitado a edição de COMPRAS.
+			Pesquisa por notafiscal e data de entrada implantado para COMPRAS.
 29-08-2016: Implementado detalhe para base de compras.
-29-08-2016: Implementado inclusão e apagar registro de compras.
+			Implementado inclusão e apagar registro de compras.
 19-08-2016: Corrigido o problema da troca de senha que esta executando o logout no sistema.
-19-08-2016: Implementado a lista de compra.
+			Implementado a lista de compra.
 18-08-2016: Implantado a base de dados de compra.
 17-08-2016: Avisar o usuário sobre o risco de apagar o registro dos cadastros e pedir confirmação, para
             exclusão.
 16-08-2016: Implementado imagem de background para a página de login do sistema.
 12-08-2016: Adicionado a base de dados tabela fornecedor o campo 'email', com preenchimento obrigatório.
-12-08-2016: O usuário não pode incluir um item com fornecedor não apto.
+			O usuário não pode incluir um item com fornecedor não apto.
 11-08-2016: Ajuste com on=delete=PROTECT no 'model' Armazém para evitar apagar um armazém vinculado 
 			ao item causando falha na integridade da BD, também foi tratada a mensagem de aviso para exclusão 
             não permitida na função 'armazem_apaga'.
-11-08-2016: Exibir a lista de fornecedores com o nome fantasia ao invvés da razão social.
-11-08-2016: Ajuste com on=delete=PROTECT no 'model' Fornecedor para evitar apagar um fornecedor vinculado 
+			Exibir a lista de fornecedores com o nome fantasia ao invvés da razão social.
+			Ajuste com on=delete=PROTECT no 'model' Fornecedor para evitar apagar um fornecedor vinculado 
 			ao item causando falha na integridade da BD, também foi tratada a mensagem de aviso para exclusão 
             não permitida na função 'fornecedor_apaga'.
-11-08-2016: Inclusão do estoque mínimo para alerta de reposição.
-11-08-2016: Inclusão do Fornecedor no cadastro de Itens.
+			Inclusão do estoque mínimo para alerta de reposição.
+			Inclusão do Fornecedor no cadastro de Itens.
 10-08-2016: Inclusão do Armazem no cadastro de Itens.
 03-08-2016: Mudança no footer para identificar a instituição desenvolvedora do sistema.
-03-08-2016: Redirecionamento da página inicial do ambiente para /usuario/home
-03-08-2016: Inserido na base de dados de fornecedores o campo 'bairro'.
+			Redirecionamento da página inicial do ambiente para /usuario/home
+			Inserido na base de dados de fornecedores o campo 'bairro'.
 02-08-2016: Permitir ao usuário realizar a troca da senha pela edição do seu perfil.
 29-07-2016: Implantado acesso apenas por https.
-29-07-2016: Implantado a aplicação no serviço http do apache
+			Implantado a aplicação no serviço http do apache
 22-07-2016: Mudança diretorio static das bases para o Core.
 21-07-2016: Inserido os dados da tabela Estados, e dos Municipios de Mato Grosso do Sul no sistema.
 20-07-2016: Hospedado a base de dados no MySql, instalando o  cymysql e django-cymysql através do pip.
 13-07-2016: Fixando o nome a ser pesquisado após a consulta no campo de consulta.
 12-07-2016: Pesquisa na base de Armazem, Fornecedor e item acrescida ao sistema.
 11-07-2016: Troca dos campos 'NUMERO' dos endereços e 'CNPJ' para textos para ajustes na formatação tela.
-11-07-2016: Inserido no footer.html a função navbar-fixed-bottom para fixar ao final da página.
+			Inserido no footer.html a função navbar-fixed-bottom para fixar ao final da página.
 06-07-2016: Implementado permissões para acesso a adição, alteração e exclusão padrão: 'pode_administrar'
-06-07-2016: Ajustes na tela de Login, fixando o tamanho da tela de entrada e exibindo a mensagem de erro.
+			Ajustes na tela de Login, fixando o tamanho da tela de entrada e exibindo a mensagem de erro.
 05-07-2016: Implementado na base de dados o usuário responsável pela alteração e criação do registro.
 04-07-2016: Implementado o acesso ao sistema atráves de Login padrao do django.
-04-07-2016: Imposto a obrigatóriedade de acesso atráves de um Login para as funções de view. (Controler) 
+			Imposto a obrigatóriedade de acesso atráves de um Login para as funções de view. (Controler) 
 16-06-2016: Ajustes no Designer do Bootstrap.
 22-05-2016: Controle de paginação das listas, foi adicionado a Itens, Fornecedores e Armazém.
 02-05-2016: Implementado CRUD para a base de Itens.

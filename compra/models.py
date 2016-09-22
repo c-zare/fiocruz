@@ -1,6 +1,5 @@
 from django.db import models
 from django.db.models import Sum
-
 # Create your models here.
 from django.conf	import settings
 from django.core.urlresolvers import reverse
@@ -46,7 +45,7 @@ class ItemCompra(models.Model):
 	armazem		= models.ForeignKey(Armazem,on_delete=models.PROTECT)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
-	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
+	requisitante= models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
 
 	class Meta:
 		ordering = ['item']

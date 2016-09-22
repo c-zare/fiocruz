@@ -6,26 +6,17 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.db.models import Sum,Q 
 from .forms import  UsuarioForm
 from compra.models import Compra,ItemCompra
+from datetime import date
 
 @login_required
 def home(request):
-	meses = []							# Geração dos saldos de compras
+	totais = []
 	for indice in range(13):
-		queryset = ItemCompra.objects.filter(compra__data_pagamento__month=indice).filter(criado__year=2016)
-		queryset = queryset.aggregate(Sum('custo'))	
-		meses.append(queryset)
-	context = { 'jan':meses[1],
-				'fev':meses[2],
-				'mar':meses[3],
-				'abr':meses[4],
-				'mai':meses[5],
-				'jun':meses[6],
-				'jul':meses[7],
-				'ago':meses[8],
-				'set':meses[9],
-				'out':meses[10],
-				'nov':meses[11],
-				'dez':meses[12]}				
+		queryset = ItemCompra.objects.filter(compra__data_pagamento__month=indice).filter(criado__year=date.today().year)
+		queryset = queryset.aggregate(Sum('custo'))
+		totais.append(queryset)
+	totais.remove({'custo__sum': None}) # Ajuste para bug da logica, estudar correção
+	context = { 'totais': totais }
 	return render(request,'home.html', context)
 
 @login_required

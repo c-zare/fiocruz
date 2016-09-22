@@ -63,7 +63,7 @@
       </div>
       <div class="col-sm-2">
         <p><strong>Complemento</strong></p>
-        <p>{{fornecedor.complemento}}</p>
+        <p>{% if fornecedor.complemento %} {{fornecedor.complemento}} {% endif %}</p>
       </div>
   </div>
 </div>
@@ -99,7 +99,7 @@
         </div>
         <div class="col-sm-3">
           <p><strong>E-mail</strong></p>
-          <p>{{fornecedor.email}}</p>
+          <p>{% if fornecedor.email %} {{fornecedor.email}} {% endif %}</p>
         </div>
         <div class="col-sm-3">
           <p><strong>Telefone</strong></p>
