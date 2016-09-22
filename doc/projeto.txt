@@ -21,7 +21,9 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 -----------------------------------------------------------------------------------------------------------------------
->>>>>>>>>>> Build 0.79
+>>>>>>>>>>> Build 81
+22-09-2016: Ajuste na distrinbuição dos campos de Itens, Fornecedores, Compras e Armazem da Interface com o usuário.
+>>>>>>>>>>> Build 80
 22-09-2016: Ajuste na rotina de envio de dados para o gráfico de compras do dashboard.
 			O Ano para a exibição do gráfico foi definido como o atual, através da função date.
 			As informações de complemento e email de fornecedores não são mas obrigatórios o seu preenchimento.
@@ -29,7 +31,7 @@ Registro de Atividades Executadas
 			A data de pagamento não pode ser inferior a data da entrega.
 			Inserido na compra o resquisitante pela compra.
 			Corrigido o Bug de quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
->>>>>>>>>>> Build 0.78
+>>>>>>>>>>> Build 79
 21-09-2016: Incluido o campo data_pagamento na compra, que é utilizado no grafico padrao do Dashboard.
 20-09-2016: Ajuste no Rodapé para não repassar acima dos dados.
 			Implementado a funcionalidade de edição de itens de compra caso a compra não esteja fechada.

@@ -29,14 +29,18 @@
 <hr>
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
 	<div class="row">
+  		<div class="col-sm-4">
+        <p><strong>Fornecedor</strong></p>
+        <p>{{compra.fornecedor}}</p>
+  		</div>
+      <div class="col-sm-1">
+      </div>
   		<div class="col-sm-3">
-    		<p><strong>Nota Fiscal</strong></p>
-    		<p>{{compra.notafiscal}}</p>
+        <p><strong>Nota Fiscal</strong></p>
+        <p>{{compra.notafiscal}}</p>
   		</div>
-  		<div class="col-sm-6">
-    		<p><strong>Fornecedor</strong></p>
-    		<p>{{compra.fornecedor}}</p>
-  		</div>
+      <div class="col-sm-1">
+      </div>
       <div class="col-sm-3">
         <p><strong>Situação</strong></p>
         {% if compra.situacao %}
@@ -49,17 +53,31 @@
 </div>
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
   <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <p><strong>Data da Compra</strong></p>
         <p>{{compra.data_compra}}</p>
+      </div>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Data da Entrega</strong></p>
         <p>{{compra.data_entrega}}</p>
       </div>
+      <div class="col-sm-1">
+      </div>  
       <div class="col-sm-3">
         <p><strong>Data de Pagamento</strong></p>
         <p >{{compra.data_pagamento}}
+      </div>
+  </div>
+</div>
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
+  <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-3">
       </div>
       <div class="col-sm-3">
         <p><strong>Total da Compra</strong></p>
@@ -70,14 +88,15 @@
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
 <hr>
   <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <p><strong>Item</strong></p>
       </div>
-      <div class="col-sm-3">
-        <p><strong>Quantidade</strong></p>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Custo do item</strong></p>
+      </div>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Armazém</strong></p>
@@ -87,14 +106,15 @@
 {% for obj in itemcompra %}
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
   <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <p>{{obj.item}}</p>
       </div>
-      <div class="col-sm-3">
-        <p>{{obj.quantidade}}</p>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p>{{obj.custo}}</p>
+      </div>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p>{{obj.armazem}}</p>
@@ -105,15 +125,17 @@
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 3-->
 <hr>
   <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <p><strong>Criado</strong></p>
         <p class='text-muted'>{{compra.criado}}</p>
+      </div>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Modificado</strong></p>
         <p class='text-muted'>{{compra.atualizado}}</p>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Por</strong></p>

@@ -33,55 +33,76 @@
     		<p><strong>Razão Social</strong></p>
     		<p>{{fornecedor.razaosocial}}</p>
   		</div>
+      <div class="col-sm-1">
+      </div>
   		<div class="col-sm-3">
     		<p><strong>Nome Fantasia</strong></p>
     		<p>{{fornecedor.nomefantasia}}</p>
   		</div>
+      <div class="col-sm-1">
+      </div>
   		<div class="col-sm-3">
     		<p><strong>CNPJ</strong></p>
     		<p>{{fornecedor.cnpj}}</p>
   		</div>
-      <div class="col-sm-2">
-        <p><strong>Atividade</strong></p>
-        <p>{{fornecedor.atividade}}</p>
-      </div>
 	</div>
 </div>
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->
   <div class="row">
       <div class="col-sm-4">
+        <p><strong>Atividade</strong></p>
+        <p>{{fornecedor.atividade}}</p>
+      </div>
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-3">
         <p><strong>Bairro</strong></p>
         <p>{{fornecedor.bairro}}</p>
+      </div>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Estado</strong></p>
         <p>{{fornecedor.estado}}</p>
       </div>
-      <div class="col-sm-3">
-        <p><strong>Cidade</strong></p>
-        <p>{{fornecedor.cidade}}</p>
-      </div>
-      <div class="col-sm-2">
-        <p><strong>Complemento</strong></p>
-        <p>{% if fornecedor.complemento %} {{fornecedor.complemento}} {% endif %}</p>
-      </div>
+
   </div>
 </div>
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->
 	<div class="row">
       <div class="col-sm-4">
+        <p><strong>Cidade</strong></p>
+        <p>{{fornecedor.cidade}}</p>
+      </div>
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-3">
+        <p><strong>Complemento</strong></p>
+        <p>{% if fornecedor.complemento %} {{fornecedor.complemento}} {% endif %}</p>
+      </div>
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-3">
           <p><strong>CEP</strong></p>
           <p>{{fornecedor.cep}}</p>
       </div>
-      <div class="col-sm-3">
+  </div>
+</div>
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->
+  <div class="row">      
+      <div class="col-sm-4">
         <p><strong>Endereço</strong></p>
         <p>{{fornecedor.endereco}}</p>
+      </div>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Número</strong></p>
         <p>{{fornecedor.numero}}</p>
       </div>
-  		<div class="col-sm-2">
+      <div class="col-sm-1">
+      </div>
+  		<div class="col-sm-3">
           <p><strong>Situação</strong></p>
           {% if fornecedor.situacao %}
             <p><strong class='text-success'>APTO</strong></p>
@@ -97,16 +118,18 @@
           <p><strong>Contato</strong></p>
           <p>{{fornecedor.contato}}</p>
         </div>
+        <div class="col-sm-1">
+        </div>
         <div class="col-sm-3">
           <p><strong>E-mail</strong></p>
           <p>{% if fornecedor.email %} {{fornecedor.email}} {% endif %}</p>
+        </div>
+        <div class="col-sm-1">
         </div>
         <div class="col-sm-3">
           <p><strong>Telefone</strong></p>
           <p>{{fornecedor.telefone}}</p>
         </div>
-         <div class="col-sm-2">
-         </div>
       </div>
 </div>
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 4-->
@@ -116,13 +139,15 @@
           <p><strong>Criado</strong></p>
           <p class='text-muted'>{{fornecedor.criado}}</p>
         </div>
+        <div class="col-sm-1">
+        </div>
         <div class="col-sm-3">
           <p><strong>Modificado</strong></p>
           <p class='text-muted'>{{fornecedor.atualizado}}</p>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-1">
         </div>
-        <div class="col-sm-2">
+        <div class="col-sm-3">
           <p><strong>Por</strong></p>
           <p class='text-muted'>{{fornecedor.usuario}}</p>
         </div>

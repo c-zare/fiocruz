@@ -29,10 +29,12 @@
 <hr>
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
 	<div class="row">
-  		<div class="col-sm-3">
+  		<div class="col-sm-4">
     		<p><strong>Nome</strong></p>
     		<p>{{item.nome}}</p>
   		</div>
+      <div class="col-sm-1">
+      </div>
   		<div class="col-sm-3">
 	        <p><strong>Estoque</strong></p>
             {% if item.estoque == 0 %}
@@ -41,26 +43,28 @@
                 <p class='text-sucess'>{{item.estoque}}</p>
             {% endif %}
   		</div>
+      <div class="col-sm-1">
+      </div>
       <div class="col-sm-3">
           <p><strong>Alerta para reposição</strong></p>
           <p>{{item.estoque_minimo}}</p>
       </div>
-  		<div class="col-sm-3">
-  		</div>
 	</div>
 </div>
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes linha 2-->
 <hr>
   <div class="row">
-      <div class="col-sm-3">
+      <div class="col-sm-4">
         <p><strong>Criado</strong></p>
         <p class='text-muted'>{{item.criado}}</p>
+      </div>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Modificado</strong></p>
         <p class='text-muted'>{{item.atualizado}}</p>
       </div>
-      <div class="col-sm-3">
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Por</strong></p>

@@ -29,82 +29,103 @@
     		<p><strong>Razão Social</strong></p>
     		<p>{{form.razaosocial}}</p>
   		</div>
+        <div class="col-sm-1">
+        </div>
   		<div class="col-sm-3">
     		<p><strong>Nome Fantasia</strong></p>
     		<p>{{form.nomefantasia}}</p>
   		</div>
+        <div class="col-sm-1">
+        </div>
   		<div class="col-sm-3">
     		<p><strong>CNPJ</strong></p>
     		<p>{{form.cnpj}}</p>
   		</div>
-      <div class="col-sm-2">
+	</div>
+</div>
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 2-->
+  <div class="row">
+      <div class="col-sm-4">
         <p><strong>Atividade</strong></p>
         <p>{{form.atividade}}</p>
       </div>
-	</div>
-</div>
-  <div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 2-->
-  <div class="row">
-      <div class="col-sm-4">
+        <div class="col-sm-1">
+        </div>
+      <div class="col-sm-3">
         <p><strong>Bairro</strong></p>
         <p>{{form.bairro}}</p>
       </div>
+        <div class="col-sm-1">
+        </div>
       <div class="col-sm-3">
         <p><strong>Estado</strong></p>
         <p>{{form.estado}}</p>
       </div>
-      <div class="col-sm-3">
-        <p><strong>Cidade</strong></p>
-        <p>{{form.cidade}}</p>      
-      </div>
-      <div class="col-sm-2">
-        <p><strong>Complemento</strong></p>
-        <p>{{form.complemento}}</p>
-      </div>
   </div>
-  </div>
+</div>
 <div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 3-->
   <div class="row">
       <div class="col-sm-4">
+        <p><strong>Cidade</strong></p>
+        <p>{{form.cidade}}</p>    
+      </div>
+        <div class="col-sm-1">
+        </div>
+     <div class="col-sm-3">
+        <p><strong>Complemento</strong></p>
+        <p>{{form.complemento}}</p>
+      </div>
+        <div class="col-sm-1">
+        </div>
+      <div class="col-sm-3">
         <p><strong>CEP</strong></p>
         <p>{{form.cep}}</p>
       </div>
-      <div class="col-sm-3">
+  </div>
+</div>
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 3-->
+  <div class="row">
+      <div class="col-sm-4">
         <p><strong>Endereco</strong></p>
         <p>{{form.endereco}}</p>
+      </div>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Número</strong></p>
         <p>{{form.numero}}</p>
       </div>
-      <div class="col-sm-2">
-        <p  class='text-center'><label for="situacao"><strong>Apto</strong></label></p>
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-3">
+        <p><label for="situacao"><strong>Apto</strong></label></p>
         {% if instance.situacao %}
-            <p  class='text-center'><input type="checkbox" name="situacao" id="situacao" CHECKED ></p>
+            <p><input type="checkbox" name="situacao" id="situacao" CHECKED ></p>
         {% else %}
-            <p  class='text-center'><input type="checkbox" name="situacao" id="situacao" ></p>
+            <p><input type="checkbox" name="situacao" id="situacao" ></p>
         {% endif %}
         </p>
       </div>
   </div>
-  </div>
-  <div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 4-->
+</div>
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 4-->
   <div class="row">
       <div class="col-sm-4">
         <p><strong>Contato</strong></p>
         <p>{{form.contato}}</p>
       </div>
+      <div class="col-sm-1">
+      </div>
       <div class="col-sm-3">
         <p><strong>E-mail</strong></p>
         <p>{{form.email}}</p>      
+      </div>
+      <div class="col-sm-1">
       </div>
       <div class="col-sm-3">
         <p><strong>Telefone</strong></p>
         <p>{{form.telefone}}</p>
       </div>
-      <div class="col-sm-2">
-      </div>
-  </div>
   </div>
 </div>
 </form>
