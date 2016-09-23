@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^compra/', include('compra.urls', namespace='compra')),
     url(r'^fornecedor/', include('fornecedor.urls', namespace='fornecedor')),
     url(r'^item/', include('item.urls', namespace='item')),
+    url(r'^requisicao/', include('requisicao.urls', namespace='requisicao')),
     url(r'^usuario/', include('core.urls', namespace='core')),
     url(r'^login/',views.login, {'template_name':'login.html'}, name='login'),
     url(r'^logout/',views.logout_then_login, { 'login_url': '/login/'}, name='logout')

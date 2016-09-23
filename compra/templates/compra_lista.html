@@ -40,15 +40,18 @@
 		    	<div class='col-sm-1 text-center'>
 		        	<li><strong>ID</strong></li>
 		        </div>
-		        <div class='col-sm-3'>
+		        <div class='col-sm-1'>
+	        	</div>
+		        <div class='col-sm-2'>
 		        	<li><strong>NOTA FISCAL</strong></li>       
 		        </div>
-		        <div class='col-sm-3'>
-		        	<li><strong>DATA COMPRA</strong></li>
-		        </div>
-		        <div class='col-sm-3'>
+		        <div class='col-sm-1'>
+	        	</div>
+		        <div class='col-sm-4'>
 		        	<li><strong>SITUAÇÃO</strong></li>
 		        </div>
+			    <div class='col-sm-1'>
+	        	</div>
 		        <div class='col-sm-2 text-center'>
 		        	<li><strong>OPÇÕES</strong></li>
 		    	</div>
@@ -62,19 +65,22 @@
 			    <div class='col-sm-1'>
 			        <li class='text-center'>{{forloop.counter}}</li>
 			    </div>
-			    <div class='col-sm-3'>
+			    <div class='col-sm-1'>
+	        	</div>
+			    <div class='col-sm-2'>
 			        <li>{{obj.notafiscal}}</li>
 			    </div>       
-			    <div class='col-sm-3'>
-			        <li>{{obj.data_compra}}</li>
+			    <div class='col-sm-1'>
 			    </div>
-			    <div class='col-sm-3'>
+			    <div class='col-sm-4'>
 			    {% if obj.situacao %}
 			        <li>FECHADA</li>
 			    {% else %}
 			    	<li>ABERTA</li>
 			    {% endif %}
 			    </div>
+			   	<div class='col-sm-1'>
+	        	</div>
 			    <div class='col-sm-2 text-center'>
 	                <a href='{{ obj.get_absolute_url }}'>
 	                   	<span title='Visualizar' class="glyphicon glyphicon glyphicon-zoom-in"></span>

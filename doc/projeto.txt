@@ -1,16 +1,17 @@
 Registro de Atividades Pendentes
 -----------------------------------------------------------------------------------------------------------------------
+Verificar a necessidade de informar se itens estão ativos/desativos
+Gerar grafico para indicadores de requisição.
+Documentar casos de Uso para dar seguimento aos processos. UML
+Ajustar para funcao a critica de compra fechada sem itens inclusos.
 Gerar registro de estoque em separado visando separar o custo de cada compra individualmente por item
 No armazem, deve visualizar a quantidade de itens locados no mesmo
-Verificar se o usuário pode acessar os itens (editar e excluir) embora sem permissões pelo Link.
 Definir fluxo de cadastro de itens para o banco de ARMAZEM.
-Ao fechar a compra é necessário que exista pelo menos um ITEMCOMPRA relacionado na tabela.
-RETIRAR da base de Itens os campos ARMAZEM, reconfigurar a BASE DE ITENS.
 Validar informações do formulário é no forms.py
 implementar banco de dados para o quadro de avisos.
 implementar banco de dados para as atividade do fornecedor, CNAE.
 Encadear Estado/Municipio para o cadastro de fornecedores.
-Limitar a quantidade de Logins no Django.
+Limitar a quantidade de Logins no Django. VERIFICAR COMO LIBERAR.
 Permitir a todos os usuários do sistema fazer requisições de items.
 Implementar Manual do Usuário de Sistemas.
 Iniciar testes do Produto.
@@ -21,6 +22,12 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 -----------------------------------------------------------------------------------------------------------------------
+>>>>>>>>>>> Build 82
+23-09-2016: A Compra só pode ser fechada caso exista pelo menos um item vinculado.
+			Verificar se o usuário pode acessar os itens (editar e excluir) após fechamento da compra.		
+			Integrado ao sistema a base de dados de requisições.
+			Criada a interface lista de requisições.	
+			Padronizado a tabulação horizontal dos itens da lista.
 >>>>>>>>>>> Build 81
 22-09-2016: Ajuste na distrinbuição dos campos de Itens, Fornecedores, Compras e Armazem da Interface com o usuário.
 >>>>>>>>>>> Build 80
@@ -33,6 +40,7 @@ Registro de Atividades Executadas
 			Corrigido o Bug de quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
 >>>>>>>>>>> Build 79
 21-09-2016: Incluido o campo data_pagamento na compra, que é utilizado no grafico padrao do Dashboard.
+			Retirado da base de Itens os campos de identificação do ARMAZEM, reconfigurarado a BASE DE ITENS.
 20-09-2016: Ajuste no Rodapé para não repassar acima dos dados.
 			Implementado a funcionalidade de edição de itens de compra caso a compra não esteja fechada.
 			Na Criação do Item o estoque deve ser 0 e o estoque minimo 1.

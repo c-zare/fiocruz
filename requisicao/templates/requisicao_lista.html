@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block header %}
+<div class="row">
+    <div class="col-sm-4">
+        <h4>Materiais: Requisições</h4>
+    </div>
+    <form method='GET' action=''>
+	    <div class="col-sm-4">
+	        <div class="input-group">
+	            <input name="q" class="form-control" id="search" type="text" placeholder="Pesquisar Requisição" value='{{request.GET.q}}'>
+		            <span class="input-group-btn">
+	                <button title='Pesquisar' class="btn btn-primary" type="submit">
+	                    <span class="glyphicon glyphicon-search"></span>
+	                </button>
+	            </span>
+	        </div>
+		</div> <!-- Pesquisa -->
+    </form>
+    <div class="col-sm-2">
+    </div>
+    <form>
+    	<div class="col-sm-1 text-center">
+        	<button title='Atualizar lista' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'requisicao:lista' %}">
+	        	<span class="glyphicon glyphicon-refresh"></span></button>
+    	</div>
+    	<div class="col-sm-1 text-center">
+    	{% if perms.requisicao.pode_administrar %}
+        	<button title='Nova Requisicao' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'requisicao:cria' %}">
+	        	<span class="glyphicon glyphicon-plus"></span></button>
+	    {% endif %}
+    	</div>
+   	</form>
+</div>
+{% endblock %}
+{% block main %}
+	<br><br>
+	<div class='row'>	<!-- Cabeçalho-->
+		<div class='col-sm-12'>
+		    <ul class="list-inline">
+		    	<div class='col-sm-1 text-center'>
+		        	<li><strong>ID</strong></li>
+		        </div>
+		        <div class='col-sm-1'>
+	        	</div>
+		        <div class='col-sm-2'>
+		        	<li><strong>REQUISIÇÃO</strong></li>       
+		        </div>
+		        <div class='col-sm-1'>
+	        	</div>
+		        <div class='col-sm-4'>
+		        </div>
+		        <div class='col-sm-1'>
+	        	</div>
+		        <div class='col-sm-2 text-center'>
+		        	<li><strong>OPÇÕES</strong></li>
+		    	</div>
+		    </ul>
+	    </div>
+    </div><hr>
+	{% for obj in requisicoes %} <!-- Itens-->
+	    <div class='row'><br> 
+	    	<div class='col-sm-12 text-muted'>
+			    <ul class="list-inline">
+			    <div class='col-sm-1'>
+			        <li class='text-center'>{{forloop.counter}}</li>
+			    </div>
+			    <div class='col-sm-1'>
+	        	</div>
+			    <div class='col-sm-2'>
+			        <li>{{obj.id}}</li>
+			    </div>       
+			    <div class='col-sm-1'>
+	        	</div>
+			    <div class='col-sm-4'>
+			    </div>
+			    <div class='col-sm-1'>
+	        	</div>
+			    <div class='col-sm-2 text-center'>
+	                <a href=''>
+	                   	<span title='Visualizar' class="glyphicon glyphicon glyphicon-zoom-in"></span>
+	                </a>&nbsp;&nbsp;&nbsp;
+	                {% if perms.requisicao.pode_administrar %}
+	                <a href=''>
+	                   	<span title='Editar' class="glyphicon glyphicon-pencil"></span>
+	                </a>&nbsp;&nbsp;&nbsp;
+	                <!-- <a href='{% url "armazem:apaga" obj.id %}'> -->
+	                <a href="javascript:func()" onclick="confirmacao('')">
+	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-trash"></span>
+	                </a>
+	                {% endif %}
+			    </div>
+			    </ul>
+		    </div>
+	  	</div>
+	{% endfor %}
+	<hr>
+	<div class='text-center'>
+	<div class="pagination"> <!-- Paginação-->
+	    <span class="step-links">
+	        {% if requisicoes.has_previous %}
+	            <a href="?{{ page_request_var }}={{requisicoes.previous_page_number }}"><strong><< </strong></a>
+	        {% endif %}
+
+	        <span class="current">
+	            {{ requisicoes.number }} / {{ requisicoes.paginator.num_pages }}
+	        </span>
+
+	        {% if arequisicoes.has_next %}
+	            <a href="?{{ page_request_var }}={{ requisicoes.next_page_number }}"><strong> >></strong></a>
+	        {% endif %}
+	    </span>
+	</div>
+	</div>
+{% endblock %}
+{% block jquery %}
+	<script language="Javascript">
+		function confirmacao(id) {
+			var resposta = confirm("Deseja remover esta Requisicao ?");
+   			if (resposta == true) {
+      			window.location.href = id;
+   			}
+		}
+	</script>
+{% endblock %}

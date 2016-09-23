@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'fornecedor',
     'item',
     'compra',
+    'requisicao',
  ]
 
 MIDDLEWARE_CLASSES = [
