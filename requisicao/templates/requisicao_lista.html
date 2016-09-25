@@ -81,10 +81,10 @@
 	                </a>&nbsp;&nbsp;&nbsp;
 	                {% if perms.requisicao.pode_administrar %}
 	                <a href=''>
-	                   	<span title='Editar' class="glyphicon glyphicon-pencil"></span>
+	                   	<span title='Itens' class="glyphicon glyphicon-list-alt"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
 	                <!-- <a href='{% url "armazem:apaga" obj.id %}'> -->
-	                <a href="javascript:func()" onclick="confirmacao('')">
+	                <a href="javascript:func()" onclick="confirmacao('{% url "requisicao:apaga" obj.id %}')">
 	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-trash"></span>
 	                </a>
 	                {% endif %}
@@ -105,7 +105,7 @@
 	            {{ requisicoes.number }} / {{ requisicoes.paginator.num_pages }}
 	        </span>
 
-	        {% if arequisicoes.has_next %}
+	        {% if requisicoes.has_next %}
 	            <a href="?{{ page_request_var }}={{ requisicoes.next_page_number }}"><strong> >></strong></a>
 	        {% endif %}
 	    </span>

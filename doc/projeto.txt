@@ -1,5 +1,6 @@
 Registro de Atividades Pendentes
 -----------------------------------------------------------------------------------------------------------------------
+Após a abertura da Requisição, deve ser desviado para a página de cadastramento de itens.
 Verificar a necessidade de informar se itens estão ativos/desativos
 Gerar grafico para indicadores de requisição.
 Documentar casos de Uso para dar seguimento aos processos. UML
@@ -22,6 +23,9 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 -----------------------------------------------------------------------------------------------------------------------
+>>>>>>>>>>> Build 83
+			Inplementado na base de requisições a exclusão de itens.
+			Ajustado na lista de requisições a numeração de páginas.
 >>>>>>>>>>> Build 82
 23-09-2016: A Compra só pode ser fechada caso exista pelo menos um item vinculado.
 			Verificar se o usuário pode acessar os itens (editar e excluir) após fechamento da compra.		

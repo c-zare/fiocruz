@@ -9,6 +9,16 @@ from django.db import IntegrityError
 from .models import Requisicao
 from .forms import RequisicaoForm
 
+@login_required
+def requisicao_apaga(request,id=None):
+	instance = get_object_or_404(Requisicao,id=id)
+	try:
+		instance.delete()
+		messages.success(request,' Requisição "%s" foi excluida.' % id)
+	except IntegrityError:
+		messages.warning(request,' A Requisição "%s" não pode ser excluída, devido a vínculo com outra informação.' % instance.id)
+	return redirect('requisicao:lista')
+
 def requisicao_cria(request):
 	try:
 		requisicao = Requisicao(usuario=request.user).save()
@@ -24,7 +34,7 @@ def requisicao_lista(request):
 	page_request_var='Pagina'
 	query = request.GET.get('q')
 	if query:
-		queryset_list = queryset_list.filter(nome__icontains=query)
+		queryset_list = queryset_list.filter(id__icontains=query)
 	paginator = Paginator(queryset_list, 8)
 	page = request.GET.get(page_request_var)
 	try:
