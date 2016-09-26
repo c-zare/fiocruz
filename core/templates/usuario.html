@@ -27,7 +27,16 @@
     		</div>
     		<div class="col-sm-4">
       		<p class='text-muted'><strong>Perfil</strong></p>
-      		<p class='text-muted'>{% if request.user.is_superuser %}Adminstrador{% else %}Usuário do sistema{% endif %}</p>
+      		<p class='text-muted'>
+          {% if request.user.is_superuser %}
+              Administrador do sistema
+          {% endif %}
+          {% if perms.armazem.pode_administrar or perms.compra.pode_administrar or perms.compra.pode_administrar or perms.fornecedor.pode_administrar or perms.item.pode_administrar or perms.requisicao.pode_administrar %}
+                      Usuário master
+          {% else %}
+                      Usuário do sistema
+          {% endif %}
+          </p>
     		</div>
         <div class="col-sm-4">
         <p class='text-muted'><strong>Ativo</strong></p>

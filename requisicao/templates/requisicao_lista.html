@@ -24,10 +24,8 @@
 	        	<span class="glyphicon glyphicon-refresh"></span></button>
     	</div>
     	<div class="col-sm-1 text-center">
-    	{% if perms.requisicao.pode_administrar %}
         	<button title='Nova Requisicao' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'requisicao:cria' %}">
 	        	<span class="glyphicon glyphicon-plus"></span></button>
-	    {% endif %}
     	</div>
    	</form>
 </div>
@@ -48,6 +46,11 @@
 		        <div class='col-sm-1'>
 	        	</div>
 		        <div class='col-sm-4'>
+		        {% if perms.fornecedor.pode_administrar %}
+		       		<li><strong>USUÁRIO</strong></li>
+			    {% else %}
+			    	<li><strong>MODIFICADO</strong></li>
+			    {% endif %}
 		        </div>
 		        <div class='col-sm-1'>
 	        	</div>
@@ -72,22 +75,25 @@
 			    <div class='col-sm-1'>
 	        	</div>
 			    <div class='col-sm-4'>
+			    {% if perms.requisicao.pode_administrar %}
+			    	<li>{{obj.usuario}}</li>
+			    {% else %}
+			    	<li>{{obj.atualizado}}</li>
+			    {% endif %}
 			    </div>
 			    <div class='col-sm-1'>
 	        	</div>
 			    <div class='col-sm-2 text-center'>
-	                <a href=''>
+	                <a href='{% url "requisicao:detalhe" obj.id %}'>
 	                   	<span title='Visualizar' class="glyphicon glyphicon glyphicon-zoom-in"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
-	                {% if perms.requisicao.pode_administrar %}
-	                <a href=''>
+	                <a href='{% url "requisicao:listadeitens" obj.id %}'>
 	                   	<span title='Itens' class="glyphicon glyphicon-list-alt"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
 	                <!-- <a href='{% url "armazem:apaga" obj.id %}'> -->
 	                <a href="javascript:func()" onclick="confirmacao('{% url "requisicao:apaga" obj.id %}')">
 	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-trash"></span>
 	                </a>
-	                {% endif %}
 			    </div>
 			    </ul>
 		    </div>

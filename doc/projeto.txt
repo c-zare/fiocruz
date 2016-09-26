@@ -1,5 +1,6 @@
 Registro de Atividades Pendentes
 -----------------------------------------------------------------------------------------------------------------------
+PERMISSIONAMENTO: Ajustes para padronizar as funcionalidades PILOTO: Requisição.
 Após a abertura da Requisição, deve ser desviado para a página de cadastramento de itens.
 Verificar a necessidade de informar se itens estão ativos/desativos
 Gerar grafico para indicadores de requisição.
@@ -23,6 +24,16 @@ Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
 
 Registro de Atividades Executadas
 -----------------------------------------------------------------------------------------------------------------------
+>>>>>>>>>>> Build 84
+			Implementado Detalhe da requisição.
+			Cada usuário pode ver apenas suas requisções, exceto o administrador.
+			Apenas quem cria a requisão pode exclui-la.
+			O usuário master poder visualizar as requisições de outros usuários, mas não apagar ou alterar estas.
+			Na lista de requisições, usuario padrão visualiza a última modificação e o os administradores nome do requi-
+			sitante.
+			Na exibição do usuário foi filtrado a resrponsabilidade do usuário no sistema na descrição do seu perfil.
+			Definição da tabela RequiscaoItem.
+			Implementado a chamada da lista de itens da requisição através da lista de Requisições.
 >>>>>>>>>>> Build 83
 			Inplementado na base de requisições a exclusão de itens.
 			Ajustado na lista de requisições a numeração de páginas.
