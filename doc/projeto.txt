@@ -2,6 +2,7 @@ Registro de Atividades Pendentes
 -----------------------------------------------------------------------------------------------------------------------
 necessidade de bloquear itens com status enviada quando este estiver desativado não pode ser selecionados para compras e requisi
 ções.
+Fazer ROBO PARA CADASTRAR BASE DE TESTE COM AS CIDADES E ITENS DA FIOCRUZ-MS
 Após a entrega do item o mesmo deve ser ticado como atendido na lista de requisições.
 somente requisições fechadas devem ser vistas pelo administrador de requisição.
 Requisição fechada não pode ser mas alterada. pode ser um check nas opções. levar ideia para compras também.
@@ -39,6 +40,7 @@ Build 85
 			Somente o próprio usuario da requisicao pode criar um item para esta.
 			Permitir a todos os usuários do sistema fazer requisições de itens.
 			Usuário após o cadastramento dos itens deve-se Enviar a requisição.
+			Corrigido o Bug de envio no fechamento da requisicao pelo usuario.
 Build 84
 26-09-2016  Implementado Detalhe da requisição.
 			Cada usuário pode ver apenas suas requisções, exceto o administrador.

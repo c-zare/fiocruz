@@ -35,10 +35,11 @@ def requisicao_enviar(request,id):
 		return redirect('requisicao:lista')
 	if instance.usuario == request.user:
 		if itens:
-			messages.warning(request,' Requisição "%s" fechada.' % id)
 			instance.situacao=True
 			instance.usuario = request.user
 			instance.save()
+			messages.warning(request,' Requisição "%s" enviada.' % id)
+			return redirect('requisicao:lista')
 		else:
 			messages.warning(request,' Requisição "%s" não pode ser fechada por não há itens vinculados.' % id)
 			return redirect('requisicao:lista')
