@@ -30,7 +30,7 @@
             <span class="glyphicon glyphicon-list"></span></button>
         </div>
     	<div class="col-sm-1 text-center">
-        		<button title='Novo Item de Requisição' class='btn btn-primary btn-sm' type='submit' formaction="">
+        		<button title='Novo Item de Requisição' class='btn btn-primary btn-sm' type='submit' formaction="{% url 'requisicao:requisicaoitemcria' requisicao.id %}">
 	        	<span class="glyphicon glyphicon-plus"></span></button>
     	</div>
    	</form>
@@ -44,13 +44,17 @@
 		    	<div class='col-sm-1 text-center'>
 		        	<li><strong>ID</strong></li>
 		        </div>
-		        <div class='col-sm-3'>
+		        <div class='col-sm-1'>
+	        	</div>
+		        <div class='col-sm-2'>
 		        	<li><strong>ITEM</strong></li>       
 		        </div>
-		        <div class='col-sm-3'>
-		        	<li><strong>QUANTIDADE</strong></li>
+		        <div class='col-sm-1'>
+	        	</div>
+		        <div class='col-sm-4'>
+		        	<li><strong>SITUAÇÃO</strong></li>
 		        </div>
-		        <div class='col-sm-3'>
+		        <div class='col-sm-1'>
 		        </div>
 		        <div class='col-sm-2 text-center'>
 		        	<li><strong>OPÇÕES</strong></li>
@@ -65,22 +69,33 @@
 			    <div class='col-sm-1'>
 			        <li class='text-center'>{{forloop.counter}}</li>
 			    </div>
-			    <div class='col-sm-3'>
+			    <div class='col-sm-1'>
+	        	</div>
+			    <div class='col-sm-2'>
 			        <li>{{obj.item}}</li>
 			    </div>       
-			    <div class='col-sm-3'>
-			        <li>{{obj.quantidade}}</li>
+			    <div class='col-sm-1'>
+	        	</div>
+			    <div class='col-sm-4'>
+				{% if obj.situacao %}
+		          <p><strong class='text-success'>Atendido</strong></p>
+		        {% else %}
+		          <p><strong class='text-danger'>Pendente</strong></p>
+		        {% endif %}   
 			    </div>
-			    <div class='col-sm-3'>
+			    <div class='col-sm-1'>
 			    </div>
 			    <div class='col-sm-2 text-center'>
-	                <a href=''>
+	                <a href='{% url "requisicao:requisicaoitemdetalhe" obj.id %}'>
 	                   	<span title='Visualizar' class="glyphicon glyphicon glyphicon-zoom-in"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
 	                <a href=''>
+	                   	<span title='Atender' class="glyphicon glyphicon-ok"></span>
+	                </a>&nbsp;&nbsp;&nbsp;	                
+	                <a href='{% url "requisicao:requisicaoitemedita" obj.id %}'>
 	                   	<span title='Editar' class="glyphicon glyphicon-pencil"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
-	                <a href="javascript:func()" onclick="confirmacao('')">
+	                <a href="javascript:func()" onclick="confirmacao('{% url "requisicao:requisicaoitemapaga" obj.id %}')">
 	                   	<span style="color:red" title='Excluir' class="glyphicon glyphicon-trash"></span>
 	                </a>
 			    </div>

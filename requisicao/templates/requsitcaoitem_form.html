@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block header %}
+{% endblock %}
+
+{% block main %}
+<form method='POST' action=''>{% csrf_token %}
+<div class="row"> <!-- Cabecalho da página de Listas -->
+    <div class="col-sm-3">
+        <h4>Materiais: Item de Requsição</h4>
+    </div>   
+    <div class="col-sm-7">
+    </div>   
+    <div class="col-sm-1 text-center">
+        <button title='Alterar item de Requisição' class='btn btn-primary btn-sm' type='submit'>
+          <span class="glyphicon glyphicon-check"></span>
+        </button>
+    </div>
+    <div class="col-sm-1 text-center">
+        <button title='Listar Itens de requisicao' class='btn btn-primary btn-sm' type='submit' formaction="{% url 'requisicao:listadeitens' requisicao.id %}">
+          <span class="glyphicon glyphicon-list"></span>
+        </button>
+    </div>
+</div>
+<div class="row col-sm-12"> <!-- Ítens da página de detalhes Linha 1-->
+  <hr>  <div class="row">
+      <div class="col-sm-4">
+        <p><strong>Item</strong></p>
+        <p>{{formItem.item}}</p>
+      </div>
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-3">
+        <p><strong>Quantidade</strong></p>
+        <p>{{formItem.quantidade}}</p>
+      </div>
+      <div class="col-sm-1">
+      </div>
+      <div class="col-sm-3">
+       </div>
+  </div>
+</div>
+</form>
+{% endblock %}

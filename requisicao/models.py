@@ -7,6 +7,7 @@ from item.models import Item
 
 class Requisicao(models.Model):
 
+	situacao	= models.BooleanField(default=False)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
 	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
@@ -31,7 +32,7 @@ class RequisicaoItem(models.Model):
 	item 		= models.ForeignKey(Item,on_delete=models.PROTECT)
 	requisicao  = models.ForeignKey(Requisicao,on_delete=models.PROTECT)
 	quantidade	= models.IntegerField(null=False)
-	atendido	= models.BooleanField(default=False)								# Atendida True.
+	situacao	= models.BooleanField(default=False)								# Atendida True.
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)
 	usuario	    = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT)
@@ -49,4 +50,4 @@ class RequisicaoItem(models.Model):
 		return self.id
 
 	def get_absolute_url(self):
-		return reverse('requisicaoitem:detalhe', kwargs={'id':self.id})
+		return reverse('requisicao:requisicaoitemdetalhe', kwargs={'id':self.id})

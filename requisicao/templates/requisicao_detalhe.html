@@ -13,14 +13,12 @@
             <span class="glyphicon glyphicon-refresh"></span></button>
         </div>
         <div class="col-sm-1 text-right">
-            <button title='Listar Armazéns' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'requisicao:lista' %}">
+            <button title='Listar Requsição' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'requisicao:lista' %}">
             <span class="glyphicon glyphicon-list"></span></button>
         </div>
         <div class="col-sm-1 text-right">
-        {% if perms.armazem.pode_administrar %}
-            <button title='Novo Armazém' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'requisicao:cria' %}">
+             <button title='Novo Item de Requisição' class='btn btn-primary btn-sm' type='submit' formaction="{%  url 'requisicao:cria' %}">
             <span class="glyphicon glyphicon-plus"></span></button>
-        {% endif %}
         </div>
     </form>
 </div> 
@@ -36,6 +34,12 @@
       <div class="col-sm-1">
       </div>
   		<div class="col-sm-3">
+        <p><strong>Situação</strong></p>
+        {% if requisicao.situacao %}
+          <p><strong class='text-success'>Enviada</strong></p>
+        {% else %}
+          <p><strong class='text-danger'>Aberta</strong></p>
+        {% endif %}
       <div class="col-sm-1">
       </div>
   		<div class="col-sm-3">

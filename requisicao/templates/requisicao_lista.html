@@ -87,6 +87,9 @@
 	                <a href='{% url "requisicao:detalhe" obj.id %}'>
 	                   	<span title='Visualizar' class="glyphicon glyphicon glyphicon-zoom-in"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
+	                <a href='{% url "requisicao:enviar" obj.id %}'>
+	                   	<span title='Enviar requisição' class="glyphicon glyphicon-ok"></span>
+	                </a>&nbsp;&nbsp;&nbsp;
 	                <a href='{% url "requisicao:listadeitens" obj.id %}'>
 	                   	<span title='Itens' class="glyphicon glyphicon-list-alt"></span>
 	                </a>&nbsp;&nbsp;&nbsp;
