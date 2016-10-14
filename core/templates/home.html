@@ -26,41 +26,37 @@
 	<div class="col-sm-1">
 	</div>
 	<div class="col-sm-5">
-	  <div id="barras" style="width:400px;height:250px"></div>
+	  	<canvas id="cvs" width="450" height="250">
+    			[Este navegador não suporta o CANVAS]
+		</canvas>
 	</div> 
 </div>
 {% endblock %}
 {% block jquery %}
-<script type="text/javascript">
-	$(function() {
-		meses = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-		var data = [ 	
-					{% for mes in totais %}
-						[ meses[{{forloop.counter}}-1] ,{% if mes.custo__sum %} {{mes.custo__sum}} {% else %} 0 {% endif %} ],
-					{% endfor %}
-				];
-		var options = {
-			grid: {
-				borderWidth: 1,
-			},
-			legend: {
-				backgroundColor: "#cbcbcb"
-			},
-			series: { 
-				label: " Pagamentos (R$)",
-				color: "red",
-				bars: {
-					show: true,
-					barWidth: 0.6,
-					align: "center"
-				}
-			},
-			xaxis: {
-				mode: "categories",
-				tickLength: 0
-			},
-		};
-		$.plot("#barras", [ data ], options );
-	});
-</script> 
+<script>
+    window.onload = function ()
+    {
+        var bar = new RGraph.Bar({
+            id: 'cvs',
+            data: [
+            		{% for mes in totais %}
+	            		{% if mes.custo__sum %} 
+	            			"{{mes.custo__sum}}", 
+	            		{% else %} 
+	            			0,
+	            		{% endif %}
+
+            		{% endfor %}
+            		],
+            options: {
+            	unitsPost: ' R$',
+                textAccessible: true,
+                gutterTop: 35,
+                gutterLeft: 35,
+                title: 'Pagamentos',
+                labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez']
+            }
+        }).draw();
+    };
+</script>
 {% endblock %}

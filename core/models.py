@@ -19,7 +19,7 @@ class Estado(models.Model):
 
 class Municipio(models.Model):
 
-	nome		= models.CharField(max_length=30)
+	nome		= models.CharField(max_length=40)
 	estado      = models.ForeignKey(Estado)
 	criado	 	= models.DateTimeField(auto_now=False,auto_now_add=True)
 	atualizado 	= models.DateTimeField(auto_now=True,auto_now_add=False)

@@ -48,7 +48,7 @@
 		        <div class='col-sm-1'>
 	        	</div>
 		        <div class='col-sm-2'>
-		        	<li><strong>ESTOQUE</strong></li>
+		        	<li><strong>MEDIDA</strong></li>
 		        </div>
 		        <div class='col-sm-1'>
 	        	</div>
@@ -73,11 +73,7 @@
 			    <div class='col-sm-1'>
 	        	</div>
 			    <div class='col-sm-2'>
-			    	{% if obj.estoque == 0 %}
-				        <li class='text-danger'>{{obj.estoque}}</li>
-				    {% else %}
-				    	<li class='text-sucess'>{{obj.estoque}}</li>
-				    {% endif %}
+			        <li>{{obj.medida}}</li>
 			    </div>
 			    <div class='col-sm-1'>
 	        	</div>

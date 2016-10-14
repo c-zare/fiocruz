@@ -8,5 +8,6 @@ class ItemForm(forms.ModelForm):
 		model = Item
 		fields = {
 			'nome',
+			'medida',
 			'estoque_minimo',
 		}

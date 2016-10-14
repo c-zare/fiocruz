@@ -33,10 +33,10 @@ class Fornecedor(models.Model):
         )
 		
 	def __unicode__(self):
-		return self.razaosocial
+		return self.nomefantasia
 
 	def __str__(self):
-		return self.razaosocial
+		return self.nomefantasia
 
 	def get_absolute_url(self):
 		return reverse('fornecedor:detalhe', kwargs={'id':self.id})

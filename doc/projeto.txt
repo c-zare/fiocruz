@@ -1,143 +1,156 @@
 Registro de Atividades Pendentes
------------------------------------------------------------------------------------------------------------------------
-necessidade de bloquear itens com status enviada quando este estiver desativado não pode ser selecionados para compras e requisi
-ções.
-Fazer ROBO PARA CADASTRAR BASE DE TESTE COM AS CIDADES E ITENS DA FIOCRUZ-MS
-Após a entrega do item o mesmo deve ser ticado como atendido na lista de requisições.
-somente requisições fechadas devem ser vistas pelo administrador de requisição.
-Requisição fechada não pode ser mas alterada. pode ser um check nas opções. levar ideia para compras também.
-usuario não pode atender Itens, botão check deve exibir mensagem ao tentar faze-lo.
-No menu principal usuarios do sistema so podem acessar o sub-menu requisições de materiais.
-Na página de detalhes é importante ter a ID da compra e o ID da Requisicação.
-PERMISSIONAMENTO: Ajustes para padronizar as funcionalidades PILOTO: Requisição.
-Após a abertura da Requisição, deve ser desviado para a página de cadastramento de itens.
-Verificar a necessidade de informar se itens estão ativos/desativos
-Gerar grafico para indicadores de requisição.
-Documentar casos de Uso para dar seguimento aos processos. UML
-Ajustar para funcao a critica de compra fechada sem itens inclusos.
-Gerar registro de estoque em separado visando separar o custo de cada compra individualmente por item
-No armazem, deve visualizar a quantidade de itens locados no mesmo
-Definir fluxo de cadastro de itens para o banco de ARMAZEM.
-Validar informações do formulário é no forms.py
-implementar banco de dados para o quadro de avisos.
-implementar banco de dados para as atividade do fornecedor, CNAE.
-Encadear Estado/Municipio para o cadastro de fornecedores.
-Limitar a quantidade de Logins no Django. VERIFICAR COMO LIBERAR.
-Implementar Manual do Usuário de Sistemas.
-Iniciar testes do Produto.
-Documentar Requisitos atendidos.
-Corrigir o problema da indexação dos estados com os municipios.
-Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA -> Armazemar.
+---------------------------------------------------------------------------------------------------------------------------
+- 06-10-2016: BUG: Ajuste na exibição do total da compra no form compra_detalhe, caso seja none exibir '0.00'
+- 06-10-2016: BUG: Grafico de compras deve ser restringir somente ao ano atual, desconsiderando compras dos anos 
+			  adjacentes.
+- 06-10-2016: Implantar Tabela de Estoque, campos Item, Quantidade, armazém
+- 06-10-2016: Implementar busca na Tabela de Estoque para os ítens trazendo a quantidade disponível no Estoque, caso não
+              exista no Estoque exibir zero (0).
+- 06-10-2016: Implementar medida na tabela de Item.
+- 30-09-2016: Necessidade de bloquear itens com status enviada quando este estiver desativado não pode ser selecionados 
+              para compras e requisições.
+- 30-09-2016: Após a entrega do item o mesmo deve ser ticado como atendido na lista de requisições.
+- 30-09-2016: Somente requisições fechadas devem ser vistas pelo administrador de requisição.
+- 30-09-2016: Requisição fechada não pode ser mas alterada. pode ser um check nas opções. levar ideia para compras também.
+- 30-09-2016: Usuario não pode atender Itens, botão check deve exibir mensagem ao tentar faze-lo.
+- 30-09-2016: No menu principal usuarios do sistema so podem acessar o sub-menu requisições de materiais.
+- 30-09-2016: Na página de detalhes é importante ter a ID da compra e o ID da Requisicação.
+- 30-09-2016: PERMISSIONAMENTO: Ajustes para padronizar as funcionalidades PILOTO: Requisição.
+- 30-09-2016: Após a abertura da Requisição, deve ser desviado para a página de cadastramento de itens.
+- 30-09-2016: Verificar a necessidade de informar se itens estão ativos/desativos
+- 30-09-2016: Gerar grafico para indicadores de requisição.
+- 30-09-2016: Documentar casos de Uso para dar seguimento aos processos. UML
+- 30-09-2016: Ajustar para funcao a critica de compra fechada sem itens inclusos.
+- 30-09-2016: Gerar registro de estoque em separado visando separar o custo de cada compra individualmente por item
+- No armazem, deve visualizar a quantidade de itens locados no mesmo
+- Definir fluxo de cadastro de itens para o banco de ARMAZEM.
+- Validar informações do formulário é no forms.py
+- Implementar banco de dados para o quadro de avisos.
+- Implementar banco de dados para as atividade do fornecedor, CNAE.
+- Encadear Estado/Municipio para o cadastro de fornecedores.
+- Limitar a quantidade de Logins no Django. VERIFICAR COMO LIBERAR.
+- Implementar Manual do Usuário de Sistemas.
+- Iniciar testes do Produto.
+- Documentar Requisitos atendidos.
+- Corrigir o problema da indexação dos estados com os municipios.
+- Fluxo de trabalho inserir na ordem ITEM,FORNECEDOR,COMPRA, FECHAR COMPRA-> Armazemar - Lançar no Estoque
 
 Registro de Atividades Executadas
------------------------------------------------------------------------------------------------------------------------
-Build 85
-27-09-2016	Troca do nome do campo requisicaoItem.atendimento para requsicaoItem.situacao.
-			Inserido permissões no detalhamento da requisicaoditem.
-			A requsicão do item quando atendida não pode ser mas apagada.
-			A Requisicao do item não pode ser mas alterada apos atendida.
-			NO ITEM DA REQUISICAO Edicao, e necessário tratar Permissões. somente o proprietario pode editar.
-			Somente o próprio usuario da requisicao pode criar um item para esta.
-			Permitir a todos os usuários do sistema fazer requisições de itens.
-			Usuário após o cadastramento dos itens deve-se Enviar a requisição.
-			Corrigido o Bug de envio no fechamento da requisicao pelo usuario.
-Build 84
-26-09-2016  Implementado Detalhe da requisição.
-			Cada usuário pode ver apenas suas requisções, exceto o administrador.
-			Apenas quem cria a requisão pode exclui-la.
-			O usuário master poder visualizar as requisições de outros usuários, mas não apagar ou alterar estas.
-			Na lista de requisições, usuario padrão visualiza a última modificação e o os administradores nome do requi-
-			sitante.
-			Na exibição do usuário foi filtrado a resrponsabilidade do usuário no sistema na descrição do seu perfil.
-			Definição da tabela RequiscaoItem.
-			Implementado a chamada da lista de itens da requisição através da lista de Requisições.
-Build 83
-24-09-2016  Inplementado na base de requisições a exclusão de itens.
-			Ajustado na lista de requisições a numeração de páginas.
-Build 82
-23-09-2016: A Compra só pode ser fechada caso exista pelo menos um item vinculado.
-			Verificar se o usuário pode acessar os itens (editar e excluir) após fechamento da compra.		
-			Integrado ao sistema a base de dados de requisições.
-			Criada a interface lista de requisições.	
-			Padronizado a tabulação horizontal dos itens da lista.
-Build 81
-22-09-2016: Ajuste na distrinbuição dos campos de Itens, Fornecedores, Compras e Armazem da Interface com o usuário.
-Build 80
-22-09-2016: Ajuste na rotina de envio de dados para o gráfico de compras do dashboard.
-			O Ano para a exibição do gráfico foi definido como o atual, através da função date.
-			As informações de complemento e email de fornecedores não são mas obrigatórios o seu preenchimento.
-			A data de entrega não pode ser inferior a data da compra.
-			A data de pagamento não pode ser inferior a data da entrega.
-			Inserido na compra o resquisitante pela compra.
-			Corrigido o Bug de quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
-Build 79
-21-09-2016: Incluido o campo data_pagamento na compra, que é utilizado no grafico padrao do Dashboard.
-			Retirado da base de Itens os campos de identificação do ARMAZEM, reconfigurarado a BASE DE ITENS.
-20-09-2016: Ajuste no Rodapé para não repassar acima dos dados.
-			Implementado a funcionalidade de edição de itens de compra caso a compra não esteja fechada.
-			Na Criação do Item o estoque deve ser 0 e o estoque minimo 1.
-			A verificação do fornecedor apto esta vinculada a criação da compra.
-			Inserido armazem na tabelas de itemcompra. Reprogramado o CRUD ItemCompra
-			Excluido fornecedor e armazem da tabela de itens. Reprogramado o CRUD Armazem
-19-09-2016: Implementado funcionalidade para exclusão do item de compra, com critica a compra fechada.
-			Corrigido BUG de somatorio do custo dos itens no detalhe da compra.
-			Implementado a funcionaliade de inclusão de itens de compra para uma compra.
-			Implementado visualizar itens de compra a partir da lista de itens de determinada compra.
-			Impedido adição de novos itens na lista de itens e a opções de lista, se a compra esta com a
-            situação de fechada.
-16-09-2016: Definido no settings.py o parametro USE_TZ = False, possibilitando a soma de valor para datas.
-15-09-2016: correção nas pesquisa de itens de compras, para pesquisar itens__nome.icontrains.
-			Implementado lista de itens de compras com opções de visualizar editar excluir.
-01-09-2016: Usuario padrao não pode adicionar itens a compras.
-			Inserido icone para adicionar itens na lista de compra.
-			Uma vez fechada a compra não pode ser mas excluída.
-31-08-2016: Uma vez fechada a compra não pode ser mas editada (alterada).
-			Inserido no detalhe da compra os itens e somas de quantidade de itens e custos.
-30-08-2016: RETIRAR da base de Itens os campos FORNECEDOR, reconfigurar a BASE DE ITENS.
-			Incluído identificação de FORNECEDOR na base de COMPRAS.
-			Possibilitado a edição de COMPRAS.
-			Pesquisa por notafiscal e data de entrada implantado para COMPRAS.
-29-08-2016: Implementado detalhe para base de compras.
-			Implementado inclusão e apagar registro de compras.
-19-08-2016: Corrigido o problema da troca de senha que esta executando o logout no sistema.
-			Implementado a lista de compra.
-18-08-2016: Implantado a base de dados de compra.
-17-08-2016: Avisar o usuário sobre o risco de apagar o registro dos cadastros e pedir confirmação, para
-            exclusão.
-16-08-2016: Implementado imagem de background para a página de login do sistema.
-12-08-2016: Adicionado a base de dados tabela fornecedor o campo 'email', com preenchimento obrigatório.
-			O usuário não pode incluir um item com fornecedor não apto.
-11-08-2016: Ajuste com on=delete=PROTECT no 'model' Armazém para evitar apagar um armazém vinculado 
-			ao item causando falha na integridade da BD, também foi tratada a mensagem de aviso para exclusão 
-            não permitida na função 'armazem_apaga'.
-			Exibir a lista de fornecedores com o nome fantasia ao invvés da razão social.
-			Ajuste com on=delete=PROTECT no 'model' Fornecedor para evitar apagar um fornecedor vinculado 
-			ao item causando falha na integridade da BD, também foi tratada a mensagem de aviso para exclusão 
-            não permitida na função 'fornecedor_apaga'.
-			Inclusão do estoque mínimo para alerta de reposição.
-			Inclusão do Fornecedor no cadastro de Itens.
-10-08-2016: Inclusão do Armazem no cadastro de Itens.
-03-08-2016: Mudança no footer para identificar a instituição desenvolvedora do sistema.
-			Redirecionamento da página inicial do ambiente para /usuario/home
-			Inserido na base de dados de fornecedores o campo 'bairro'.
-02-08-2016: Permitir ao usuário realizar a troca da senha pela edição do seu perfil.
-29-07-2016: Implantado acesso apenas por https.
-			Implantado a aplicação no serviço http do apache
-22-07-2016: Mudança diretorio static das bases para o Core.
-21-07-2016: Inserido os dados da tabela Estados, e dos Municipios de Mato Grosso do Sul no sistema.
-20-07-2016: Hospedado a base de dados no MySql, instalando o  cymysql e django-cymysql através do pip.
-13-07-2016: Fixando o nome a ser pesquisado após a consulta no campo de consulta.
-12-07-2016: Pesquisa na base de Armazem, Fornecedor e item acrescida ao sistema.
-11-07-2016: Troca dos campos 'NUMERO' dos endereços e 'CNPJ' para textos para ajustes na formatação tela.
-			Inserido no footer.html a função navbar-fixed-bottom para fixar ao final da página.
-06-07-2016: Implementado permissões para acesso a adição, alteração e exclusão padrão: 'pode_administrar'
-			Ajustes na tela de Login, fixando o tamanho da tela de entrada e exibindo a mensagem de erro.
-05-07-2016: Implementado na base de dados o usuário responsável pela alteração e criação do registro.
-04-07-2016: Implementado o acesso ao sistema atráves de Login padrao do django.
-			Imposto a obrigatóriedade de acesso atráves de um Login para as funções de view. (Controler) 
-16-06-2016: Ajustes no Designer do Bootstrap.
-22-05-2016: Controle de paginação das listas, foi adicionado a Itens, Fornecedores e Armazém.
-02-05-2016: Implementado CRUD para a base de Itens.
-20-04-2016: Implementado CRUD para a base de Fornecedores.
-04-04-2016: Implementado CRUD para a base de Armazém.
-21-03-2016: Inicio o Projeto. 
+------------------------------------------------------------------------------------------------------------------------
+>> Build 87 - XX-10-2016
+- 06-10-2016: Implementado o script de carga inicial das tabelas do banco carga_inicial.py.
+- 06-10-2016: Fazer ROBO PARA CADASTRAR BASE DE TESTE COM AS CIDADES E ITENS DA FIOCRUZ-MS
+- 06-10-2016: Substituido da tabela de Estoque o campo estoque por medida.  
+- 06-10-2016: Troca da referencia do models de __str__ de razaosocial para nomefantasia.  
+>> Build 86 - 30-09-2016
+- 30-09-2016: Revisão das tarefas pendentes.
+>> Build 85 - 27-09-2016	
+- 27-09-2016: Troca do nome do campo requisicaoItem.atendimento para requsicaoItem.situacao.
+- 27-09-2016: Inserido permissões no detalhamento da requisicaoditem.
+- 27-09-2016: A requsicão do item quando atendida não pode ser mas apagada.
+- 27-09-2016: A Requisicao do item não pode ser mas alterada apos atendida.
+- 27-09-2016: NO ITEM DA REQUISICAO Edicao, e necessário tratar Permissões. somente o proprietario pode editar.
+- 27-09-2016: Somente o próprio usuario da requisicao pode criar um item para esta.
+- 27-09-2016: Permitir a todos os usuários do sistema fazer requisições de itens.
+- 27-09-2016: Usuário após o cadastramento dos itens deve-se Enviar a requisição.
+- 27-09-2016: Corrigido o Bug de envio no fechamento da requisicao pelo usuario.
+>> Build 84 - 26-09-2016  
+- 26-09-2016: Implementado Detalhe da requisição.
+- 26-09-2016: Cada usuário pode ver apenas suas requisções, exceto o administrador.
+- 26-09-2016: Apenas quem cria a requisão pode exclui-la.
+- 26-09-2016: O usuário master poder visualizar as requisições de outros usuários, mas não apagar ou alterar estas.
+- 26-09-2016: Na lista de requisições, usuario padrão visualiza a última modificação e o os administradores nome do requi-
+sitante.
+- 26-09-2016: Na exibição do usuário foi filtrado a resrponsabilidade do usuário no sistema na descrição do seu perfil.
+- 26-09-2016: Definição da tabela RequiscaoItem.
+- 26-09-2016: Implementado a chamada da lista de itens da requisição através da lista de Requisições.
+>> Build 83 - 24-09-2016
+- 24-09-2016: Inplementado na base de requisições a exclusão de itens.
+- 24-09-2016: Ajustado na lista de requisições a numeração de páginas.
+>> Build 82 - 23-09-2016
+- 23-09-2016: A Compra só pode ser fechada caso exista pelo menos um item vinculado.
+- 23-09-2016: Verificar se o usuário pode acessar os itens (editar e excluir) após fechamento da compra.		
+- 23-09-2016: Integrado ao sistema a base de dados de requisições.
+- 23-09-2016: Criada a interface lista de requisições.
+- 23-09-2016: Padronizado a tabulação horizontal dos itens da lista.
+>> Build 81 - 22-09-2016
+- 22-09-2016: Ajuste na distrinbuição dos campos de Itens, Fornecedores, Compras e Armazem da Interface com o usuário.
+Build 80 - 22-09-2016
+- 22-09-2016: Ajuste na rotina de envio de dados para o gráfico de compras do dashboard.
+- 22-09-2016: O Ano para a exibição do gráfico foi definido como o atual, através da função date.
+- 22-09-2016: As informações de complemento e email de fornecedores não são mas obrigatórios o seu preenchimento.
+- 22-09-2016: A data de entrega não pode ser inferior a data da compra.
+- 22-09-2016: A data de pagamento não pode ser inferior a data da entrega.
+- 22-09-2016: Inserido na compra o resquisitante pela compra.
+- 22-09-2016: Corrigido o Bug de quando não ha elementos a pesquisar no cadastro exibe somente "/" na quantidade de página.
+Build 79 - 21-09-2016
+- 21-09-2016: Incluido o campo data_pagamento na compra, que é utilizado no grafico padrao do Dashboard.
+- 21-09-2016: Retirado da base de Itens os campos de identificação do ARMAZEM, reconfigurarado a BASE DE ITENS.
+- 21-09-2016: 20-09-2016: Ajuste no Rodapé para não repassar acima dos dados.
+- 21-09-2016: Implementado a funcionalidade de edição de itens de compra caso a compra não esteja fechada.
+- 21-09-2016: Na Criação do Item o estoque deve ser 0 e o estoque minimo 1.
+- 21-09-2016: A verificação do fornecedor apto esta vinculada a criação da compra.
+- 21-09-2016: Inserido armazem na tabelas de itemcompra. Reprogramado o CRUD ItemCompra
+- 21-09-2016: Excluido fornecedor e armazem da tabela de itens. Reprogramado o CRUD Armazem
+- 19-09-2016: Implementado funcionalidade para exclusão do item de compra, com critica a compra fechada.
+- 19-09-2016: Corrigido BUG de somatorio do custo dos itens no detalhe da compra.
+- 19-09-2016: Implementado a funcionaliade de inclusão de itens de compra para uma compra.
+- 19-09-2016: Implementado visualizar itens de compra a partir da lista de itens de determinada compra.
+- 19-09-2016: Impedido adição de novos itens na lista de itens e a opções de lista, se a compra esta com a
+              situação de fechada.
+- 16-09-2016: Definido no settings.py o parametro USE_TZ = False, possibilitando a soma de valor para datas.
+- 15-09-2016: Correção nas pesquisa de itens de compras, para pesquisar itens__nome.icontrains.
+ 			  Implementado lista de itens de compras com opções de visualizar editar excluir.
+- 01-09-2016: Usuario padrao não pode adicionar itens a compras.
+              Inserido icone para adicionar itens na lista de compra.
+			  Uma vez fechada a compra não pode ser mas excluída.
+- 31-08-2016: Uma vez fechada a compra não pode ser mas editada (alterada).
+              Inserido no detalhe da compra os itens e somas de quantidade de itens e custos.
+- 30-08-2016: RETIRAR da base de Itens os campos FORNECEDOR, reconfigurar a BASE DE ITENS.
+ 			  Incluído identificação de FORNECEDOR na base de COMPRAS.
+			  Possibilitado a edição de COMPRAS.
+			  Pesquisa por notafiscal e data de entrada implantado para COMPRAS.
+- 29-08-2016: Implementado detalhe para base de compras.
+			  Implementado inclusão e apagar registro de compras.
+- 19-08-2016: Corrigido o problema da troca de senha que esta executando o logout no sistema.
+			  Implementado a lista de compra.
+- 18-08-2016: Implantado a base de dados de compra.
+- 17-08-2016: Avisar o usuário sobre o risco de apagar o registro dos cadastros e pedir confirmação, para
+              exclusão.
+- 16-08-2016: Implementado imagem de background para a página de login do sistema.
+- 12-08-2016: Adicionado a base de dados tabela fornecedor o campo 'email', com preenchimento obrigatório.
+ 			  O usuário não pode incluir um item com fornecedor não apto.
+- 11-08-2016: Ajuste com on=delete=PROTECT no 'model' Armazém para evitar apagar um armazém vinculado 
+			  ao item causando falha na integridade da BD, também foi tratada a mensagem de aviso para exclusão 
+              não permitida na função 'armazem_apaga'.
+			  Exibir a lista de fornecedores com o nome fantasia ao invvés da razão social.
+			  Ajuste com on=delete=PROTECT no 'model' Fornecedor para evitar apagar um fornecedor vinculado 
+			  ao item causando falha na integridade da BD, também foi tratada a mensagem de aviso para exclusão 
+              não permitida na função 'fornecedor_apaga'.
+			  Inclusão do estoque mínimo para alerta de reposição.
+			  Inclusão do Fornecedor no cadastro de Itens.
+- 10-08-2016: Inclusão do Armazem no cadastro de Itens.
+- 03-08-2016: Mudança no footer para identificar a instituição desenvolvedora do sistema.
+			  Redirecionamento da página inicial do ambiente para /usuario/home
+			  Inserido na base de dados de fornecedores o campo 'bairro'.
+- 02-08-2016: Permitir ao usuário realizar a troca da senha pela edição do seu perfil.
+- 29-07-2016: Implantado acesso apenas por https.
+			  Implantado a aplicação no serviço http do apache
+- 22-07-2016: Mudança diretorio static das bases para o Core.
+- 21-07-2016: Inserido os dados da tabela Estados, e dos Municipios de Mato Grosso do Sul no sistema.
+- 20-07-2016: Hospedado a base de dados no MySql, instalando o  cymysql e django-cymysql através do pip.
+- 13-07-2016: Fixando o nome a ser pesquisado após a consulta no campo de consulta.
+- 12-07-2016: Pesquisa na base de Armazem, Fornecedor e item acrescida ao sistema.
+- 11-07-2016: Troca dos campos 'NUMERO' dos endereços e 'CNPJ' para textos para ajustes na formatação tela.
+ 			  Inserido no footer.html a função navbar-fixed-bottom para fixar ao final da página.
+- 06-07-2016: Implementado permissões para acesso a adição, alteração e exclusão padrão: 'pode_administrar'
+			  Ajustes na tela de Login, fixando o tamanho da tela de entrada e exibindo a mensagem de erro.
+- 05-07-2016: Implementado na base de dados o usuário responsável pela alteração e criação do registro.
+- 04-07-2016: Implementado o acesso ao sistema atráves de Login padrao do django.
+			  Imposto a obrigatóriedade de acesso atráves de um Login para as funções de view. (Controler) 
+- 16-06-2016: Ajustes no Designer do Bootstrap.
+- 22-05-2016: Controle de paginação das listas, foi adicionado a Itens, Fornecedores e Armazém.
+- 02-05-2016: Implementado CRUD para a base de Itens.
+- 20-04-2016: Implementado CRUD para a base de Fornecedores.
+- 04-04-2016: Implementado CRUD para a base de Armazém.
+- 21-03-2016: Inicio o Projeto. 
